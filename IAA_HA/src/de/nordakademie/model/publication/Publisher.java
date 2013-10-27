@@ -3,12 +3,9 @@ package de.nordakademie.model.publication;
 public class Publisher {
 
 	String name;
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
+	
+	public Publisher(String name) {
 		this.name = name;
 	}
+
 }

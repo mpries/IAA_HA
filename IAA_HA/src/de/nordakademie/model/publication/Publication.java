@@ -1,27 +1,29 @@
 package de.nordakademie.model.publication;
 
+import java.util.List;
+
 public class Publication {
 
-	Author author;
-	Keyword keyword;
-	Library stored;
+	List<Author> authors;
+	Keywords keywords;
+	Integer stored;
 	
-	public Author getAuthor() {
-		return author;
+	public List<Author> getAuthors() {
+		return authors;
 	}
-	public void setAuthor(Author author) {
-		this.author = author;
+	public void setAuthor(List<Author> authors) {
+		this.authors = authors;
 	}
-	public Keyword getKeyword() {
-		return keyword;
+	public Keywords getKeyword() {
+		return keywords;
 	}
-	public void setKeyword(Keyword keyword) {
-		this.keyword = keyword;
+	public void setKeyword(Keywords keywords) {
+		this.keywords = keywords;
 	}
-	public Library getStored() {
+	public Integer getStored() {
 		return stored;
 	}
-	public void setStored(Library stored) {
+	public void setStored(Integer stored) {
 		this.stored = stored;
 	}
 	

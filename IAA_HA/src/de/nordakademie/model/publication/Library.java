@@ -1,21 +1,28 @@
 package de.nordakademie.model.publication;
 
+import java.util.List;
+
 public class Library {
 
 	String name;
-	Integer quantity;
+	List<Publication> publications;
 	
+	public Library(String name, List<Publication> publications) {
+		this.name = name;
+		this.publications = publications;
+	}
 	public String getName() {
 		return name;
 	}
 	public void setName(String name) {
 		this.name = name;
 	}
-	public Integer getQuantity() {
-		return quantity;
+	public List<Publication> getPublications() {
+		return publications;
 	}
-	public void setQuantity(Integer quantity) {
-		this.quantity = quantity;
+	public void setPublications(List<Publication> publications) {
+		this.publications = publications;
 	}
 	
+		
 }
