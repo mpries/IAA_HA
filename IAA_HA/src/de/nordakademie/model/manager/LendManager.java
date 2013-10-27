@@ -1,8 +1,8 @@
-package de.nordakademie.model;
+package de.nordakademie.model.manager;
 
 import de.nordakademie.model.interfaces.IManager;
 
-public class CustomerManager implements IManager {
+public class LendManager implements IManager {
 
 	@Override
 	public Object view() {
