@@ -2,10 +2,6 @@ package de.nordakademie.action;
 
 public class LoginAction {
 	
-
-	public String execute(){
-		return"login";
-	}
 	private String userId;
 	private String password;
 	
@@ -21,6 +17,11 @@ public class LoginAction {
 	public void setPassword(String password) {
 		this.password = password;
 
+	}
+	
+	public String execute(){
+		System.out.println("login Action");
+		return"login";
 	}
 
 }
