@@ -38,7 +38,7 @@
 		</s:form>
 
 		<tr>
-			<th><s:form action="SearchPublikation">
+			<th><s:form action="PublicationCreateAction">
 					<s:submit value="Create" />
 				</s:form></th>
 		</tr>

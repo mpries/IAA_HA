@@ -3,7 +3,7 @@ package de.nordakademie.interceptor;
 import com.opensymphony.xwork2.ActionInvocation;
 import com.opensymphony.xwork2.interceptor.AbstractInterceptor;
 
-public class LoginValidationInterceptor extends AbstractInterceptor{
+public class LoginValidationInterceptor extends AbstractInterceptor {
 
 	/**
 	 * 
@@ -13,7 +13,10 @@ public class LoginValidationInterceptor extends AbstractInterceptor{
 	@Override
 	public String intercept(ActionInvocation ai) throws Exception {
 		// TODO Auto-generated method stub
-		return null;
+		System.out.println("Befor invoke");
+		ai.invoke();
+		System.out.println("After invoke");
+		return "nothing";
 	}
 
 }

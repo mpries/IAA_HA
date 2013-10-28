@@ -1,27 +1,30 @@
 package de.nordakademie.action;
 
-public class LoginAction {
-	
-	private String userId;
-	private String password;
-	
-	public String getUserId() {
-		return userId;
-	}
-	public void setUserId(String userId) {
-		this.userId = userId;
-	}
-	public String getPassword() {
-		return password;
-	}
-	public void setPassword(String password) {
-		this.password = password;
+import com.opensymphony.xwork2.ModelDriven;
 
-	}
+import de.nordakademie.model.util.User;
+
+public class LoginAction implements ModelDriven<User> {
 	
+	private User user = new User();
+	
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
 	public String execute(){
-		System.out.println("login Action");
-		return"login";
+		System.out.println("login Action Username: " + user.getUserName());
+		return"success";
+	}
+
+	@Override
+	public User getModel() {
+		// TODO Auto-generated method stub
+		return user;
 	}
 
 }

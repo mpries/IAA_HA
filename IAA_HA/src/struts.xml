@@ -6,12 +6,22 @@
 
 
 <struts>
-	<package name="default" extends="struts-default">
-		<action name="LoginAction" class="de.nordakademie.action.LoginAction">
-			<result name="login">/login.jsp</result>
-			<result name="failure">/loginError.jsp</result>
+
+	<!-- Actions -->
+	<package name="login" extends="struts-default">
+		<interceptors>
+			<interceptor name="loginValidation"
+				class="de.nordakademie.interceptor.LoginValidationInterceptor"></interceptor>
+		</interceptors>
+
+		<action name="loginAction" class="de.nordakademie.action.LoginAction">
+			<interceptor-ref name="loginValidation" />
+			<interceptor-ref name="defaultStack"/>
+			<result name="success">/login.jsp</result>
+			<result name="input">/loginError.jsp</result>
 		</action>
 	</package>
+
 
 </struts>
 

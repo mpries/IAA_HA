@@ -12,10 +12,9 @@
 <body>
 
 
-	 <s:form action="LoginAction">
-		<s:hidden name="login.id" />
-		<s:textfield name="login.UserName" label="UserName" />
-		<s:textfield name="login.Password" label="Password" />
+	 <s:form action="loginAction">
+		<s:textfield label="UserName" key="userName" />
+		<s:password label="Password" key="password"/>
 		<s:submit value="Login" />
 	</s:form>
 	
