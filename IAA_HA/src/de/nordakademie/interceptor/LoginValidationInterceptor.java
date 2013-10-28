@@ -1,5 +1,8 @@
 package de.nordakademie.interceptor;
 
+import java.util.Map;
+
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionInvocation;
 import com.opensymphony.xwork2.interceptor.AbstractInterceptor;
 
@@ -15,6 +18,7 @@ public class LoginValidationInterceptor extends AbstractInterceptor {
 		// TODO Auto-generated method stub
 		System.out.println("Befor invoke");
 		ai.invoke();
+		Map params = ActionContext.getContext().getParameters();
 		System.out.println("After invoke");
 		return "nothing";
 	}

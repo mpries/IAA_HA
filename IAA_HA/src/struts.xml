@@ -16,9 +16,15 @@
 
 		<action name="loginAction" class="de.nordakademie.action.LoginAction">
 			<interceptor-ref name="loginValidation" />
-			<interceptor-ref name="defaultStack"/>
-			<result name="success">/login.jsp</result>
-			<result name="input">/loginError.jsp</result>
+			<interceptor-ref name="defaultStack" />
+			<result name="success">/homepage.jsp</result>
+			<result name="input">/login.jsp</result>
+		</action>
+
+		<action name="createPublicationAction"
+			class="de.nordakademie.action.publication.PublicationCreateAction">
+			<result name="success">/homepage.jsp</result>
+			<result name="input">/createPublication.jsp</result>
 		</action>
 	</package>
 

@@ -12,6 +12,9 @@
 	<table>
 		<s:form action="PublicationCreateAction">
 			<tr>
+				<s:textfield label="Kind of Publication" key="title" />	<!-- @TODO Dropdown Menu mit den 3 Moeglichkeiten -->
+			</tr>
+			<tr>
 				<s:textfield label="Title" key="title" />
 			</tr>
 			<tr>

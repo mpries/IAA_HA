@@ -11,12 +11,10 @@
 </head>
 <body>
 
-<s:form action="LoginAction">
-
-	<s:hidden name="login.id"/>
+<s:form action="loginAction">
 	<h6 color:red">
-	<s:textfield name="login.UserName" label="UserName"/>
-	<s:textfield name="login.Password" label="Password"/>
+	<s:textfield key="userName" label="UserName"/>
+	<s:textfield key="password" label="Password"/>
 	</h6>
 	<s:submit value="Login"/>
 </s:form>
