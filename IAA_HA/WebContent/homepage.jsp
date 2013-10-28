@@ -55,7 +55,7 @@
 				<th>15.07.2013</th>
 			</tr>
 		</table>
-	</table>
+	
 </body>
 </html>
 

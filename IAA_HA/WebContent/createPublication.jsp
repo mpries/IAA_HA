@@ -18,26 +18,21 @@
 				<s:textfield label="Author" name="login.UserName" />
 			</tr>
 			<tr>
-				
 				<s:textfield label="Publication Key" name="login.UserName" />
 			</tr>
 			<tr>
-				
 				<s:textfield label="Releas Date" name="login.UserName" />
 			</tr>
 			<tr>
-				
 				<s:textfield label="Kind" name="login.UserName" />
 			</tr>
 			<tr>
-				
 				<s:textfield label="ISBN" name="login.UserName" />
 			</tr>
 			<tr>
 				<s:textfield label="KeyWords" name="login.UserName" />
 			</tr>
 			<tr>
-				
 				<s:textfield label="Publisher" name="login.UserName" />
 			</tr>
 		</s:form>
