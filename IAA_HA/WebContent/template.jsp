@@ -13,7 +13,6 @@
 		<!-- Header -->
 		<tiles:insertAttribute name="header"/>
 		<hr/>
-		<!-- Content -->	
-		<tiles:insertAttribute name="content"/>
+	
 	</body>
 </html>
