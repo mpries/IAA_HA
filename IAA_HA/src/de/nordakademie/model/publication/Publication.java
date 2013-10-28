@@ -4,9 +4,9 @@ import java.util.List;
 
 public class Publication {
 
-	List<Author> authors;
-	Keywords keywords;
-	Integer stored;
+	protected List<Author> authors;
+	protected Keywords keywords;
+	protected int stored;
 	
 	public List<Author> getAuthors() {
 		return authors;

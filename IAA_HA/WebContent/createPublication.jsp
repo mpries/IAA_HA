@@ -12,28 +12,28 @@
 	<table>
 		<s:form action="PublicationCreateAction">
 			<tr>
-				<s:textfield label="Title" name="login.UserName" />
+				<s:textfield label="Title" key="title" />
 			</tr>
 			<tr>
-				<s:textfield label="Author" name="login.UserName" />
+				<s:textfield label="Author" key="author" />
 			</tr>
 			<tr>
-				<s:textfield label="Publication Key" name="login.UserName" />
+				<s:textfield label="Publication Key" key="login.UserName" />
 			</tr>
 			<tr>
-				<s:textfield label="Releas Date" name="login.UserName" />
+				<s:textfield label="Releas Date" key="login.UserName" />
 			</tr>
 			<tr>
-				<s:textfield label="Kind" name="login.UserName" />
+				<s:textfield label="Kind" key="login.UserName" />
 			</tr>
 			<tr>
-				<s:textfield label="ISBN" name="login.UserName" />
+				<s:textfield label="ISBN" key="login.UserName" />
 			</tr>
 			<tr>
-				<s:textfield label="KeyWords" name="login.UserName" />
+				<s:textfield label="KeyWords" key="login.UserName" />
 			</tr>
 			<tr>
-				<s:textfield label="Publisher" name="login.UserName" />
+				<s:textfield label="Publisher" key="login.UserName" />
 			</tr>
 		</s:form>
 

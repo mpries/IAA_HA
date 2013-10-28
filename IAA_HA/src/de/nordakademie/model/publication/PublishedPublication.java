@@ -2,8 +2,8 @@ package de.nordakademie.model.publication;
 
 public abstract class PublishedPublication extends Publication {
 
-	String ISBN;
-	Publisher publisher;
+	protected String ISBN;
+	protected Publisher publisher;
 	
 	public String getISBN() {
 		return ISBN;

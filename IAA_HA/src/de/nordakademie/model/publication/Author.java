@@ -2,9 +2,9 @@ package de.nordakademie.model.publication;
 
 public class Author {
 
-	Integer ID;
-	String firstName;
-	String lastName;
+	protected Integer ID;
+	protected String firstName;
+	protected String lastName;
 	
 	public Author(Integer ID, String firstName, String lastName) {
 		this.ID = ID;

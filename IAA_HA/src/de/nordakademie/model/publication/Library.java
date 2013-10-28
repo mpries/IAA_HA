@@ -4,8 +4,8 @@ import java.util.List;
 
 public class Library {
 
-	String name;
-	List<Publication> publications;
+	protected String name;
+	protected List<Publication> publications;
 	
 	public Library(String name, List<Publication> publications) {
 		this.name = name;

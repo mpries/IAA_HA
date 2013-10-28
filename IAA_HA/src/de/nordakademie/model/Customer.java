@@ -2,8 +2,8 @@ package de.nordakademie.model;
 
 public class Customer {
 
-	String firstName;
-	String lastName;
+	protected String firstName;
+	protected String lastName;
 	
 	public String getFirstName() {
 		return firstName;

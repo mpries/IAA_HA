@@ -2,7 +2,7 @@ package de.nordakademie.model;
  
 public class Student extends Customer {
 
-	Integer matriculationNumber;
+	protected Integer matriculationNumber;
 	
 	
 	

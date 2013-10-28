@@ -7,10 +7,10 @@ import de.nordakademie.model.publication.Publication;
 
 public class Lending {
 
-	List<Publication> publication;
-	Customer customer;
-	Date date;
-	Warning warning;
+	protected List<Publication> publication;
+	protected Customer customer;
+	protected Date date;
+	protected Warning warning;
 	
 	
 	
