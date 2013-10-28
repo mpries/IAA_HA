@@ -6,26 +6,26 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
-<title>Insert title here</title>
+<title>Nordakademie Bib-System</title>
 </head>
 <h1>Nordakademie Bib-System</h1>
 <body>
 
 	<table>
 		<tr>
-			<th><s:form action="ICreateAction">
+			<th><s:form action="createPublication.jsp">
 					<s:submit value="Create Publikation" />
 				</s:form></th>
-			<th><s:form action="SearchAction">
+			<th><s:form action="searchPublication.jsp">
 					<s:submit value="Search Publication" />
 				</s:form></th>
-			<th><s:form action="ICreateAction">
+			<th><s:form action="coreDataAdministration.jsp">
 					<s:submit value="Core Data Administrator" />
 				</s:form></th>
-			<th><s:form action="LendAction">
+			<th><s:form action="createBookOnLoan.jsp">
 					<s:submit value="Create Book on loan" />
 				</s:form></th>
-			<th><s:form action="PublicationViewAction">
+			<th><s:form action="bookOnLoanOverview.jsp">
 					<s:submit value="Book on loan Overview" />
 				</s:form></th>
 		</tr>
