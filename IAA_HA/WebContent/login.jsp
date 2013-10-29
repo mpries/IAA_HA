@@ -8,15 +8,14 @@
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
 <title>Nordakademie Bib-System</title>
 </head>
-	<h1>Nordakademie Bib-System</h1>
+<h1>Nordakademie Bib-System</h1>
 <body>
-
-
-	 <s:form action="loginAction">
+	<s:head />
+	<s:form action="loginAction">
 		<s:textfield label="UserName" key="userName" />
-		<s:password label="Password" key="password"/>
+		<s:password label="Password" key="password" />
 		<s:submit value="Login" />
 	</s:form>
-	
+
 </body>
 </html>

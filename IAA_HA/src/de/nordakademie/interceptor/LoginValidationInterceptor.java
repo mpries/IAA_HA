@@ -6,6 +6,8 @@ import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionInvocation;
 import com.opensymphony.xwork2.interceptor.AbstractInterceptor;
 
+import de.nordakademie.model.util.User;
+
 public class LoginValidationInterceptor extends AbstractInterceptor {
 
 	/**
@@ -16,10 +18,13 @@ public class LoginValidationInterceptor extends AbstractInterceptor {
 	@Override
 	public String intercept(ActionInvocation ai) throws Exception {
 		// TODO Auto-generated method stub
-		System.out.println("Befor invoke");
+
+		Map<String, Object> sa = ai.getInvocationContext().getSession();
+		User user = (User) sa.get("User");
+		System.out.println("From Interceptor" + user.getUserName());
+		
 		ai.invoke();
-		Map params = ActionContext.getContext().getParameters();
-		System.out.println("After invoke");
+
 		return "nothing";
 	}
 

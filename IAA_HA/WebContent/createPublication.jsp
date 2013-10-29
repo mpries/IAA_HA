@@ -9,8 +9,9 @@
 </head>
 <h1>Create Publication</h1>
 <body>
+	<s:head />
 	<table>
-		<s:form action="PublicationCreateAction">
+		<s:form action="publicationCreateAction">
 			<tr>
 				<s:textfield label="Title" key="title" />
 			</tr>
@@ -18,42 +19,33 @@
 				<s:textfield label="Author" key="author" />
 			</tr>
 			<tr>
-				<s:textfield label="Publication Key" key="login.UserName" />
+				<s:textfield label="Releas Date" key="releaseDate" />
 			</tr>
 			<tr>
-				<s:textfield label="Releas Date" key="login.UserName" />
+				<s:textfield label="ISBN" key="isbn" />
 			</tr>
 			<tr>
-				<s:textfield label="Kind" key="login.UserName" />
+				<s:textfield label="Keywords (seperate with commas)" key="keywords" />
 			</tr>
 			<tr>
-				<s:textfield label="ISBN" key="login.UserName" />
-			</tr>
-			<tr>
-				<s:textfield label="KeyWords" key="login.UserName" />
-			</tr>
-			<tr>
-				<s:textfield label="Publisher" key="login.UserName" />
+				<s:textfield label="Publisher" key="publisher" />
 			</tr>
 			<tr>
 				<s:select name="KindOfPublication" multiple="false" size="3"
-					list="%{@de.nordakademie.model.KindOfPublication@values()}"
+					list="%{@de.nordakademie.model.enumaration.KindOfPublication@values()}"
 					label="Kind of Publication" />
 			</tr>
+			<tr>
+				<th><s:submit value="Create" /></th>
+			</tr>
+
 		</s:form>
 
-		<tr>
-			<th><s:form action="PublicationCreateAction">
-					<s:submit value="Create" />
-				</s:form></th>
-		</tr>
-		<tr>
-			<th><s:form action="homepage.jsp">
-					<s:submit value="Back" />
-				</s:form></th>
-		</tr>
-
 	</table>
+
+	<form action="homepage.jsp">
+		<s:submit value="Back" />
+	</form>
 
 
 </body>

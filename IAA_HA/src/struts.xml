@@ -15,13 +15,13 @@
 		</interceptors>
 
 		<action name="loginAction" class="de.nordakademie.action.LoginAction">
-			<interceptor-ref name="loginValidation" />
 			<interceptor-ref name="defaultStack" />
+			<interceptor-ref name="loginValidation" />
 			<result name="success">/homepage.jsp</result>
 			<result name="input">/login.jsp</result>
 		</action>
 
-		<action name="createPublicationAction"
+		<action name="publicationCreateAction"
 			class="de.nordakademie.action.publication.PublicationCreateAction">
 			<result name="success">/homepage.jsp</result>
 			<result name="input">/createPublication.jsp</result>
