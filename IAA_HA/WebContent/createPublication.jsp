@@ -12,9 +12,6 @@
 	<table>
 		<s:form action="PublicationCreateAction">
 			<tr>
-				<s:textfield label="Kind of Publication" key="title" />	<!-- @TODO Dropdown Menu mit den 3 Moeglichkeiten -->
-			</tr>
-			<tr>
 				<s:textfield label="Title" key="title" />
 			</tr>
 			<tr>
@@ -37,6 +34,11 @@
 			</tr>
 			<tr>
 				<s:textfield label="Publisher" key="login.UserName" />
+			</tr>
+			<tr>
+				<s:select name="KindOfPublication" multiple="false" size="3"
+					list="%{@de.nordakademie.model.KindOfPublication@values()}"
+					label="Kind of Publication" />
 			</tr>
 		</s:form>
 

@@ -9,13 +9,12 @@
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
 <title>Nordakademie Bib-System</title>
 </head>
+<h1>Nordakademie Bib-System</h1>
 <body>
 
 <s:form action="loginAction">
-	<h6 color:red">
-	<s:textfield key="userName" label="UserName"/>
-	<s:textfield key="password" label="Password"/>
-	</h6>
+	<s:textfield key="userName" label="UserName" cssStyle="color:red" />
+	<s:textfield key="password" label="Password" cssStyle="color:red" />
 	<s:submit value="Login"/>
 </s:form>
 
