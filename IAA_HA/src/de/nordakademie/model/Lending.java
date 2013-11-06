@@ -3,8 +3,11 @@ package de.nordakademie.model;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.Entity;
+
 import de.nordakademie.model.publication.Publication;
 
+@Entity(name="LENDING")
 public class Lending {
 
 	protected List<Publication> publication;

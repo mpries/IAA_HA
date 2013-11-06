@@ -1,5 +1,8 @@
 package de.nordakademie.model;
 
+import javax.persistence.Entity;
+
+@Entity(name="CUSTOMER")
 public class Customer {
 
 	protected String firstName;
