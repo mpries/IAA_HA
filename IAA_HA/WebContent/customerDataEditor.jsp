@@ -9,11 +9,12 @@
 </head>
 <h1>Customer Data Editor</h1>
 <body>
+	<h3>Customer Data Editor</h3>
 	<table>
 
 		<s:form action="SearchAction">
 			<tr>
-				<h3>Customer Data Editor</h3>
+
 				<s:textfield label="Matrikel No." name="MatrikelNo" />
 				<s:form action="SearchAction">
 					<s:submit value="Search" />
