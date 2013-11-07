@@ -4,7 +4,7 @@ import java.util.List;
 
 import javax.persistence.Entity;
 
-@Entity(name="BOOKS")
+@Entity
 public class Book extends PublishedPublication {
 
 	public Book(List<Author> authors, List<Keyword> keywords, int stored, String ISBN, Publisher publisher) {

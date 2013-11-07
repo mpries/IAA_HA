@@ -23,10 +23,11 @@
 			</tr>
 			<tr>
 				<th><h3>Customer Data Editor</h3></th>
-				<th><s:textfield label="Matrikel No." name="login.UserName" /></th>
-				<th><s:form action="SearchAction">
-						<s:submit value="Search" />
-					</s:form></th>
+				<s:form action="searchCustomerAction">
+					<th><s:textfield label="ID" key="id" /></th>
+					<th><s:submit value="Search" />
+				</s:form>
+				</th>
 			</tr>
 			<tr>
 				<th><s:form action="homepage.jsp">

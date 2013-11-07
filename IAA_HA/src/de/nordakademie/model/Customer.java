@@ -5,7 +5,7 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 
-@Entity(name = "CUSTOMER")
+@Entity
 @Inheritance(strategy=InheritanceType.JOINED)
 public abstract class Customer {
 	

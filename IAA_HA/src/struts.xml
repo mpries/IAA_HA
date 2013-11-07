@@ -26,12 +26,29 @@
 			<result name="success">/homepage.jsp</result>
 			<result name="input">/createPublication.jsp</result>
 		</action>
-		
+
 		<action name="customerCreateAction"
 			class="de.nordakademie.action.customer.CustomerCreateAction">
 			<result name="success">/homepage.jsp</result>
 			<result name="input">/createCustomer.jsp</result>
 		</action>
+
+		<action name="searchCustomerAction"
+			class="de.nordakademie.action.customer.CustomerViewAction">
+			<result name="success">/editCustomer.jsp</result>
+			<result name="input">/coreDataAdministration.jsp</result>
+		</action>
+
+		<action name="editCustomer"
+			class="de.nordakademie.action.customer.CustomerEditAction">
+			<result name="success">/homepage.jsp</result>
+			<result name="input">/coreDataAdministration.jsp</result>
+		</action>
+
+
+
+
+
 	</package>
 
 

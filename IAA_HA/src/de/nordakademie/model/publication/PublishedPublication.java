@@ -5,7 +5,7 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.OneToOne;
 
-@Entity(name="PUBLISHED_PUBLICATIONS")
+@Entity
 @Inheritance(strategy=InheritanceType.JOINED)
 public abstract class PublishedPublication extends Publication {
 

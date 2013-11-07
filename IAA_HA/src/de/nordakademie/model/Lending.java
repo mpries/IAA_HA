@@ -12,7 +12,7 @@ import javax.persistence.OneToOne;
 
 import de.nordakademie.model.publication.Publication;
 
-@Entity(name="LENDING")
+@Entity
 public class Lending {
 
 	@OneToMany

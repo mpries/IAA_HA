@@ -17,9 +17,9 @@ public class CustomerManager implements ICustomerManager {
 	}
 
 	@Override
-	public Object view() {
+	public Customer view(int id) {
 		// TODO Auto-generated method stub
-		return null;
+		return customerDAO.load(id);
 	}
 
 	@Override
@@ -29,17 +29,16 @@ public class CustomerManager implements ICustomerManager {
 	}
 
 	@Override
-	public Object create(Customer customer) {
+	public void create(Customer customer) {
 		// TODO Auto-generated method stub
 		customerDAO.save(customer);
-		
-		return null;
+
 	}
 
 	@Override
-	public Object edit() {
+	public void edit() {
 		// TODO Auto-generated method stub
-		return null;
+
 	}
 
 }
