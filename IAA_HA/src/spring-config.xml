@@ -27,32 +27,35 @@
 			</props>
 		</property>
 	</bean>
-	
 
- <!-- The transaction manager -->
-    <bean id="txManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
-        <property name="sessionFactory" ref="sessionFactory"/>
-    </bean>
 
-    <!-- The advice -->
-    <tx:advice id="txAdvice" transaction-manager="txManager">
-        <tx:attributes>
-            <tx:method name="*" propagation="REQUIRED"/>
-        </tx:attributes>
-    </tx:advice>
-
-    <!-- The pointcut definition -->
-    <aop:config>
-        <aop:pointcut id="serviceMethods" expression="execution(* de.nordakademie.model.manager.*.*(..))"/>
-        <aop:advisor advice-ref="txAdvice" pointcut-ref="serviceMethods"/>
-    </aop:config>
-	
-	
-	<bean id="lendDAO" class="de.nordakademie.dao.LendDAO">
+	<!-- The transaction manager -->
+	<bean id="txManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
-	
-	<bean id="lendManager" class="de.nordakademie.model.manager.LendManager">
-		<property name="lendDAO" ref="lendDAO"/>
+
+	<!-- The advice -->
+	<tx:advice id="txAdvice" transaction-manager="txManager">
+		<tx:attributes>
+			<tx:method name="*" propagation="REQUIRED" />
+		</tx:attributes>
+	</tx:advice>
+
+	<!-- The pointcut definition -->
+	<aop:config>
+		<aop:pointcut id="serviceMethods"
+			expression="execution(* de.nordakademie.model.manager.*.*(..))" />
+		<aop:advisor advice-ref="txAdvice" pointcut-ref="serviceMethods" />
+	</aop:config>
+
+
+	<bean id="customerDAO" class="de.nordakademie.dao.CustomerDAO">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="customerManager" class="de.nordakademie.model.manager.CustomerManager">
+		<property name="customerDAO" ref="customerDAO" />
 	</bean>
 
 </beans>

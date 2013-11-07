@@ -2,17 +2,17 @@ package de.nordakademie.model.manager;
 
 import de.nordakademie.dao.LendDAO;
 import de.nordakademie.model.Student;
-import de.nordakademie.model.interfaces.IManager;
+import de.nordakademie.model.interfaces.ILendManager;
 
-public class LendManager implements IManager {
+public class LendManager implements ILendManager {
 	
 	private LendDAO lendDAO;
 
-	Student student = new Student("peter", "meier", 123);
+
 	
 	@Override
 	public Object view() {
-		System.out.println(student.getFirstName());
+
 		return null;
 	}
 

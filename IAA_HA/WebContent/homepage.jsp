@@ -16,6 +16,9 @@
 			<th><s:form action="createPublication.jsp">
 					<s:submit value="Create Publikation" />
 				</s:form></th>
+			<th><s:form action="createCustomer.jsp">
+					<s:submit value="Create Customer" />
+				</s:form></th>
 			<th><s:form action="searchPublication.jsp">
 					<s:submit value="Search Publication" />
 				</s:form></th>
@@ -31,31 +34,31 @@
 		</tr>
 	</table>
 	<h4 style="color: red">Books on loan remainder</h4>
-	
-		<table style="border:1px solid #FF0000;">
-			<tr>
-				<th>Author</th>
-				<th>Title</th>
-				<th>Name</th>
-				<th>Status</th>
-				<th>Date</th>
-			</tr>
-			<tr>
-				<th>Schroeder</th>
-				<th>IT Orga</th>
-				<th>Klaus Kleber</th>
-				<th>2</th>
-				<th>03.05.2013</th>
-			</tr>
-			<tr>
-				<th>Zimmermann</th>
-				<th>Mathe ist ein Arsch</th>
-				<th>Kai Karsten</th>
-				<th>1</th>
-				<th>15.07.2013</th>
-			</tr>
-		</table>
-	
+
+	<table style="border: 1px solid #FF0000;">
+		<tr>
+			<th>Author</th>
+			<th>Title</th>
+			<th>Name</th>
+			<th>Status</th>
+			<th>Date</th>
+		</tr>
+		<tr>
+			<th>Schroeder</th>
+			<th>IT Orga</th>
+			<th>Klaus Kleber</th>
+			<th>2</th>
+			<th>03.05.2013</th>
+		</tr>
+		<tr>
+			<th>Zimmermann</th>
+			<th>Mathe ist ein Arsch</th>
+			<th>Kai Karsten</th>
+			<th>1</th>
+			<th>15.07.2013</th>
+		</tr>
+	</table>
+
 </body>
 </html>
 

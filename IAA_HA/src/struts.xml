@@ -26,6 +26,12 @@
 			<result name="success">/homepage.jsp</result>
 			<result name="input">/createPublication.jsp</result>
 		</action>
+		
+		<action name="customerCreateAction"
+			class="de.nordakademie.action.customer.CustomerCreateAction">
+			<result name="success">/homepage.jsp</result>
+			<result name="input">/createCustomer.jsp</result>
+		</action>
 	</package>
 
 

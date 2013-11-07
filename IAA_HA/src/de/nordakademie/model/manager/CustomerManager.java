@@ -1,8 +1,20 @@
 package de.nordakademie.model.manager;
 
-import de.nordakademie.model.interfaces.IManager;
+import de.nordakademie.dao.CustomerDAO;
+import de.nordakademie.model.Customer;
+import de.nordakademie.model.interfaces.ICustomerManager;
 
-public class CustomerManager implements IManager {
+public class CustomerManager implements ICustomerManager {
+	
+	private CustomerDAO customerDAO;
+
+	public CustomerDAO getCustomerDAO() {
+		return customerDAO;
+	}
+
+	public void setCustomerDAO(CustomerDAO customerDAO) {
+		this.customerDAO = customerDAO;
+	}
 
 	@Override
 	public Object view() {
@@ -17,8 +29,10 @@ public class CustomerManager implements IManager {
 	}
 
 	@Override
-	public Object create() {
+	public Object create(Customer customer) {
 		// TODO Auto-generated method stub
+		customerDAO.save(customer);
+		
 		return null;
 	}
 
