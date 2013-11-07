@@ -1,6 +1,9 @@
 package de.nordakademie.model.publication;
 
-public class Keywords {
+import javax.persistence.Entity;
+
+@Entity(name="KEYWORDS")
+public class Keyword {
 
 	protected String description;
 

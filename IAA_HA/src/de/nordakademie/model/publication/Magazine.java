@@ -2,9 +2,12 @@ package de.nordakademie.model.publication;
 
 import java.util.List;
 
+import javax.persistence.Entity;
+
+@Entity(name="MAGAZINS")
 public class Magazine extends PublishedPublication {
 
-	public Magazine(List<Author> authors, Keywords keywords, int stored, String ISBN, Publisher publisher) {
+	public Magazine(List<Author> authors, List<Keyword> keywords, int stored, String ISBN, Publisher publisher) {
 		this.authors = authors;
 		this.keywords = keywords;
 		this.stored = stored;

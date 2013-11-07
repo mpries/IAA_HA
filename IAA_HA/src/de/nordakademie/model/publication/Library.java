@@ -2,8 +2,13 @@ package de.nordakademie.model.publication;
 
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity(name="LIBRARIES")
 public class Library {
 
+	@Id
 	protected String name;
 	protected List<Publication> publications;
 	

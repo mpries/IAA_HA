@@ -1,5 +1,8 @@
 package de.nordakademie.model.publication;
 
+import javax.persistence.Entity;
+
+@Entity(name="AUTOHER")
 public class Author {
 
 	protected Integer ID;
