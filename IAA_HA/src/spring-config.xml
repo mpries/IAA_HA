@@ -47,6 +47,10 @@
         <aop:advisor advice-ref="txAdvice" pointcut-ref="serviceMethods"/>
     </aop:config>
 	
+	
+	<bean id="lendDAO" class="de.nordakademie.dao.LendDAO">
+	</bean>
+	
 	<bean id="lendManager" class="de.nordakademie.model.manager.LendManager">
 		<property name="lendDAO" ref="lendDAO"/>
 	</bean>

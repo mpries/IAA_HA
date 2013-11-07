@@ -3,7 +3,7 @@ package de.nordakademie.model.publication;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
-@Entity(name="AUTOHER")
+@Entity(name="AUTHOR")
 public class Author {
 
 	@Id

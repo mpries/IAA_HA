@@ -1,8 +1,9 @@
 package de.nordakademie.model.publication;
 
-import javax.persistence.Entity;
+import javax.persistence.Embeddable;
 
-@Entity(name="KEYWORDS")
+
+@Embeddable
 public class Keyword {
 
 	protected String description;
