@@ -1,12 +1,15 @@
 package de.nordakademie.model.manager;
 
+import de.nordakademie.model.Student;
 import de.nordakademie.model.interfaces.IManager;
 
 public class LendManager implements IManager {
 
+	Student student = new Student("peter", "meier", 123);
+	
 	@Override
 	public Object view() {
-		// TODO Auto-generated method stub
+		System.out.println(student.getFirstName());
 		return null;
 	}
 

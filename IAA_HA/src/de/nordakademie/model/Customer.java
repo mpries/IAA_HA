@@ -1,8 +1,6 @@
 package de.nordakademie.model;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
@@ -11,8 +9,8 @@ import javax.persistence.InheritanceType;
 @Inheritance(strategy=InheritanceType.JOINED)
 public abstract class Customer {
 	
-	@Id @GeneratedValue(strategy=GenerationType.AUTO)
-	private int id;
+	@Id
+	protected int id;
 
 	protected String firstName;
 	protected String lastName;
