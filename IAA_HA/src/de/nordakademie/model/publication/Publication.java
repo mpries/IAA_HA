@@ -2,6 +2,7 @@ package de.nordakademie.model.publication;
 
 import java.util.List;
 
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -19,7 +20,7 @@ public abstract class Publication {
 	protected String title;
 	@OneToMany
 	protected List<Author> authors;
-	@OneToMany
+	@ElementCollection
 	protected List<Keyword> keywords;
 	protected int stored;
 
