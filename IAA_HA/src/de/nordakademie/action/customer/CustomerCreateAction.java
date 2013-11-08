@@ -6,16 +6,15 @@ import com.opensymphony.xwork2.ModelDriven;
 
 import de.nordakademie.action.interfaces.ICreateAction;
 import de.nordakademie.model.Customer;
-import de.nordakademie.model.Student;
 import de.nordakademie.model.interfaces.ICustomerManager;
 
-public class CustomerCreateAction extends ActionSupport implements ICreateAction, Action, ModelDriven<Customer> {
+public class CustomerCreateAction extends ActionSupport implements ICreateAction, Action{
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = -8222097196479424369L;
-	private Customer customer = new Student();
+	private Customer customer;
 	private ICustomerManager customerManager;
 
 
@@ -41,12 +40,6 @@ public class CustomerCreateAction extends ActionSupport implements ICreateAction
 		// TODO Auto-generated method stub
 		customerManager.create(customer);
 		return SUCCESS;
-	}
-
-	@Override
-	public Customer getModel() {
-		// TODO Auto-generated method stub
-		return customer;
 	}
 
 }

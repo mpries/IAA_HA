@@ -10,31 +10,20 @@
 </head>
 <h1>Core Data Administration</h1>
 <body>
+<s:head/>
 	<table>
-		<s:form action="SearchAction">
-			<tr>
-				<th><h3>Book Data Editor</h3></th>
-				<th><s:textfield label="Title" name="login.UserName" /></th>
-				<th><s:textfield label="ISBN" name="login.UserName" /></th>
-
-				<th><s:form action="SearchAction">
-						<s:submit value="Search" />
-					</s:form></th>
-			</tr>
 			<tr>
 				<th><h3>Customer Data Editor</h3></th>
 				<s:form action="searchCustomerAction">
 					<th><s:textfield label="ID" key="id" /></th>
 					<th><s:submit value="Search" />
 				</s:form>
-				</th>
 			</tr>
 			<tr>
 				<th><s:form action="homepage.jsp">
 						<s:submit value="Back" />
 					</s:form></th>
 			</tr>
-		</s:form>
 	</table>
 
 

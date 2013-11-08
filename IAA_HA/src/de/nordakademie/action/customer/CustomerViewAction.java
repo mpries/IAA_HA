@@ -2,8 +2,6 @@ package de.nordakademie.action.customer;
 
 import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionSupport;
-import com.opensymphony.xwork2.ModelDriven;
-
 import de.nordakademie.action.interfaces.IViewAction;
 import de.nordakademie.model.Customer;
 import de.nordakademie.model.interfaces.ICustomerManager;
@@ -48,6 +46,12 @@ public class CustomerViewAction extends ActionSupport implements IViewAction, Ac
 		// TODO Auto-generated method stub
 		customer = customerManager.view(id);
 		return SUCCESS;
+	}
+	
+	public void validate(){
+		if(customerManager.view(id) == null){
+			addFieldError("id", "Gibt es nicht");
+		}
 	}
 
 }

@@ -13,13 +13,13 @@
 	<table>
 		<s:form action="customerCreateAction">
 			<tr>
-				<s:textfield label="Firstname" key="firstName" />
+				<s:textfield label="Firstname" name="customer.firstName" />
 			</tr>
 			<tr>
-				<s:textfield label="Lastname" key="lastName" />
+				<s:textfield label="Lastname" name="customer.lastName" />
 			</tr>
 			<tr>
-				<s:textfield label="ID" key="id" />
+				<s:textfield label="ID" name="customer.id" />
 			</tr>
 			<tr>
 				<th><s:submit value="Create" /></th>

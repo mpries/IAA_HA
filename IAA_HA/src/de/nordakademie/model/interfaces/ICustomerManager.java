@@ -10,6 +10,6 @@ public interface ICustomerManager {
 
 	public void create(Customer customer);
 
-	public void edit();
+	public void edit(Customer customer);
 
 }

@@ -2,12 +2,10 @@ package de.nordakademie.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
 
 @Entity
-@Inheritance(strategy=InheritanceType.JOINED)
-public abstract class Customer {
+@org.hibernate.annotations.Entity(selectBeforeUpdate=true)
+public class Customer {
 	
 	@Id
 	protected int id;

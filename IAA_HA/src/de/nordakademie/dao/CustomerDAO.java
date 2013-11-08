@@ -4,7 +4,6 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
 import de.nordakademie.model.Customer;
-import de.nordakademie.model.Student;
 
 public class CustomerDAO {
 
@@ -24,9 +23,14 @@ public class CustomerDAO {
 	}
 
 	public Customer load(int id) {
-		System.out.println(id);
 		Session session = sessionFactory.getCurrentSession();
-		return (Customer) session.get(Student.class, id);
+		return (Customer) session.get(Customer.class, id);
+	}
+	
+	public void edit(Customer customer){
+		Session session = sessionFactory.getCurrentSession();
+		session.update(customer);
+		
 	}
 
 }

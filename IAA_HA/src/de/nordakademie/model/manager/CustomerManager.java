@@ -36,9 +36,9 @@ public class CustomerManager implements ICustomerManager {
 	}
 
 	@Override
-	public void edit() {
+	public void edit(Customer customer) {
 		// TODO Auto-generated method stub
-
+		customerDAO.edit(customer);
 	}
 
 }

@@ -2,10 +2,9 @@
     pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="/struts-tags" prefix="s" %>
 
-<s:form action="editCustomer">
-	<s:hidden name="customer.id"/>
+<s:form action="editCustomerAction">
+	<s:hidden key="customer.id"/>
 	<s:textfield name="customer.firstName" label="First Name"/>
-	<s:textfield name="customer.lastName" label="Last Name"/>
+	<s:textfield label="Last Name" key="customer.lastName"/>
 	<s:submit value="Save"/>
-	<s:submit value="Cancel" action="coreDataAdministration.jsp"/>
 </s:form>
