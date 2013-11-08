@@ -45,6 +45,12 @@
 			<result name="success">/homepage.jsp</result>
 			<result name="input">/coreDataAdministration.jsp</result>
 		</action>
+		
+		<action name="deleteCustomerAction"
+			class="de.nordakademie.action.customer.CustomerDeleteAction">
+			<result name="success">/homepage.jsp</result>
+			<result name="input">/editCustomer.jsp</result>
+		</action>
 
 
 	</package>

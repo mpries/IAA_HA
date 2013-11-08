@@ -23,8 +23,9 @@ public class CustomerManager implements ICustomerManager {
 	}
 
 	@Override
-	public void delete() {
+	public void delete(Customer customer) {
 		// TODO Auto-generated method stub
+		customerDAO.delete(customer);
 		
 	}
 
