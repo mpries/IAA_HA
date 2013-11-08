@@ -6,7 +6,7 @@ public interface ICustomerManager {
 
 	public Customer view(int id);
 
-	public void delete();
+	public void delete(Customer customer);
 
 	public void create(Customer customer);
 

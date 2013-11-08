@@ -33,4 +33,10 @@ public class CustomerDAO {
 		
 	}
 
+	public void delete(Customer customer) {
+		Session session = sessionFactory.getCurrentSession();
+		session.delete(customer);
+		
+	}
+
 }
