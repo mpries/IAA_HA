@@ -35,6 +35,7 @@ public class CustomerDeleteAction extends ActionSupport implements IDeleteAction
 	@Override
 	public String execute() throws Exception {
 		// TODO Auto-generated method stub
+		System.out.println(customer.getFirstName());
 		customerManager.delete(customer);
 		return SUCCESS;
 	}

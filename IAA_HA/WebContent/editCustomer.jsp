@@ -7,8 +7,14 @@
 	<s:textfield name="customer.firstName" label="First Name" />
 	<s:textfield label="Last Name" name="customer.lastName" />
 	<s:submit value="Save" />
-	<s:submit value="Delete" action="deleteCustomerAction" />
+
 	<s:form action="coreDataAdministration.jsp">
 		<s:submit value="Back" />
 	</s:form>
+</s:form>
+<s:form action="deleteCustomerAction">
+	<s:hidden name="customer.id" />
+	<s:hidden name="customer.firstName" />
+	<s:hidden name="customer.lastName" />
+	<s:submit value="Delete" />
 </s:form>
