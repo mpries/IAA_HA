@@ -8,7 +8,7 @@
 <struts>
 
 	<!-- Actions -->
-	<package name="login" extends="struts-default">
+	<package name="default" extends="struts-default">
 		<interceptors>
 			<interceptor name="loginValidation"
 				class="de.nordakademie.interceptor.LoginValidationInterceptor"></interceptor>
@@ -43,7 +43,7 @@
 		<action name="editCustomerAction"
 			class="de.nordakademie.action.customer.CustomerEditAction">
 			<result name="success">/homepage.jsp</result>
-			<result name="input">/coreDataAdministration.jsp</result>
+			<result name="input">/editCustomer.jsp</result>
 		</action>
 		
 		<action name="deleteCustomerAction"
