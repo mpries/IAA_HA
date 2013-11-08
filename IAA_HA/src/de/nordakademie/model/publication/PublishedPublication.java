@@ -6,8 +6,7 @@ import javax.persistence.InheritanceType;
 import javax.persistence.OneToOne;
 
 @Entity
-@Inheritance(strategy=InheritanceType.JOINED)
-public abstract class PublishedPublication extends Publication {
+public class PublishedPublication extends Publication {
 
 	protected String ISBN;
 	@OneToOne

@@ -8,6 +8,8 @@ import com.opensymphony.xwork2.ActionSupport;
 
 import de.nordakademie.action.interfaces.ICreateAction;
 import de.nordakademie.model.enumaration.KindOfPublication;
+import de.nordakademie.model.publication.Publication;
+import de.nordakademie.model.publication.PublishedPublication;
 
 public class PublicationCreateAction extends ActionSupport implements
 		ICreateAction, Action {
@@ -16,34 +18,11 @@ public class PublicationCreateAction extends ActionSupport implements
 	 * 
 	 */
 	private static final long serialVersionUID = 5738244878962689934L;
-	protected String title;
-	protected String author;
-	protected Date releaseDate;
-	protected String isbn;
-	protected String keyword;
-	protected String publisher;
-	protected KindOfPublication kindOfPublication;
-	private List<String> keywords;
+	private Publication publication = new PublishedPublication();
 
 	@Override
 	public String execute() throws Exception {
-		seperateKeywords();
-		switch (kindOfPublication) {
-		case BOOK:
-			// TODO
-			System.out.println("BOOK");
-		case MAGAZINE:
-			// TODO
-		case ACADAMIC:
-			// TODO
-		default:
-			return ERROR;
-		}
-	}
-
-	private void seperateKeywords() {
-		// TODO Trennt die Keywords und packt sie in eine Liste
-
+		return null;
 	}
 
 	public void validate() {
@@ -51,68 +30,12 @@ public class PublicationCreateAction extends ActionSupport implements
 
 	}
 
-
-	public KindOfPublication getKindOfPublication() {
-		return kindOfPublication;
+	public Publication getPublication() {
+		return publication;
 	}
 
-	public void setKindOfPublication(KindOfPublication kindOfPublication) {
-		this.kindOfPublication = kindOfPublication;
+	public void setPublication(Publication publication) {
+		this.publication = publication;
 	}
 
-	public String getTitle() {
-		return title;
-	}
-
-	public void setTitle(String title) {
-		this.title = title;
-	}
-
-	public String getAuthor() {
-		return author;
-	}
-
-	public void setAuthor(String author) {
-		this.author = author;
-	}
-
-	public Date getReleaseDate() {
-		return releaseDate;
-	}
-
-	public void setReleaseDate(Date releaseDate) {
-		this.releaseDate = releaseDate;
-	}
-
-	public String getIsbn() {
-		return isbn;
-	}
-
-	public void setIsbn(String isbn) {
-		this.isbn = isbn;
-	}
-
-	public String getKeyword() {
-		return keyword;
-	}
-
-	public void setKeyword(String keyword) {
-		this.keyword = keyword;
-	}
-
-	public String getPublisher() {
-		return publisher;
-	}
-
-	public void setPublisher(String publisher) {
-		this.publisher = publisher;
-	}
-
-	public List<String> getKeywords() {
-		return keywords;
-	}
-
-	public void setKeywords(List<String> keywords) {
-		this.keywords = keywords;
-	}
 }

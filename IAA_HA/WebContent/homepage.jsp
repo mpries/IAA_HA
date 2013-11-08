@@ -13,7 +13,7 @@
 
 	<table>
 		<tr>
-			<th><s:form action="createPublication.jsp">
+			<th><s:form action="kindOfPublication.jsp">
 					<s:submit value="Create Publikation" />
 				</s:form></th>
 			<th><s:form action="createCustomer.jsp">
