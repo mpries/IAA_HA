@@ -11,8 +11,10 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.OneToMany;
 
+import de.nordakademie.model.enumaration.KindOfPublication;
+
 @Entity
-@Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
+@Inheritance(strategy=InheritanceType.JOINED)
 public abstract class Publication {
 
 	@Id @GeneratedValue(strategy=GenerationType.AUTO)
@@ -23,6 +25,15 @@ public abstract class Publication {
 	@ElementCollection
 	protected List<Keyword> keywords;
 	protected int stored;
+	protected KindOfPublication kindOfPublication;
+
+	public KindOfPublication getKindOfPublication() {
+		return kindOfPublication;
+	}
+
+	public void setKindOfPublication(KindOfPublication kindOfPublication) {
+		this.kindOfPublication = kindOfPublication;
+	}
 
 	public String getTitle() {
 		return title;
