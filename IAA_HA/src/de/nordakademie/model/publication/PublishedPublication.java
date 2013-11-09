@@ -1,8 +1,6 @@
 package de.nordakademie.model.publication;
 
 import javax.persistence.Entity;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
 import javax.persistence.OneToOne;
 
 @Entity
