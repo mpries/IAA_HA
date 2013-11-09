@@ -5,10 +5,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
-<title>Kind of Publication</title>
+<title>Add Keyword</title>
 </head>
 <body>
-	<s:form action="createAPublication.jsp"><s:submit value="Create Published Publication"/></s:form>
-	<s:form action="createPublication.jsp"><s:submit value="Create Publication"/></s:form>
+	<s:form action="publicationCreateActionaddKeyword">
+		<s:textfield name="Keyword.description" value="" label="Keyword"/>
+		<s:submit value="Add"/>
+	</s:form>
+	<s:form action="publicationCreateActionsaveKeyword"><s:submit value="Done"/></s:form>
 </body>
 </html>

@@ -1,11 +1,13 @@
 package de.nordakademie.model.publication;
 
-import javax.persistence.Embeddable;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
 
-@Embeddable
+@Entity
 public class Keyword {
 
+	@Id
 	protected String description;
 
 	public String getDescription() {

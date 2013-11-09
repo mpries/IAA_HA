@@ -1,31 +1,47 @@
 package de.nordakademie.model.manager;
 
+import de.nordakademie.dao.PublicationDAO;
 import de.nordakademie.model.interfaces.IPublicationManager;
+import de.nordakademie.model.publication.Publication;
 
 public class PublicationManager implements IPublicationManager {
+	
+	private PublicationDAO publicationDAO;
+
+	public PublicationDAO getPublicationDAO() {
+		return publicationDAO;
+	}
+
+	public void setPublicationDAO(PublicationDAO publicationDAO) {
+		this.publicationDAO = publicationDAO;
+	}
 
 	@Override
-	public Object view() {
+	public Publication view(int id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public void delete() {
+	public void delete(Publication publication) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public Object create() {
+	public void create(Publication publication) {
 		// TODO Auto-generated method stub
-		return null;
+		publicationDAO.save(publication);
+		
 	}
 
 	@Override
-	public Object edit() {
+	public void edit(Publication publication) {
 		// TODO Auto-generated method stub
-		return null;
+		
 	}
+
+
+
 
 }

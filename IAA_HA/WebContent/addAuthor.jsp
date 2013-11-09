@@ -5,10 +5,14 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
-<title>Kind of Publication</title>
+<title>Add Author</title>
 </head>
 <body>
-	<s:form action="createAPublication.jsp"><s:submit value="Create Published Publication"/></s:form>
-	<s:form action="createPublication.jsp"><s:submit value="Create Publication"/></s:form>
+	<s:form action="publicationCreateActionaddAuthor">
+		<s:textfield name="author.firstName" value="" label="Author"/>
+		<s:textfield name="author.lastName" value="" label="Author"/>
+		<s:submit value="Add"/>
+	</s:form>
+	<s:form action="publicationCreateActionsaveAuthor"><s:submit value="Done"/></s:form>
 </body>
 </html>
