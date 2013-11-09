@@ -1,8 +1,8 @@
 package de.nordakademie.model.publication;
 
+import java.util.Date;
 import java.util.List;
 
-import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -10,8 +10,6 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.OneToMany;
-
-import de.nordakademie.model.enumaration.KindOfPublication;
 
 @Entity
 @Inheritance(strategy=InheritanceType.JOINED)
@@ -22,16 +20,25 @@ public abstract class Publication {
 	protected String title;
 	@OneToMany
 	protected List<Author> authors;
-	@ElementCollection
+	@OneToMany
 	protected List<Keyword> keywords;
 	protected int stored;
-	protected KindOfPublication kindOfPublication;
+	protected String kindOfPublication;
+	protected Date releaseDate;
 
-	public KindOfPublication getKindOfPublication() {
+	public Date getReleaseDate() {
+		return releaseDate;
+	}
+
+	public void setReleaseDate(Date releaseDate) {
+		this.releaseDate = releaseDate;
+	}
+
+	public String getKindOfPublication() {
 		return kindOfPublication;
 	}
 
-	public void setKindOfPublication(KindOfPublication kindOfPublication) {
+	public void setKindOfPublication(String kindOfPublication) {
 		this.kindOfPublication = kindOfPublication;
 	}
 
@@ -65,6 +72,14 @@ public abstract class Publication {
 
 	public void setStored(Integer stored) {
 		this.stored = stored;
+	}
+	
+	public void addKeyword(Keyword key){
+		this.keywords.add(key);
+	}
+	
+	public void addAuthor(Author author){
+		this.authors.add(author);
 	}
 
 }

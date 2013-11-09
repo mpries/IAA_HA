@@ -6,6 +6,7 @@
 
 
 <struts>
+	<constant name="struts.devMode" value="true" />
 
 	<!-- Actions -->
 	<package name="default" extends="struts-default">
@@ -21,7 +22,7 @@
 			<result name="input">/login.jsp</result>
 		</action>
 
-<!-- CUSTOMER -->
+		<!-- CUSTOMER -->
 		<action name="customerCreateAction"
 			class="de.nordakademie.action.customer.CustomerCreateAction">
 			<result name="success">/homepage.jsp</result>
@@ -40,42 +41,55 @@
 			<result name="success">/homepage.jsp</result>
 			<result name="input">/editCustomer.jsp</result>
 		</action>
-		
+
 		<action name="deleteCustomerAction"
 			class="de.nordakademie.action.customer.CustomerDeleteAction">
 			<result name="success">/homepage.jsp</result>
 			<result name="input">/editCustomer.jsp</result>
 		</action>
-		
-		
-<!-- PUBLICATION -->
 
-		<action name="publicationCreateAction"
-			class="de.nordakademie.action.publication.PublicationCreateAction">
-			<result name="success">/homepage.jsp</result>
-			<result name="input">/createPublication.jsp</result>
+
+		<!-- PUBLICATION -->
+
+		<action name="publicationCreateAction*"
+			class="de.nordakademie.action.publication.PublicationCreateAction"
+			method="{1}">
+			<result name="success">/addKeyword.jsp</result>
+			<result name="addKeyword">/addKeyword.jsp</result>
+			<result name="saveKeyword">/addAuthor.jsp</result>
+			<result name="addAuthor">/addAuthor.jsp</result>
+			<result name="saveAuthor">/homepage.jsp</result>
+			<result name="input">/index.jsp</result>
 		</action>
-		
+
 		<action name="publicationEditAction"
 			class="de.nordakademie.action.publication.PublicationEditAction">
 			<result name="success">/homepage.jsp</result>
 			<result name="input">/createPublication.jsp</result>
 		</action>
-		
+
 		<action name="publicationViewAction"
 			class="de.nordakademie.action.publication.PublicationViewAction">
 			<result name="success">/homepage.jsp</result>
 			<result name="input">/createPublication.jsp</result>
 		</action>
-		
+
 		<action name="publicationDeleteAction"
 			class="de.nordakademie.action.publication.PublicationDeleteAction">
 			<result name="success">/homepage.jsp</result>
 			<result name="input">/createPublication.jsp</result>
 		</action>
-		
-		
-		
+
+		<!-- Academic Publication -->
+
+		<action name="aPublicationCreateAction"
+			class="de.nordakademie.action.publication.APublicationCreateAction">
+			<result name="success">/homepage.jsp</result>
+			<result name="input">/createPublication.jsp</result>
+		</action>
+
+
+
 
 
 	</package>

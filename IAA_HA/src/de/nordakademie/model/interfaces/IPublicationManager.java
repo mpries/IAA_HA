@@ -1,13 +1,15 @@
 package de.nordakademie.model.interfaces;
 
+import de.nordakademie.model.publication.Publication;
+
 public interface IPublicationManager {
 
-	public Object view();
+	public Publication view(int id);
 
-	public void delete();
+	public void delete(Publication publication);
 
-	public Object create();
+	public void create(Publication publication);
 
-	public Object edit();
+	public void edit(Publication publication);
 
 }

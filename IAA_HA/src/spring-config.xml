@@ -53,9 +53,19 @@
 	<bean id="customerDAO" class="de.nordakademie.dao.CustomerDAO">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
+	
+	<bean id="publicationDAO" class="de.nordakademie.dao.PublicationDAO">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
 
 	<bean id="customerManager" class="de.nordakademie.model.manager.CustomerManager">
 		<property name="customerDAO" ref="customerDAO" />
 	</bean>
+	
+		<bean id="publicationManager" class="de.nordakademie.model.manager.PublicationManager">
+		<property name="publicationDAO" ref="publicationDAO" />
+	</bean>
+	
+	
 
 </beans>
