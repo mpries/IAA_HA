@@ -8,7 +8,7 @@
 <title>Kind of Publication</title>
 </head>
 <body>
-	<s:form action="createAPublication.jsp"><s:submit value="Create Published Publication"/></s:form>
-	<s:form action="createPublication.jsp"><s:submit value="Create Publication"/></s:form>
+	<s:form action="createAPublication.jsp"><s:submit value="Create Academic Publication"/></s:form>
+	<s:form action="createPublication.jsp"><s:submit value="Create Published Publication"/></s:form>
 </body>
 </html>

@@ -25,10 +25,10 @@
 			<tr>
 				<th><s:radio name="publication.kindOfPublication" label="Kind"
 						list="{'Magazin','Book'}" /></th>
-			</tr>
+			</tr> 
 			<tr>
 				<th><s:submit value="Create" /></th>
-			</tr>
+			</tr> 
 		</s:form>
 
 	</table>
