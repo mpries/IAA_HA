@@ -17,7 +17,7 @@
 				<s:textfield label="Release Date" name="publication.releaseDate"/>
 			</tr>
 			<tr>
-				<s:textfield label="ISBN" name="publication.isbn" />
+				<s:textfield label="ISBN" name="publication.ISBN" />
 			</tr>
 			<tr>
 				<s:textfield label="Publisher" name="publication.publisher.name" />

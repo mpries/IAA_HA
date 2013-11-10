@@ -4,6 +4,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
 import de.nordakademie.model.publication.Publication;
+import de.nordakademie.model.publication.PublishedPublication;
 
 public class PublicationDAO {
 	
@@ -19,6 +20,7 @@ public class PublicationDAO {
 	
 	public void save(Publication publication){
 		Session session = sessionFactory.getCurrentSession();
+		session.save(((PublishedPublication)publication).getPublisher());
 		session.saveOrUpdate(publication);
 	}
 

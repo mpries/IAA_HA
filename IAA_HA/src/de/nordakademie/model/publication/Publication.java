@@ -3,6 +3,7 @@ package de.nordakademie.model.publication;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,11 +19,11 @@ public abstract class Publication {
 	@Id @GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
 	protected String title;
-	@OneToMany
+	@OneToMany(cascade= CascadeType.PERSIST)
 	protected List<Author> authors;
-	@OneToMany
+	@OneToMany(cascade= CascadeType.PERSIST)
 	protected List<Keyword> keywords;
-	protected int stored;
+	protected int stored = 1;
 	protected String kindOfPublication;
 	protected Date releaseDate;
 

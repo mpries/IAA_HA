@@ -56,6 +56,8 @@ public class PublicationCreateAction extends ActionSupport implements
 	public String saveAuthor(){
 		System.out.println("SAVE");
 		publication = (PublishedPublication) session.get("publication");
+		System.out.println(publication.getISBN());
+		System.out.println(publication.getPublisher().getName());
 		publicationManager.create(publication);
 		return "saveAuthor";
 	}
