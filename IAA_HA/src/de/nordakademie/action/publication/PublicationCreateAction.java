@@ -12,6 +12,7 @@ import de.nordakademie.model.interfaces.IPublicationManager;
 import de.nordakademie.model.publication.Author;
 import de.nordakademie.model.publication.Keyword;
 import de.nordakademie.model.publication.PublishedPublication;
+import de.nordakademie.model.publication.Publisher;
 
 public class PublicationCreateAction extends ActionSupport implements
 		ICreateAction, Action, SessionAware {
@@ -23,6 +24,7 @@ public class PublicationCreateAction extends ActionSupport implements
 	private PublishedPublication publication;
 	private Keyword keyword;
 	private Author author;
+	private Publisher publisher;
 	private IPublicationManager publicationManager;
 	private Map<String, Object> session;
 
@@ -36,7 +38,7 @@ public class PublicationCreateAction extends ActionSupport implements
 
 	@Override
 	public String execute() throws Exception {
-		System.out.println(publication.getTitle());
+		System.out.println("EXECUTE" + publication.getTitle());
 		session.put("publication", publication);
 		return SUCCESS;
 	}
@@ -53,6 +55,7 @@ public class PublicationCreateAction extends ActionSupport implements
 	
 	public String saveAuthor(){
 		System.out.println("SAVE");
+		publication = (PublishedPublication) session.get("publication");
 		publicationManager.create(publication);
 		return "saveAuthor";
 	}
@@ -90,6 +93,14 @@ public class PublicationCreateAction extends ActionSupport implements
 
 	public void setAuthor(Author author) {
 		this.author = author;
+	}
+
+	public Publisher getPublisher() {
+		return publisher;
+	}
+
+	public void setPublisher(Publisher publisher) {
+		this.publisher = publisher;
 	}
 
 }
