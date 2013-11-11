@@ -1,21 +1,77 @@
 package de.nordakademie.action.publication;
 
+import java.util.List;
+
 import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionSupport;
 
 import de.nordakademie.action.interfaces.IViewAction;
+import de.nordakademie.model.interfaces.IPublicationManager;
+import de.nordakademie.model.publication.Publication;
 
-public class PublicationViewAction extends ActionSupport implements IViewAction, Action{
+public class PublicationViewAction extends ActionSupport implements
+		IViewAction, Action {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = -5414881176977209333L;
 
-	@Override
-	public String execute() throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+	private IPublicationManager publicationManager;
+	private String title;
+	private String author;
+	private String keyword;
+	private List<Publication> publications;
+
+	public String execute() {
+		System.out.println("VIEW");
+		publications = publicationManager.view(title, author, keyword);
+		System.out.println(publications.size() + "<--------------------");
+		for (Publication p : publications) {
+			System.out.println(p.getTitle());
+
+		}
+		return SUCCESS;
+	}
+
+	public IPublicationManager getPublicationManager() {
+		return publicationManager;
+	}
+
+	public void setPublicationManager(IPublicationManager publicationManager) {
+		this.publicationManager = publicationManager;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public String getAuthor() {
+		return author;
+	}
+
+	public void setAuthor(String author) {
+		this.author = author;
+	}
+
+	public String getKeyword() {
+		return keyword;
+	}
+
+	public void setKeyword(String keyword) {
+		this.keyword = keyword;
+	}
+
+	public List<Publication> getPublication() {
+		return publications;
+	}
+
+	public void setPublication(List<Publication> publications) {
+		this.publications = publications;
 	}
 
 }

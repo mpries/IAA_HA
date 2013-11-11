@@ -3,14 +3,15 @@ package de.nordakademie.model.publication;
 import java.util.Date;
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import org.hibernate.annotations.Cascade;
 
 @Entity
 @Inheritance(strategy=InheritanceType.JOINED)
@@ -19,9 +20,13 @@ public abstract class Publication {
 	@Id @GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
 	protected String title;
-	@OneToMany(cascade= CascadeType.PERSIST)
+	@ManyToMany
+	@Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
+	@JoinColumn(name="name")
 	protected List<Author> authors;
-	@OneToMany(cascade= CascadeType.PERSIST)
+	@ManyToMany
+	@Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
+	@JoinColumn(name="description")
 	protected List<Keyword> keywords;
 	protected int stored = 1;
 	protected String kindOfPublication;

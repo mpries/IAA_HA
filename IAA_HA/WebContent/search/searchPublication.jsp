@@ -10,30 +10,25 @@
 <h1>Search Publication</h1>
 <body>
 	<table>
-		<s:form action="">
+		<s:form action="searchPublicationAction">
 			<tr>
-				<s:textfield label="Title" name="" />
+				<s:textfield label="Title" name="title" />
 			</tr>
 			<tr>
-				<s:textfield label="ISBN" name="" />
+				<s:textfield label="Author" name="author" />
 			</tr>
 			<tr>
-				<s:textfield label="Author" name="" />
+				<s:textfield label="KeyWords" name="keyword" />
 			</tr>
 			<tr>
-				<s:textfield label="KeyWords" name="" />
+				<s:submit value="Search" />
+
 			</tr>
 		</s:form>
-
 		<tr>
-			<th><s:form action="SearchPublikation">
-					<s:submit value="Search" />
-				</s:form></th>
-		</tr>
-		<tr>
-			<th><s:form action="homepage.jsp">
-					<s:submit value="Back" />
-				</s:form></th>
+			<s:form action="/homepage.jsp">
+				<s:submit value="Back" />
+			</s:form>
 		</tr>
 
 	</table>

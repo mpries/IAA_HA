@@ -2,17 +2,19 @@ package de.nordakademie.model.publication;
 
 import java.util.ArrayList;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.ManyToMany;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
+
+import org.hibernate.annotations.Cascade;
 
 @Entity
 public class PublishedPublication extends Publication {
 
 	protected String ISBN;
-	@ManyToOne()
+	@ManyToOne
+	@Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
+	@JoinColumn(name="name")
 	protected Publisher publisher;
 	
 	public PublishedPublication(){

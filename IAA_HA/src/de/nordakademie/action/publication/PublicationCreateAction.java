@@ -38,7 +38,6 @@ public class PublicationCreateAction extends ActionSupport implements
 
 	@Override
 	public String execute() throws Exception {
-		System.out.println("EXECUTE" + publication.getTitle());
 		session.put("publication", publication);
 		return SUCCESS;
 	}
@@ -54,10 +53,7 @@ public class PublicationCreateAction extends ActionSupport implements
 	}
 	
 	public String saveAuthor(){
-		System.out.println("SAVE");
 		publication = (PublishedPublication) session.get("publication");
-		System.out.println(publication.getISBN());
-		System.out.println(publication.getPublisher().getName());
 		publicationManager.create(publication);
 		return "saveAuthor";
 	}

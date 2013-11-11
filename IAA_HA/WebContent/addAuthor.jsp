@@ -9,8 +9,7 @@
 </head>
 <body>
 	<s:form action="publicationCreateActionaddAuthor">
-		<s:textfield name="author.firstName" value="" label="Author"/>
-		<s:textfield name="author.lastName" value="" label="Author"/>
+		<s:textfield name="author.name" value="" label="Author"/>
 		<s:submit value="Add"/>
 	</s:form>
 	<s:form action="publicationCreateActionsaveAuthor"><s:submit value="Done"/></s:form>

@@ -19,7 +19,7 @@
 			<th><s:form action="createCustomer.jsp">
 					<s:submit value="Create Customer" />
 				</s:form></th>
-			<th><s:form action="searchPublication.jsp">
+			<th><s:form action="/search/searchPublication.jsp">
 					<s:submit value="Search Publication" />
 				</s:form></th>
 			<th><s:form action="coreDataAdministration.jsp">

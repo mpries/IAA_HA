@@ -8,7 +8,7 @@
 <struts>
 	<constant name="struts.devMode" value="true" />
 
-	<!-- Actions -->
+	<!-- LOGIN -->
 	<package name="default" extends="struts-default">
 		<interceptors>
 			<interceptor name="loginValidation"
@@ -22,6 +22,14 @@
 			<result name="input">/login.jsp</result>
 		</action>
 
+		<!-- SEARCH -->
+		
+		<action name="searchPublicationAction"
+			class="de.nordakademie.action.publication.PublicationViewAction">
+			<result name="success">/search/searchPublicationResult.jsp</result>
+			<result name="input">/index.jsp</result>
+		</action>
+		
 		<!-- CUSTOMER -->
 		<action name="customerCreateAction"
 			class="de.nordakademie.action.customer.CustomerCreateAction">
@@ -49,7 +57,7 @@
 		</action>
 
 
-		<!-- PUBLICATION -->
+		<!-- Published PUBLICATION -->
 
 		<action name="publicationCreateAction*"
 			class="de.nordakademie.action.publication.PublicationCreateAction"
@@ -68,12 +76,6 @@
 			<result name="input">/createPublication.jsp</result>
 		</action>
 
-		<action name="publicationViewAction"
-			class="de.nordakademie.action.publication.PublicationViewAction">
-			<result name="success">/homepage.jsp</result>
-			<result name="input">/createPublication.jsp</result>
-		</action>
-
 		<action name="publicationDeleteAction"
 			class="de.nordakademie.action.publication.PublicationDeleteAction">
 			<result name="success">/homepage.jsp</result>
@@ -82,10 +84,15 @@
 
 		<!-- Academic Publication -->
 
-		<action name="aPublicationCreateAction"
-			class="de.nordakademie.action.publication.APublicationCreateAction">
-			<result name="success">/homepage.jsp</result>
-			<result name="input">/createPublication.jsp</result>
+		<action name="aPublicationCreateAction*"
+			class="de.nordakademie.action.publication.academic.APublicationCreateAction"
+			method="{1}">
+			<result name="success">/academic/addKeyword.jsp</result>
+			<result name="addKeyword">/academic/addKeyword.jsp</result>
+			<result name="saveKeyword">/academic/addAuthor.jsp</result>
+			<result name="addAuthor">/academic/addAuthor.jsp</result>
+			<result name="saveAuthor">/homepage.jsp</result>
+			<result name="input">/index.jsp</result>
 		</action>
 
 

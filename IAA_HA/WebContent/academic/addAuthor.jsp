@@ -5,13 +5,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
-<title>Add Keyword</title>
+<title>Add Author</title>
 </head>
 <body>
-	<s:form action="publicationCreateActionaddKeyword">
-		<s:textfield name="keyword.description" value="" label="Keyword"/>
+	<s:form action="aPublicationCreateActionaddAuthor">
+		<s:textfield name="author.name" value="" label="Author"/>
 		<s:submit value="Add"/>
 	</s:form>
-	<s:form action="publicationCreateActionsaveKeyword"><s:submit value="Done"/></s:form>
+	<s:form action="aPublicationCreateActionsaveAuthor"><s:submit value="Done"/></s:form>
 </body>
 </html>

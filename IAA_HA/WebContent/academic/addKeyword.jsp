@@ -8,10 +8,10 @@
 <title>Add Keyword</title>
 </head>
 <body>
-	<s:form action="publicationCreateActionaddKeyword">
+	<s:form action="aPublicationCreateActionaddKeyword">
 		<s:textfield name="keyword.description" value="" label="Keyword"/>
 		<s:submit value="Add"/>
 	</s:form>
-	<s:form action="publicationCreateActionsaveKeyword"><s:submit value="Done"/></s:form>
+	<s:form action="aPublicationCreateActionsaveKeyword"><s:submit value="Done"/></s:form>
 </body>
 </html>

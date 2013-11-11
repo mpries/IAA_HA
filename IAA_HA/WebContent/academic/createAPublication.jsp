@@ -5,21 +5,23 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
-<title>Create Academic Publication</title>
+<title>Create Book</title>
 </head>
 <body>
 	<table>
 		<s:form action="aPublicationCreateActionexecute">
-			<s:hidden name="publication.kindOfPublication" value="Academic" />
 			<tr>
 				<s:textfield label="Title" name="publication.title" />
 			</tr>
 			<tr>
-				<s:textfield label="Releas Date" name="publication.releaseDate" />
+				<s:textfield label="Release Date" name="publication.releaseDate"/>
 			</tr>
 			<tr>
+				<s:textfield label="Publisher" name="publication.publisher.name" />
+			</tr> 
+			<tr>
 				<th><s:submit value="Create" /></th>
-			</tr>
+			</tr> 
 		</s:form>
 
 	</table>
