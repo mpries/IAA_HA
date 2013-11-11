@@ -16,8 +16,7 @@ public class PublicationEditAction extends ActionSupport implements IEditAction,
 	
 	@Override
 	public String execute() throws Exception {
-		System.out.println("Hello from execute");
-		System.out.println(id);
+
 		return SUCCESS;
 	}
 
