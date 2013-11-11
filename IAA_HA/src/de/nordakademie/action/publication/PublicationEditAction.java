@@ -11,11 +11,21 @@ public class PublicationEditAction extends ActionSupport implements IEditAction,
 	 * 
 	 */
 	private static final long serialVersionUID = -3036098533614635368L;
+	private int id;
 
 	@Override
 	public String execute() throws Exception {
 		// TODO Auto-generated method stub
-		return null;
+		System.out.println("EDIT" + id);
+		return SUCCESS;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 }

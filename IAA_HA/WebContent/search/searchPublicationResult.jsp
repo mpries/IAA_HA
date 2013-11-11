@@ -24,7 +24,7 @@
 		<s:iterator value="publication">
 			<tr>
 				<td><s:property value="id" /></td>
-				<td><s:a href="" ><s:property value="title" /></s:a></td>
+				<td><s:property value="title" /></td>
 				<td><s:property value="stored" /></td>
 				<td><s:property value="kindOfPublication" /></td>
 				<td><s:property value="releaseDate" /></td>
@@ -34,10 +34,13 @@
 				<td><s:iterator value="keywords">
 						<s:property value="description" />
 					</s:iterator></td>
-
+				<td><s:url id="detailURL" action="publicationEditAction">
+						<s:param name="id" value="id" />
+					</s:url> <s:a href="%{detailURL}">Details</s:a></td>
 			</tr>
 		</s:iterator>
 	</table>
 
 </body>
 </html>
+
