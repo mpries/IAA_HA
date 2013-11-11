@@ -3,11 +3,9 @@ package de.nordakademie.dao;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.criterion.Restrictions;
 
 import de.nordakademie.model.publication.Publication;
 
@@ -53,7 +51,8 @@ public class PublicationDAO {
 		return publications;
 
 	}
-
+	
+	@SuppressWarnings("unchecked")
 	private void runQuery(String statement, String arg, Session session,
 			String param) {
 

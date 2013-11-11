@@ -9,9 +9,10 @@
 </head>
 <h1>Search Publication Result</h1>
 <body>
-	<table>
-		<s:form action="">
-			<tr>
+	<s:form action="">
+		<table>
+
+			<!-- <tr>
 				<s:textfield label="Title" name="" />
 			</tr>
 			<tr>
@@ -34,31 +35,21 @@
 			<th><s:form action="homepage.jsp">
 					<s:submit value="Back" />
 				</s:form></th>
-		</tr>
+		</tr>-->
+			<tr>
+				<th>Titel</th>
+				<th>ISBN</th>
+				<th>Autoren</th>
+			</tr>
 
-	</table>
-	
-	
-		<table style="border:2px solid ;">
-			<tr>
-				<th>Author</th>
-				<th>Title</th>
-				<th>Name</th>
-				<th>Date</th>
-			</tr>
-			<tr>
-				<th>Schroeder</th>
-				<th>IT Orga</th>
-				<th>Klaus Kleber</th>
-				<th>03.05.2013</th>
-			</tr>
-			<tr>
-				<th>Zimmermann</th>
-				<th>Mathe ist ein Arsch</th>
-				<th>Kai Karsten</th>
-				<th>15.07.2013</th>
-			</tr>
+			<s:iterator value="publication">
+				<tr>
+					<td><s:property value="title" /></td>
+					<td><s:property value="ISBN" /></td>
+					
+				</tr>
+			</s:iterator>
 		</table>
-
+	
 </body>
 </html>
