@@ -9,47 +9,35 @@
 </head>
 <h1>Search Publication Result</h1>
 <body>
-	<s:form action="">
-		<table>
 
-			<!-- <tr>
-				<s:textfield label="Title" name="" />
-			</tr>
-			<tr>
-				<s:textfield label="ISBN" name="" />
-			</tr>
-			<tr>
-				<s:textfield label="Author" name="" />
-			</tr>
-			<tr>
-				<s:textfield label="KeyWords" name="" />
-			</tr>
-		</s:form>
-
+	<table border="2ppx">
 		<tr>
-			<th><s:form action="SearchPublikation">
-					<s:submit value="Search" />
-				</s:form></th>
+			<th>Id</th>
+			<th>Title</th>
+			<th>Stored</th>
+			<th>Kind of Publication</th>
+			<th>Release Date</th>
+			<th>Author</th>
+			<th>Keywords</th>
+
 		</tr>
-		<tr>
-			<th><s:form action="homepage.jsp">
-					<s:submit value="Back" />
-				</s:form></th>
-		</tr>-->
+		<s:iterator value="publication">
 			<tr>
-				<th>Titel</th>
-				<th>ISBN</th>
-				<th>Autoren</th>
-			</tr>
+				<td><s:property value="id" /></td>
+				<td><s:a href="" ><s:property value="title" /></s:a></td>
+				<td><s:property value="stored" /></td>
+				<td><s:property value="kindOfPublication" /></td>
+				<td><s:property value="releaseDate" /></td>
+				<td><s:iterator value="authors">
+						<s:property value="name" />
+					</s:iterator></td>
+				<td><s:iterator value="keywords">
+						<s:property value="description" />
+					</s:iterator></td>
 
-			<s:iterator value="publication">
-				<tr>
-					<td><s:property value="title" /></td>
-					<td><s:property value="ISBN" /></td>
-					
-				</tr>
-			</s:iterator>
-		</table>
-	
+			</tr>
+		</s:iterator>
+	</table>
+
 </body>
 </html>

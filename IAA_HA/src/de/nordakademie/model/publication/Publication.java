@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -11,22 +12,28 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
+
 import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
 
 @Entity
-@Inheritance(strategy=InheritanceType.JOINED)
+@Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Publication {
 
-	@Id @GeneratedValue(strategy=GenerationType.AUTO)
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 	protected String title;
 	@ManyToMany
+//	@LazyCollection(LazyCollectionOption.FALSE)
 	@Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
-	@JoinColumn(name="name")
+	@JoinColumn(name = "name")
 	protected List<Author> authors;
 	@ManyToMany
+//	@LazyCollection(LazyCollectionOption.FALSE)
 	@Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
-	@JoinColumn(name="description")
+	@JoinColumn(name = "description")
 	protected List<Keyword> keywords;
 	protected int stored = 1;
 	protected String kindOfPublication;
@@ -79,13 +86,29 @@ public abstract class Publication {
 	public void setStored(Integer stored) {
 		this.stored = stored;
 	}
-	
-	public void addKeyword(Keyword key){
+
+	public void addKeyword(Keyword key) {
 		this.keywords.add(key);
 	}
-	
-	public void addAuthor(Author author){
+
+	public void addAuthor(Author author) {
 		this.authors.add(author);
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public void setAuthors(List<Author> authors) {
+		this.authors = authors;
+	}
+
+	public void setStored(int stored) {
+		this.stored = stored;
 	}
 
 }

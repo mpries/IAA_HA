@@ -38,15 +38,14 @@ public class PublicationDAO {
 		runQuery("select distinct p from Publication p " + "join p.authors a "
 				+ "where a.name in (:author)", "author", session, author);
 
-
 		// ZWEITE QUERY
-		runQuery("select distinct p from Publication p "
-				+ "join p.keywords k " + "where k.description in (:keyword)", "keyword", session, keyword);
-		
-		
-		//DRITTE QUERY
-		runQuery("from Publication where title = (:title)", "title", session, title);
-		
+		runQuery("select distinct p from Publication p " + "join p.keywords k "
+				+ "where k.description in (:keyword)", "keyword", session,
+				keyword);
+
+		// DRITTE QUERY
+		runQuery("from Publication where title = (:title)", "title", session,
+				title);
 
 		return publications;
 
@@ -60,6 +59,8 @@ public class PublicationDAO {
 		query.setString(arg, param);
 		for (Publication p : (List<Publication>) query.list()) {
 			if (!publications.contains(p)) {
+				p.getAuthors().get(0);
+				p.getKeywords().get(0);
 				publications.add(p);
 			}
 			query = null;
@@ -67,5 +68,4 @@ public class PublicationDAO {
 		}
 
 	}
-
 }
