@@ -9,56 +9,35 @@
 </head>
 <h1>Search Publication Result</h1>
 <body>
-	<table>
-		<s:form action="">
-			<tr>
-				<s:textfield label="Title" name="" />
-			</tr>
-			<tr>
-				<s:textfield label="ISBN" name="" />
-			</tr>
-			<tr>
-				<s:textfield label="Author" name="" />
-			</tr>
-			<tr>
-				<s:textfield label="KeyWords" name="" />
-			</tr>
-		</s:form>
 
+	<table border="2ppx">
 		<tr>
-			<th><s:form action="SearchPublikation">
-					<s:submit value="Search" />
-				</s:form></th>
-		</tr>
-		<tr>
-			<th><s:form action="homepage.jsp">
-					<s:submit value="Back" />
-				</s:form></th>
-		</tr>
+			<th>Id</th>
+			<th>Title</th>
+			<th>Stored</th>
+			<th>Kind of Publication</th>
+			<th>Release Date</th>
+			<th>Author</th>
+			<th>Keywords</th>
 
+		</tr>
+		<s:iterator value="publication">
+			<tr>
+				<td><s:property value="id" /></td>
+				<td><s:a href="" ><s:property value="title" /></s:a></td>
+				<td><s:property value="stored" /></td>
+				<td><s:property value="kindOfPublication" /></td>
+				<td><s:property value="releaseDate" /></td>
+				<td><s:iterator value="authors">
+						<s:property value="name" />
+					</s:iterator></td>
+				<td><s:iterator value="keywords">
+						<s:property value="description" />
+					</s:iterator></td>
+
+			</tr>
+		</s:iterator>
 	</table>
-	
-	
-		<table style="border:2px solid ;">
-			<tr>
-				<th>Author</th>
-				<th>Title</th>
-				<th>Name</th>
-				<th>Date</th>
-			</tr>
-			<tr>
-				<th>Schroeder</th>
-				<th>IT Orga</th>
-				<th>Klaus Kleber</th>
-				<th>03.05.2013</th>
-			</tr>
-			<tr>
-				<th>Zimmermann</th>
-				<th>Mathe ist ein Arsch</th>
-				<th>Kai Karsten</th>
-				<th>15.07.2013</th>
-			</tr>
-		</table>
 
 </body>
 </html>
