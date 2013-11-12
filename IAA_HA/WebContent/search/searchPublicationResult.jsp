@@ -24,7 +24,6 @@
 		<s:iterator value="publication">
 			<tr>
 				<td><s:property value="id" /></td>
-				<td><s:property value="title" /></td>
 				<td><s:property value="stored" /></td>
 				<td><s:property value="kindOfPublication" /></td>
 				<td><s:property value="releaseDate" /></td>
