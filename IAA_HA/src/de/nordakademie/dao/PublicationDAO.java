@@ -25,7 +25,7 @@ public class PublicationDAO {
 
 	public void save(Publication publication) {
 		Session session = sessionFactory.getCurrentSession();
-		// session.save(((PublishedPublication)publication).getPublisher());
+		System.out.println("SAVE");
 		session.saveOrUpdate(publication);
 	}
 
@@ -59,13 +59,28 @@ public class PublicationDAO {
 		query.setString(arg, param);
 		for (Publication p : (List<Publication>) query.list()) {
 			if (!publications.contains(p)) {
-				p.getAuthors().get(0);
-				p.getKeywords().get(0);
+//				p.getAuthors().get(0);
+//				p.getKeywords().get(0);
 				publications.add(p);
 			}
 			query = null;
 
 		}
 
+	}
+
+	public Publication load(int id) {
+		Session session = sessionFactory.getCurrentSession();
+		Publication publication = (Publication) session.get(Publication.class, id);
+		publication.getAuthors().get(0);
+		publication.getKeywords().get(0);
+		return publication;
+	}
+
+	public void delete(Publication publication) {
+		Session session = sessionFactory.getCurrentSession();
+		System.out.println("DELETE");
+		session.delete(publication);
+		
 	}
 }

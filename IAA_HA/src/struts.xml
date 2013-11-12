@@ -70,17 +70,15 @@
 			<result name="input">/index.jsp</result>
 		</action>
 
-		<action name="publicationEditAction"
-			class="de.nordakademie.action.publication.PublicationEditAction">
-			<result name="success">/homepage.jsp</result>
-			<result name="input">/createPublication.jsp</result>
+		<action name="publicationEditAction*"
+			class="de.nordakademie.action.publication.PublicationEditAction" method="{1}">
+			<result name="success">/search/publicationEditor.jsp</result>
+			<result name="input">/index.jsp</result>
+			<result name="save">/homepage.jsp</result>
+			<result name="delete">/homepage.jsp</result>
 		</action>
 
-		<action name="publicationDeleteAction"
-			class="de.nordakademie.action.publication.PublicationDeleteAction">
-			<result name="success">/homepage.jsp</result>
-			<result name="input">/createPublication.jsp</result>
-		</action>
+
 
 		<!-- Academic Publication -->
 
