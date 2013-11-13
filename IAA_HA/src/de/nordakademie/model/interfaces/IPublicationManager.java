@@ -14,4 +14,6 @@ public interface IPublicationManager {
 
 	public void edit(Publication publication);
 
+	public Publication view(int id);
+
 }

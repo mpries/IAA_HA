@@ -21,7 +21,7 @@ public class PublicationManager implements IPublicationManager {
 
 	@Override
 	public void delete(Publication publication) {
-		// TODO Auto-generated method stub
+		publicationDAO.delete(publication);
 		
 	}
 
@@ -42,6 +42,11 @@ public class PublicationManager implements IPublicationManager {
 	public List<Publication> view(String title, String author, String keyword) {
 		// TODO Auto-generated method stub
 		return publicationDAO.load(title, author, keyword);
+	}
+	
+	public Publication view(int id){
+		return publicationDAO.load(id);
+		
 	}
 
 
