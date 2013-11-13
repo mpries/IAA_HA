@@ -1,5 +1,7 @@
 package de.nordakademie.model.interfaces;
 
+import java.util.List;
+
 import de.nordakademie.model.Customer;
 
 public interface ICustomerManager {
@@ -11,5 +13,7 @@ public interface ICustomerManager {
 	public void create(Customer customer);
 
 	public void edit(Customer customer);
+
+	public List<Customer> view();
 
 }

@@ -23,13 +23,13 @@
 		</action>
 
 		<!-- SEARCH -->
-		
+
 		<action name="searchPublicationAction"
 			class="de.nordakademie.action.publication.PublicationViewAction">
 			<result name="success">/search/searchPublicationResult.jsp</result>
 			<result name="input">/index.jsp</result>
 		</action>
-		
+
 		<!-- CUSTOMER -->
 		<action name="customerCreateAction"
 			class="de.nordakademie.action.customer.CustomerCreateAction">
@@ -71,7 +71,8 @@
 		</action>
 
 		<action name="publicationEditAction*"
-			class="de.nordakademie.action.publication.PublicationEditAction" method="{1}">
+			class="de.nordakademie.action.publication.PublicationEditAction"
+			method="{1}">
 			<result name="success">/search/publicationEditor.jsp</result>
 			<result name="input">/index.jsp</result>
 			<result name="save">/homepage.jsp</result>
@@ -94,7 +95,15 @@
 		</action>
 
 
+		<!-- LENDING -->
+		
 
+		<action name="lendAction*"
+			class="de.nordakademie.action.LendAction"
+			method="{1}">
+			<result name="supply">/lending/createBookOnLoan.jsp</result>
+			<result name="create">/homepage.jsp</result>
+		</action>
 
 
 	</package>

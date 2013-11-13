@@ -1,5 +1,7 @@
 package de.nordakademie.dao;
 
+import java.util.List;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
@@ -37,6 +39,12 @@ public class CustomerDAO {
 		Session session = sessionFactory.getCurrentSession();
 		session.delete(customer);
 		
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<Customer> loadAll() {
+		Session session = sessionFactory.getCurrentSession();
+		return (List<Customer>)session.createQuery("from Customer").list();
 	}
 
 }
