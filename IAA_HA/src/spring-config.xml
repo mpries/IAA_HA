@@ -58,6 +58,16 @@
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 
+	<bean id="lendDAO" class="de.nordakademie.dao.LendDAO">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="lendManager" class="de.nordakademie.model.manager.LendManager">
+		<property name="lendDAO" ref="lendDAO" />
+		<property name="publicationManager" ref="publicationManager"/>
+		<property name="customerManager" ref="customerManager"/>
+	</bean>
+
 	<bean id="customerManager" class="de.nordakademie.model.manager.CustomerManager">
 		<property name="customerDAO" ref="customerDAO" />
 	</bean>

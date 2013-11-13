@@ -83,4 +83,10 @@ public class PublicationDAO {
 		session.delete(publication);
 		
 	}
+
+	@SuppressWarnings("unchecked")
+	public List<Publication> loadAll() {
+		Session session = sessionFactory.getCurrentSession();
+		return (List<Publication>)session.createQuery("from Publication").list();
+	}
 }

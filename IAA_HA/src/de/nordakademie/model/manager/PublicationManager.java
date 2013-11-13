@@ -49,6 +49,11 @@ public class PublicationManager implements IPublicationManager {
 		
 	}
 
+	@Override
+	public List<Publication> view() {
+		return publicationDAO.loadAll();
+	}
+
 
 
 
