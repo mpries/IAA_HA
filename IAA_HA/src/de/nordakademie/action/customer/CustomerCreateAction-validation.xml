@@ -18,8 +18,8 @@
 	</field>
 	<field name="customer.id">
 		<field-validator type="int">
-  		<param name="min">1</param>
-  		<message>ID is required </message>
+			<param name="min">1</param>
+			<message>ID is required </message>
 		</field-validator>
 	</field>
 </validators>

@@ -8,13 +8,14 @@
 <title>Create Book</title>
 </head>
 <body>
+	<s:head />
 	<table>
 		<s:form action="publicationCreateActionexecute">
 			<tr>
 				<s:textfield label="Title" name="publication.title" />
 			</tr>
 			<tr>
-				<s:textfield label="Release Date" name="publication.releaseDate"/>
+				<s:textfield label="Release Date" name="publication.releaseDate" />
 			</tr>
 			<tr>
 				<s:textfield label="ISBN" name="publication.ISBN" />
@@ -25,14 +26,12 @@
 			<tr>
 				<th><s:radio name="publication.kindOfPublication" label="Kind"
 						list="{'Magazin','Book'}" /></th>
-			</tr> 
+			</tr>
 			<tr>
 				<th><s:submit value="Create" /></th>
-			</tr> 
+			</tr>
 		</s:form>
-
 	</table>
-
 	<form action="homepage.jsp">
 		<s:submit value="Back" />
 	</form>
