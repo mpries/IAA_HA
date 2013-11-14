@@ -23,7 +23,7 @@
 				<prop key="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</prop>
 				<prop key="hibernate.show_sql">true</prop>
 				<prop key="hibernate.format_sql">true</prop>
-				<prop key="hibernate.hbm2ddl.auto">create</prop>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
 			</props>
 		</property>
 	</bean>
@@ -54,6 +54,7 @@
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 
+
 	<bean id="publicationDAO" class="de.nordakademie.dao.PublicationDAO">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
@@ -62,10 +63,23 @@
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 
+	<bean id="keywordDAO" class="de.nordakademie.dao.KeywordDAO">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="kindOfPublicationDAO" class="de.nordakademie.dao.KindOfPublicationDAO">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="authorDAO" class="de.nordakademie.dao.AuthorDAO">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+
 	<bean id="lendManager" class="de.nordakademie.model.manager.LendManager">
 		<property name="lendDAO" ref="lendDAO" />
-		<property name="publicationManager" ref="publicationManager"/>
-		<property name="customerManager" ref="customerManager"/>
+		<property name="publicationManager" ref="publicationManager" />
+		<property name="customerManager" ref="customerManager" />
 	</bean>
 
 	<bean id="customerManager" class="de.nordakademie.model.manager.CustomerManager">
@@ -74,6 +88,21 @@
 
 	<bean id="publicationManager" class="de.nordakademie.model.manager.PublicationManager">
 		<property name="publicationDAO" ref="publicationDAO" />
+		<property name="kindOfPublicationDAO" ref="kindOfPublicationDAO" />
+		<property name="authorDAO" ref="authorDAO" />
+		<property name="keywordDAO" ref="keywordDAO" />
+	</bean>
+
+	<bean id="keywordManager" class="de.nordakademie.model.manager.KeywordManager">
+		<property name="keywordDAO" ref="keywordDAO" />
+	</bean>
+
+	<bean id="kindOfPublicationManager" class="de.nordakademie.model.manager.KindOfPublicationManager">
+		<property name="kindOfPublicationDAO" ref="kindOfPublicationDAO" />
+	</bean>
+
+	<bean id="authorManager" class="de.nordakademie.model.manager.AuthorManager">
+		<property name="authorDAO" ref="authorDAO" />
 	</bean>
 
 

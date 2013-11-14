@@ -11,10 +11,13 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
+
+import de.nordakademie.model.KindOfPublication;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
@@ -23,6 +26,7 @@ public class Publication {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
+	protected Date releaseDate;
 	protected String title;
 	@ManyToMany
 	@LazyCollection(LazyCollectionOption.FALSE)
@@ -35,8 +39,19 @@ public class Publication {
 	@JoinColumn(name = "description")
 	protected List<Keyword> keywords;
 	protected int stored = 1;
-	protected String kindOfPublication;
-	protected Date releaseDate;
+	@ManyToOne
+	@LazyCollection(LazyCollectionOption.FALSE)
+	@Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
+	@JoinColumn(name = "kind")
+	protected KindOfPublication kindOfPublication;
+
+	public KindOfPublication getKindOfPublication() {
+		return kindOfPublication;
+	}
+
+	public void setKindOfPublication(KindOfPublication kindOfPublication) {
+		this.kindOfPublication = kindOfPublication;
+	}
 
 	public Date getReleaseDate() {
 		return releaseDate;
@@ -44,14 +59,6 @@ public class Publication {
 
 	public void setReleaseDate(Date releaseDate) {
 		this.releaseDate = releaseDate;
-	}
-
-	public String getKindOfPublication() {
-		return kindOfPublication;
-	}
-
-	public void setKindOfPublication(String kindOfPublication) {
-		this.kindOfPublication = kindOfPublication;
 	}
 
 	public String getTitle() {

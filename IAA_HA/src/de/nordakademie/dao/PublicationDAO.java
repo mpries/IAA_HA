@@ -72,8 +72,6 @@ public class PublicationDAO {
 	public Publication load(int id) {
 		Session session = sessionFactory.getCurrentSession();
 		Publication publication = (Publication) session.get(Publication.class, id);
-		publication.getAuthors().get(0);
-		publication.getKeywords().get(0);
 		return publication;
 	}
 

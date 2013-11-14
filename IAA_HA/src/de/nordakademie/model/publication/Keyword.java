@@ -10,6 +10,14 @@ public class Keyword {
 	@Id
 	protected String description;
 
+	public Keyword(String description) {
+		this.description = description;
+	}
+	
+	public Keyword(){
+		
+	}
+
 	public String getDescription() {
 		return description;
 	}

@@ -1,32 +1,60 @@
 package de.nordakademie.action.publication;
 
-import java.util.Map;
-
-import org.apache.struts2.interceptor.SessionAware;
+import java.util.List;
 
 import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionSupport;
 
 import de.nordakademie.action.interfaces.ICreateAction;
+import de.nordakademie.model.KindOfPublication;
 import de.nordakademie.model.interfaces.IPublicationManager;
 import de.nordakademie.model.publication.Author;
 import de.nordakademie.model.publication.Keyword;
 import de.nordakademie.model.publication.PublishedPublication;
-import de.nordakademie.model.publication.Publisher;
 
 public class PublicationCreateAction extends ActionSupport implements
-		ICreateAction, Action, SessionAware {
+		ICreateAction, Action {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 5738244878962689934L;
-	private PublishedPublication publication;
-	private Keyword keyword;
-	private Author author;
-	private Publisher publisher;
+	private List<Author> authors;
+	private List<KindOfPublication> kindOfPublications;
+	private List<Keyword> keywords;
 	private IPublicationManager publicationManager;
-	private Map<String, Object> session;
+	private PublishedPublication publication;
+	private List<String> kind;
+	private List<String> name;
+	private List<String> description;
+
+	public String supply() {
+		setAuthors(publicationManager.loadAllAuthors());
+		setKindOfPublications(publicationManager.loadAllKinds());
+		setKeywords(publicationManager.loadAllKeywords());
+		return "supply";
+	}
+
+	public String save() {
+		publicationManager.create(publication, name, kind.get(0).toString(), description);
+		return "save";
+	}
+
+	public List<Author> getAuthors() {
+		return authors;
+	}
+
+	public void setAuthors(List<Author> authors) {
+		this.authors = authors;
+	}
+
+	public List<Keyword> getKeywords() {
+		return keywords;
+	}
+
+	public void setKeywords(List<Keyword> keywords) {
+		this.keywords = keywords;
+	}
 
 	public IPublicationManager getPublicationManager() {
 		return publicationManager;
@@ -36,32 +64,12 @@ public class PublicationCreateAction extends ActionSupport implements
 		this.publicationManager = publicationManager;
 	}
 
-	@Override
-	public String execute() throws Exception {
-		session.put("publication", publication);
-		return SUCCESS;
+	public List<KindOfPublication> getKindOfPublications() {
+		return kindOfPublications;
 	}
-	
-	public String addKeyword(){
-		publication = (PublishedPublication) session.get("publication");
-		publication.addKeyword(keyword);
-		return "addKeyword";
-	}
-	
-	public String saveKeyword(){
-		return "saveKeyword";
-	}
-	
-	public String saveAuthor(){
-		publication = (PublishedPublication) session.get("publication");
-		publicationManager.create(publication);
-		return "saveAuthor";
-	}
-	
-	public String addAuthor(){
-		publication = (PublishedPublication) session.get("publication");
-		publication.addAuthor(author);
-		return "addAuthor";
+
+	public void setKindOfPublications(List<KindOfPublication> kindOfPublications) {
+		this.kindOfPublications = kindOfPublications;
 	}
 
 	public PublishedPublication getPublication() {
@@ -72,33 +80,28 @@ public class PublicationCreateAction extends ActionSupport implements
 		this.publication = publication;
 	}
 
-	@Override
-	public void setSession(Map<String, Object> session) {
-		this.session = session;
-		
-	}
-	public Keyword getKeyword() {
-		return keyword;
+
+	public List<String> getName() {
+		return name;
 	}
 
-	public void setKeyword(Keyword keyword) {
-		this.keyword = keyword;
+	public void setName(List<String> name) {
+		this.name = name;
 	}
 
-	public Author getAuthor() {
-		return author;
+	public List<String> getDescription() {
+		return description;
 	}
 
-	public void setAuthor(Author author) {
-		this.author = author;
+	public void setDescription(List<String> description) {
+		this.description = description;
 	}
 
-	public Publisher getPublisher() {
-		return publisher;
+	public List<String> getKind() {
+		return kind;
 	}
 
-	public void setPublisher(Publisher publisher) {
-		this.publisher = publisher;
+	public void setKind(List<String> kind) {
+		this.kind = kind;
 	}
-
 }

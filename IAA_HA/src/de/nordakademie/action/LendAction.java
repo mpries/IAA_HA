@@ -8,11 +8,10 @@ import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionSupport;
 
 import de.nordakademie.model.Customer;
-import de.nordakademie.model.Lending;
 import de.nordakademie.model.interfaces.ILendManager;
 import de.nordakademie.model.publication.Publication;
 
-public class LendAction extends ActionSupport implements Action{
+public class LendAction extends ActionSupport implements Action {
 
 	/**
 	 * 
@@ -24,41 +23,36 @@ public class LendAction extends ActionSupport implements Action{
 	private Date currentDate;
 	private Date returnDate;
 	private int customerId;
-	private int publicationId;
-	private Lending lend;
-	
-	
-	public String supply(){
+	private int id;
+
+	public String supply() {
 		createLoanDate();
 		publications = lendManager.loadPublications();
 		customers = lendManager.loadCustomer();
 		return "supply";
 	}
-	
-	public String create(){
-		lend.setLoanDate(currentDate);
-		lend.setReturnDate(returnDate);
-		System.out.println("CREATE------->" + currentDate);		
-		for (Customer c : customers) {							//Hier fliegt null pointer!
-			System.out.println(c.getFirstName());
-		}
-//		lendManager.create(customerId, publicationId, currentDate, returnDate);
+
+	public String create() {
+		System.out.println("cId: " + id);
+		System.out.println("cId: " + customerId);
+		System.out.println("CurrentDate: " + currentDate);
+		System.out.println("ReturnDate: " + returnDate);
+		lendManager.create(customerId, id, currentDate, returnDate);
 		return SUCCESS;
 	}
-	
-	
+
 	private void createLoanDate() {
 		this.setCurrentDate(new Date());
 		Calendar c = Calendar.getInstance();
 		c.setTime(currentDate);
-		c.add(Calendar.DATE, 7);
+		c.add(Calendar.DATE, 14);
 		this.setReturnDate(c.getTime());
 	}
-	
 
 	public ILendManager getLendManager() {
 		return lendManager;
 	}
+
 	public void setLendManager(ILendManager lendManager) {
 		this.lendManager = lendManager;
 	}
@@ -79,24 +73,28 @@ public class LendAction extends ActionSupport implements Action{
 		this.customers = customers;
 	}
 
-
 	public Date getCurrentDate() {
 		return currentDate;
 	}
-
 
 	public void setCurrentDate(Date currentDate) {
 		this.currentDate = currentDate;
 	}
 
-
 	public Date getReturnDate() {
 		return returnDate;
 	}
 
-
 	public void setReturnDate(Date returnDate) {
 		this.returnDate = returnDate;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public int getCustomerId() {
@@ -105,22 +103,6 @@ public class LendAction extends ActionSupport implements Action{
 
 	public void setCustomerId(int customerId) {
 		this.customerId = customerId;
-	}
-
-	public int getPublicationId() {
-		return publicationId;
-	}
-
-	public void setPublicationId(int publicationId) {
-		this.publicationId = publicationId;
-	}
-
-	public Lending getLend() {
-		return lend;
-	}
-
-	public void setLend(Lending lend) {
-		this.lend = lend;
 	}
 
 }

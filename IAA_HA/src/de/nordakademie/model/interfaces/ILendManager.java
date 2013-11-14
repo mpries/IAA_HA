@@ -12,7 +12,8 @@ public interface ILendManager {
 
 	public void delete();
 
-	public Object create(int customerId, int publicationId, Date currentDate, Date returnDate);
+	public void create(int customerId, int publicationId, Date currentDate,
+			Date returnDate);
 
 	public Object edit();
 

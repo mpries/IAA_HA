@@ -96,15 +96,62 @@
 
 
 		<!-- LENDING -->
-		
 
-		<action name="lendAction*"
-			class="de.nordakademie.action.LendAction"
+
+		<action name="lendAction*" class="de.nordakademie.action.LendAction"
 			method="{1}">
 			<result name="supply">/lending/createBookOnLoan.jsp</result>
 			<result name="create">/homepage.jsp</result>
+			<result name="success">/homepage.jsp</result>
+			<result name="input">/index.jsp</result>
 		</action>
 
+
+		<!-- Keyword Action -->
+
+		<action name="keyword_*" class="de.nordakademie.action.core.KeywordAction"
+			method="{1}">
+			<result name="save">/coreDataAdministration.jsp</result>
+			<result name="delete">/coreDataAdministration.jsp</result>
+			<result name="search">/coreDataAdministration.jsp</result>
+			<result name="input">/index.jsp</result>
+			<result name="addKeyword">/coreDataAdministration.jsp</result>
+		</action>
+
+		<!-- Author Action -->
+
+		<action name="author_*" class="de.nordakademie.action.core.AuthorAction"
+			method="{1}">
+			<result name="save">/coreDataAdministration.jsp</result>
+			<result name="delete">/coreDataAdministration.jsp</result>
+			<result name="search">/coreDataAdministration.jsp</result>
+			<result name="input">/index.jsp</result>
+			<result name="addAuthor">/coreDataAdministration.jsp</result>
+		</action>
+
+		<!-- KindOfPublication Action -->
+
+		<action name="kindOfPublication_*"
+			class="de.nordakademie.action.core.KindOfPublicationAction" method="{1}">
+			<result name="save">/coreDataAdministration.jsp</result>
+			<result name="delete">/coreDataAdministration.jsp</result>
+			<result name="search">/coreDataAdministration.jsp</result>
+			<result name="input">/index.jsp</result>
+			<result name="addKind">/coreDataAdministration.jsp</result>
+		</action>
+
+		<!-- Publication -->
+
+		<action name="createPublishedPublication_*"
+			class="de.nordakademie.action.publication.PublicationCreateAction"
+			method="{1}">
+			<interceptor-ref name="params" />
+			<interceptor-ref name="prepare" />
+			<interceptor-ref name="basicStack" />
+			<result name="input">/createPublication.jsp</result>
+			<result name="supply">/createPublication.jsp</result>
+			<result name="save">/homepage.jsp</result>
+		</action>
 
 	</package>
 

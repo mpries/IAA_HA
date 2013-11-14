@@ -11,12 +11,12 @@
 <body>
 	<s:head />
 	<s:form action="editCustomerAction">
-		<s:hidden name="customer.id" />
+		<s:hidden name="customer.customerId" />
 		<s:textfield name="customer.firstName" label="First Name" />
 		<s:textfield label="Last Name" name="customer.lastName" />
 		<s:submit value="Save" />
 		<s:submit value="Delete" action="deleteCustomerAction" />
-		<s:form action="addAuthor.jsp">
+		<s:form action="homepage.jsp">
 			<s:submit value="Back" />
 		</s:form>
 	</s:form>

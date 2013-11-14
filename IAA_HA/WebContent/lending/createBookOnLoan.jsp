@@ -16,14 +16,14 @@
 		<s:textfield label="Rueckgabedatum" name="returnDate" readonly="true" />
 
 
-		<s:select label="Customer" headerKey="-1"
-			headerValue="Select Customer" list="customers" name="selectedCustomer"
-			listValue="firstName+'-'+lastName+'-'+id" />
+		<s:select label="Customer" 
+			headerValue="Select Customer" list="customers" name="customerId" listKey="customerId"
+			listValue="firstName+'-'+lastName+'-'+customerId" />
 
 
-		<s:select label="Publications" headerKey="-1"
-			list="publications" name="selectedPublication"
-			listValue="title+'-'+kindOfPublication+'-'+id" />
+		<s:select label="Publications" 
+			list="publications" name="id" listKey="id"
+			listValue="title+'-'+kindOfPublication.kind+'-'+id" />
 
 
 		<s:submit value="Create" />

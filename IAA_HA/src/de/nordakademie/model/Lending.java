@@ -3,6 +3,7 @@ package de.nordakademie.model;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -10,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+
+import org.hibernate.annotations.Cascade;
 
 import de.nordakademie.model.publication.Publication;
 
@@ -22,7 +25,7 @@ public class Lending {
 	protected Customer customer;
 	protected Date loanDate;
 	protected Date returnDate;
-	@OneToOne
+	@OneToOne(cascade=CascadeType.ALL)
 	protected Warning warning;
 	@Id @GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;

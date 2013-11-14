@@ -5,6 +5,7 @@ import java.util.List;
 
 import de.nordakademie.dao.LendDAO;
 import de.nordakademie.model.Customer;
+import de.nordakademie.model.Lending;
 import de.nordakademie.model.interfaces.ICustomerManager;
 import de.nordakademie.model.interfaces.ILendManager;
 import de.nordakademie.model.interfaces.IPublicationManager;
@@ -15,6 +16,7 @@ public class LendManager implements ILendManager {
 	private LendDAO lendDAO;
 	private IPublicationManager publicationManager;
 	private ICustomerManager customerManager;
+	private Lending lend;
 
 
 	
@@ -71,12 +73,14 @@ public class LendManager implements ILendManager {
 	}
 
 	@Override
-	public Object create(int customerId, int publicationId, Date currentDate,
+	public void create(int customerId, int publicationId, Date currentDate,
 			Date returnDate) {
-		Publication publication = publicationManager.view(publicationId);
-		Customer customer = customerManager.view(customerId);
-		lendDAO.create(customer, publication, currentDate, returnDate);
-		return null;
+		lend = new Lending();
+		lend.setLoanDate(currentDate);
+		lend.setReturnDate(returnDate);
+		lend.setCustomer(customerManager.view(customerId));
+		lend.setPublication(publicationManager.view(publicationId));
+		lendDAO.create(lend);
 	}
 	
 	

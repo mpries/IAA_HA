@@ -11,7 +11,7 @@
 	<s:form action="publicationEditActionsave">
 		<s:hidden name="publication.id"/>
 		<s:textfield name="publication.title" label="Title" />
-		<s:textfield name="publication.kindOfPublication"
+		<s:textfield name="publication.kindOfPublication.kind"
 			label="Kind of Publication" />
 		<s:textfield name="publication.releaseDate" label="Release Date" />
 

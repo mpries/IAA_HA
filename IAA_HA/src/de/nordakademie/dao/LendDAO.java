@@ -1,12 +1,9 @@
 package de.nordakademie.dao;
 
-import java.util.Date;
-
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
-import de.nordakademie.model.Customer;
-import de.nordakademie.model.publication.Publication;
+import de.nordakademie.model.Lending;
 
 
 public class LendDAO {
@@ -21,9 +18,9 @@ public class LendDAO {
 		this.sessionFactory = sessionFactory;
 	}
 
-	public void create(Customer customer, Publication publication,
-			Date currentDate, Date returnDate) {
+	public void create(Lending lend) {
 		Session session = sessionFactory.getCurrentSession();
+		session.saveOrUpdate(lend);
 		
 		
 	}
