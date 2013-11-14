@@ -27,9 +27,6 @@
 			<th><s:form action="lendActionsupply">
 					<s:submit value="Create Book on loan" />
 				</s:form></th>
-			<th><s:form action="bookOnLoanOverview.jsp">
-					<s:submit value="Book on loan Overview" />
-				</s:form></th>
 			<th><s:form action="viewLendindAction_supply">
 					<s:submit value="Open Lendings" />
 				</s:form></th>
