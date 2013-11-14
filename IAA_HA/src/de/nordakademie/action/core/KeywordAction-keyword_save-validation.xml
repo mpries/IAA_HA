@@ -6,20 +6,14 @@
 
   "http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
 <validators>
-	<field name="customer.firstName">
+	<field name="resultKeyword.description">
 		<field-validator type="requiredstring">
-			<message>First Name is required</message>
+			<message>No Keyword selected</message>
 		</field-validator>
 	</field>
-	<field name="customer.lastName">
+	<field name="editKeyword">
 		<field-validator type="requiredstring">
-			<message>Last Name is required</message>
-		</field-validator>
-	</field>
-	<field name="customer.customerId">
-		<field-validator type="int">
-			<param name="min">1</param>
-			<message>ID > 0 is required </message>
+			<message>Edit is required</message>
 		</field-validator>
 	</field>
 </validators>
