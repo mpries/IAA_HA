@@ -2,6 +2,7 @@ package de.nordakademie.dao;
 
 import java.util.List;
 
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
@@ -38,5 +39,28 @@ public class LendDAO {
 	public List<Lending> loadAll() {
 		Session session = sessionFactory.getCurrentSession();
 		return (List<Lending>)session.createQuery("from Lending").list();
+	}
+
+	public void registerReturn(int id) {
+		Session session = sessionFactory.getCurrentSession();
+		
+	}
+
+	public void extendLending(int id) {
+		Session session = sessionFactory.getCurrentSession();
+		
+	}
+
+	public Lending loadById(int id) {
+		Session session = sessionFactory.getCurrentSession();
+		return (Lending) session.get(Lending.class, id);
+	}
+
+	public void delete(int id) {
+		Session session = sessionFactory.getCurrentSession();
+		Query query = session.createQuery("delete from Lending where id = (:id)");
+		query.setInteger("id", id);
+		query.executeUpdate();		
+		
 	}
 }
