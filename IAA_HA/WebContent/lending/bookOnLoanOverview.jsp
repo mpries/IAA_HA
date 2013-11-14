@@ -9,36 +9,41 @@
 </head>
 <h1>Book on loan Overview</h1>
 <body>
-	<table border="1">
+	<table border="2ppx">
 		<tr>
-			<th>Author</th>
-			<th>Title</th>
-			<th>Name</th>
-			<th>Status</th>
-			<th>Date</th>
-			<th>Select</th>
-		</tr>
-		<tr>
-			<th>Schroeder</th>
-			<th>IT Orga</th>
-			<th>Klaus Kleber</th>
-			<th>2</th>
-			<th>03.05.2013</th>
-			<th>#</th>
-		</tr>
-		<tr>
-			<th>Zimmermann</th>
-			<th>Mathe ist ein Arsch</th>
-			<th>Kai Karsten</th>
-			<th>1</th>
-			<th>15.07.2013</th>
-			<th>#</th>
+			<th>Lending Id</th>
+			<th>Loan Date</th>
+			<th>Return Date</th>
+			<th>Customer Id</th>
+			<th>Customer Name</th>
+			<th>Publication Id</th>
+			<th>Publication Title</th>
+
 		</tr>
 
-	
-	<s:form action="homepage.jsp">
-					<s:submit value="Back" />
-				</s:form>
-		</table>
+		<s:iterator value="lendings">
+			<tr>
+				<s:hidden name="warning.id" />
+				<td><s:property value="id" /></td>
+				<td><s:property value="loanDate" /></td>
+				<td><s:property value="returnDate" /></td>
+				<td><s:property value="customer.customerId" /></td>
+				<td><s:property value="customer.firstName" /> <s:property
+						value="customer.lastName" /></td>
+				<td><s:property value="publication.id" /></td>
+				<td><s:property value="publication.title" /></td>
+
+				<td><s:url id="extendURL" action="viewLendingAction_extend">
+						<s:param name="id" value="id" />
+					</s:url> <s:a href="%{extendURL}">Extend</s:a></td>
+
+				<td><s:url id="returnURL" action="viewLendingAction_returnPublication">
+						<s:param name="id" value="id" />
+					</s:url> <s:a href="%{returnURL}">Return</s:a></td>
+			</tr>
+		</s:iterator>
+
+
+	</table>
 </body>
 </html>

@@ -10,7 +10,6 @@
 </head>
 <h1>Nordakademie Bib-System</h1>
 <body>
-
 	<table>
 		<tr>
 			<th><s:form action="kindOfPublication.jsp">
@@ -31,33 +30,49 @@
 			<th><s:form action="bookOnLoanOverview.jsp">
 					<s:submit value="Book on loan Overview" />
 				</s:form></th>
+			<th><s:form action="viewLendindAction_supply">
+					<s:submit value="Open Lendings" />
+				</s:form></th>
+
 		</tr>
 	</table>
 	<h4 style="color: red">Books on loan remainder</h4>
+	<s:form action="showWarning">
+		<s:submit value="Show Warning" />
+		<table border="2ppx">
+			<tr>
+				<th>Lending Id</th>
+				<th>Warning Id</th>
+				<th>Loan Date</th>
+				<th>Return Date</th>
+				<th>Customer Id</th>
+				<th>Customer Name</th>
+				<th>Publication Id</th>
+				<th>Publication Title</th>
 
-	<table style="border: 1px solid #FF0000;">
-		<tr>
-			<th>Author</th>
-			<th>Title</th>
-			<th>Name</th>
-			<th>Status</th>
-			<th>Date</th>
-		</tr>
-		<tr>
-			<th>Schroeder</th>
-			<th>IT Orga</th>
-			<th>Klaus Kleber</th>
-			<th>2</th>
-			<th>03.05.2013</th>
-		</tr>
-		<tr>
-			<th>Zimmermann</th>
-			<th>Mathe ist ein Arsch</th>
-			<th>Kai Karsten</th>
-			<th>1</th>
-			<th>15.07.2013</th>
-		</tr>
-	</table>
+			</tr>
+
+			<s:iterator value="lendingsWithWarning">
+				<tr>
+					<td><s:property value="id" /></td>
+					<td><s:property value="warning.id" /></td>
+					<td><s:property value="loanDate" /></td>
+					<td><s:property value="returnDate" /></td>
+					<td><s:property value="customer.customerId" /></td>
+					<td><s:property value="customer.firstName" /> <s:property
+							value="customer.lastName" /></td>
+					<td><s:property value="publication.id" /></td>
+					<td><s:property value="publication.title" /></td>
+				</tr>
+			</s:iterator>
+
+		</table>
+
+
+
+	</s:form>
+
+
 
 </body>
 </html>

@@ -82,6 +82,16 @@ public class LendManager implements ILendManager {
 		lend.setPublication(publicationManager.view(publicationId));
 		lendDAO.create(lend);
 	}
+
+	@Override
+	public List<Lending> loadLendingsWithWarning() {
+		return lendDAO.loadLendingsWithWarning();
+	}
+
+	@Override
+	public List<Lending> loadAll() {
+		return lendDAO.loadAll();
+	}
 	
 	
 

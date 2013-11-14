@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 import de.nordakademie.model.Customer;
+import de.nordakademie.model.Lending;
 import de.nordakademie.model.publication.Publication;
 
 public interface ILendManager {
@@ -20,5 +21,9 @@ public interface ILendManager {
 	public List<Publication> loadPublications();
 
 	public List<Customer> loadCustomer();
+
+	public List<Lending> loadLendingsWithWarning();
+
+	public List<Lending> loadAll();
 
 }
