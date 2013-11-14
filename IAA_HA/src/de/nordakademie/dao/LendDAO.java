@@ -1,9 +1,12 @@
 package de.nordakademie.dao;
 
+import java.util.List;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
 import de.nordakademie.model.Lending;
+import de.nordakademie.model.Warning;
 
 
 public class LendDAO {
@@ -23,5 +26,17 @@ public class LendDAO {
 		session.saveOrUpdate(lend);
 		
 		
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<Lending> loadLendingsWithWarning() {
+		Session session = sessionFactory.getCurrentSession();
+		return (List<Lending>) session.createQuery("select distinct l from Lending l, Warning w where warning_id = w.id and w.amount > 0").list();
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<Lending> loadAll() {
+		Session session = sessionFactory.getCurrentSession();
+		return (List<Lending>)session.createQuery("from Lending").list();
 	}
 }

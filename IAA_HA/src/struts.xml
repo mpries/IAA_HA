@@ -29,9 +29,8 @@
 			<result name="success">/search/searchPublicationResult.jsp</result>
 			<result name="input">/index.jsp</result>
 		</action>
-		
-		<action name="sortListUpAction"
-			class="de.nordakademie.action.sort.SortListUpAction">
+
+		<action name="sortListUpAction" class="de.nordakademie.action.sort.SortListUpAction">
 			<result name="success">/search/searchPublicationResult.jsp</result>
 			<result name="input">/index.jsp</result>
 		</action>
@@ -112,6 +111,14 @@
 			<result name="input">/index.jsp</result>
 		</action>
 
+		<action name="viewLendindAction_*" class="de.nordakademie.action.ViewLendingAction"
+			method="{1}">
+			<result name="supply">/lending/bookOnLoanOverview.jsp</result>
+			<result name="extend">/lending/bookOnLoanOverview.jsp</result>
+			<result name="return">/lending/bookOnLoanOverview.jsp</result>
+			<result name="input"></result>
+		</action>
+
 
 		<!-- Keyword Action -->
 
@@ -158,6 +165,14 @@
 			<result name="supply">/createPublication.jsp</result>
 			<result name="save">/homepage.jsp</result>
 		</action>
+
+		<!-- Welcome Warning Action -->
+
+		<action name="showWarning" class="de.nordakademie.action.ShowWarningAction">
+			<result name="success">homepage.jsp</result>
+		</action>
+
+
 
 	</package>
 

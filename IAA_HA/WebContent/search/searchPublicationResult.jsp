@@ -10,16 +10,17 @@
 <h1>Search Publication Result</h1>
 <body>
 
-<s:form action="sortListUpAction">
-<s:submit value="sort">
-<s:radio name="sort" label="sort" list="{'up','down'}" />
-<s:radio name="sortBy" label="sortBy" list="{'id','title','stored','kindOfPublication','releaseDate','author','keyword'}" />
-<s:hidden value="#session.publication" />
-<s:iterator value="searchList" status="row">
-<s:hidden name="searchList[%{#row.index}]" />
-</s:iterator>
-</s:submit>
-</s:form>
+	<s:form action="sortListUpAction">
+		<s:submit value="sort">
+			<s:radio name="sort" label="sort" list="{'up','down'}" />
+			<s:radio name="sortBy" label="sortBy"
+				list="{'id','title','stored','kindOfPublication','releaseDate','author','keyword'}" />
+			<s:hidden value="#session.publication" />
+			<s:iterator value="searchList" status="row">
+				<s:hidden name="searchList[%{#row.index}]" />
+			</s:iterator>
+		</s:submit>
+	</s:form>
 
 	<table border="2ppx">
 		<tr>
@@ -35,7 +36,7 @@
 		<s:iterator value="publication">
 			<tr>
 				<td><s:property value="id" /></td>
-				<td><s:property value="title"/></td>
+				<td><s:property value="title" /></td>
 				<td><s:property value="stored" /></td>
 				<td><s:property value="kindOfPublication.kind" /></td>
 				<td><s:property value="releaseDate" /></td>

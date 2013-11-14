@@ -10,6 +10,7 @@ public class Warning {
 	
 	@Id @GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
+	private int amount = 0;
 
 	public int getId() {
 		return id;
@@ -17,6 +18,14 @@ public class Warning {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	public int getAmount() {
+		return amount;
+	}
+
+	public void setAmount(int amount) {
+		this.amount = amount;
 	}
 
 }
