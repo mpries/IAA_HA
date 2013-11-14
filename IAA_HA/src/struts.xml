@@ -30,9 +30,23 @@
 			<result name="input">/index.jsp</result>
 		</action>
 
-		<action name="sortListUpAction" class="de.nordakademie.action.sort.SortListUpAction">
+		<!-- SORT -->
+
+		<action name="sortPublicationAction"
+			class="de.nordakademie.action.sort.SortPublicationAction">
 			<result name="success">/search/searchPublicationResult.jsp</result>
 			<result name="input">/index.jsp</result>
+		</action>
+
+		<action name="sortLendingAction" class="de.nordakademie.action.sort.SortLendingAction">
+			<result name="success">/lending/bookOnLoanOverview.jsp</result>
+			<result name="input">/lending/bookOnLoanOverview.jsp</result>
+		</action>
+
+		<action name="sortLendingRemainderAction"
+			class="de.nordakademie.action.sort.SortLendingRemainderAction">
+			<result name="success">/homepage.jsp</result>
+			<result name="input">/homepage.jsp</result>
 		</action>
 
 		<!-- CUSTOMER -->

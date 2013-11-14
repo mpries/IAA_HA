@@ -9,6 +9,13 @@
 </head>
 <h1>Book on loan Overview</h1>
 <body>
+	<s:form action="sortLendingAction">
+		<s:submit value="sort">
+			<s:radio name="sort" label="sort" list="{'up','down'}" />
+			<s:radio name="sortBy" label="sortBy"
+				list="{'Id','loanDate','returnDate','Customer Id','Customer Name','Publication Id','Publication Title'}" />
+		</s:submit>
+	</s:form>
 	<table border="2ppx">
 		<tr>
 			<th>Lending Id</th>
@@ -37,7 +44,8 @@
 						<s:param name="id" value="id" />
 					</s:url> <s:a href="%{extendURL}">Extend</s:a></td>
 
-				<td><s:url id="returnURL" action="viewLendingAction_returnPublication">
+				<td><s:url id="returnURL"
+						action="viewLendingAction_returnPublication">
 						<s:param name="id" value="id" />
 					</s:url> <s:a href="%{returnURL}">Return</s:a></td>
 			</tr>
