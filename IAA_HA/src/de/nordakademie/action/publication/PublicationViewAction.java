@@ -1,5 +1,6 @@
 package de.nordakademie.action.publication;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.opensymphony.xwork2.Action;
@@ -22,9 +23,21 @@ public class PublicationViewAction extends ActionSupport implements
 	private String author;
 	private String keyword;
 	private List<Publication> publications;
+	private List<String> searchList = new ArrayList<String>();
+
+	public List<String> getSearchList() {
+		return searchList;
+	}
+
+	public void setSearchList(List<String> searchList) {
+		this.searchList = searchList;
+	}
 
 	public String execute() {
 		System.out.println("VIEW");
+		searchList.add(title);
+		searchList.add(author);
+		searchList.add(keyword);
 		publications = publicationManager.view(title, author, keyword);
 		System.out.println(publications.size() + "<--------------------");
 		for (Publication p : publications) {

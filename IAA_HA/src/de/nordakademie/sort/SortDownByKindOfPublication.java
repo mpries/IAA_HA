@@ -8,7 +8,7 @@ public class SortDownByKindOfPublication implements Comparator<Publication> {
 
 	@Override
 	public int compare(Publication publication1, Publication publication2) {
-		return publication2.getKindOfPublication().compareTo(
-				publication1.getKindOfPublication());
+		return publication2.getKindOfPublication().getKind().compareTo(
+				publication1.getKindOfPublication().getKind());
 	}
 }

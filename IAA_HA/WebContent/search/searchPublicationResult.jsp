@@ -10,6 +10,17 @@
 <h1>Search Publication Result</h1>
 <body>
 
+<s:form action="sortListUpAction">
+<s:submit value="sort">
+<s:radio name="sort" label="sort" list="{'up','down'}" />
+<s:radio name="sortBy" label="sortBy" list="{'id','title','stored','kindOfPublication','releaseDate','author','keyword'}" />
+<s:hidden value="#session.publication" />
+<s:iterator value="searchList" status="row">
+<s:hidden name="searchList[%{#row.index}]" />
+</s:iterator>
+</s:submit>
+</s:form>
+
 	<table border="2ppx">
 		<tr>
 			<th>Id</th>

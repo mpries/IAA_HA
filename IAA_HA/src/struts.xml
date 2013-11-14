@@ -29,6 +29,12 @@
 			<result name="success">/search/searchPublicationResult.jsp</result>
 			<result name="input">/index.jsp</result>
 		</action>
+		
+		<action name="sortListUpAction"
+			class="de.nordakademie.action.sort.SortListUpAction">
+			<result name="success">/search/searchPublicationResult.jsp</result>
+			<result name="input">/index.jsp</result>
+		</action>
 
 		<!-- CUSTOMER -->
 		<action name="customerCreateAction"
