@@ -10,7 +10,7 @@
 <h1>Search Publication Result</h1>
 <body>
 
-	<s:form action="sortListUpAction">
+	<s:form action="sortPublicationAction">
 		<s:submit value="sort">
 			<s:radio name="sort" label="sort" list="{'up','down'}" />
 			<s:radio name="sortBy" label="sortBy"

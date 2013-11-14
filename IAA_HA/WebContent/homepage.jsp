@@ -10,6 +10,7 @@
 </head>
 <h1>Nordakademie Bib-System</h1>
 <body>
+
 	<table>
 		<tr>
 			<th><s:form action="kindOfPublication.jsp">
@@ -27,12 +28,19 @@
 			<th><s:form action="lendActionsupply">
 					<s:submit value="Create Book on loan" />
 				</s:form></th>
-			<th><s:form action="viewLendindAction_supply">
+			<th><s:form action="viewLendingAction_supply">
 					<s:submit value="Open Lendings" />
 				</s:form></th>
 
 		</tr>
 	</table>
+	<s:form action="sortLendingRemainderAction">
+		<s:submit value="sort">
+			<s:radio name="sort" label="sort" list="{'up','down'}" />
+			<s:radio name="sortBy" label="sortBy"
+				list="{'Id','Warning Id','loanDate','returnDate','Customer Id','Customer Name','Publication Id','Publication Title'}" />
+		</s:submit>
+	</s:form>
 	<h4 style="color: red">Books on loan remainder</h4>
 	<s:form action="showWarning">
 		<s:submit value="Show Warning" />

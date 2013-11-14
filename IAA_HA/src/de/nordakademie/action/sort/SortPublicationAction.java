@@ -7,22 +7,22 @@ import com.opensymphony.xwork2.ActionSupport;
 
 import de.nordakademie.model.interfaces.IPublicationManager;
 import de.nordakademie.model.publication.Publication;
-import de.nordakademie.sort.SortDownByAuthor;
-import de.nordakademie.sort.SortDownByDate;
-import de.nordakademie.sort.SortDownById;
-import de.nordakademie.sort.SortDownByKeyword;
-import de.nordakademie.sort.SortDownByKindOfPublication;
-import de.nordakademie.sort.SortDownByStored;
-import de.nordakademie.sort.SortDownByTitle;
-import de.nordakademie.sort.SortUpByAuthor;
-import de.nordakademie.sort.SortUpByDate;
-import de.nordakademie.sort.SortUpById;
-import de.nordakademie.sort.SortUpByKeyword;
-import de.nordakademie.sort.SortUpByKindOfPublication;
-import de.nordakademie.sort.SortUpByStored;
-import de.nordakademie.sort.SortUpByTitle;
+import de.nordakademie.sort.publication.down.SortPublicationDownByAuthor;
+import de.nordakademie.sort.publication.down.SortPublicationDownByDate;
+import de.nordakademie.sort.publication.down.SortPublicationDownById;
+import de.nordakademie.sort.publication.down.SortPublicationDownByKeyword;
+import de.nordakademie.sort.publication.down.SortPublicationDownByKindOfPublication;
+import de.nordakademie.sort.publication.down.SortPublicationDownByStored;
+import de.nordakademie.sort.publication.down.SortPublicationDownByTitle;
+import de.nordakademie.sort.publication.up.SortPublicationUpByAuthor;
+import de.nordakademie.sort.publication.up.SortPublicationUpByDate;
+import de.nordakademie.sort.publication.up.SortPublicationUpById;
+import de.nordakademie.sort.publication.up.SortPublicationUpByKeyword;
+import de.nordakademie.sort.publication.up.SortPublicationUpByKindOfPublication;
+import de.nordakademie.sort.publication.up.SortPublicationUpByStored;
+import de.nordakademie.sort.publication.up.SortPublicationUpByTitle;
 
-public class SortListUpAction extends ActionSupport {
+public class SortPublicationAction extends ActionSupport {
 
 	/**
 	 * 
@@ -32,8 +32,8 @@ public class SortListUpAction extends ActionSupport {
 	private String title;
 	private String author;
 	private String keyword;
-	private String sort;
-	private String sortBy;
+	private String sort = new String();
+	private String sortBy = new String();
 
 	public String getSort() {
 		return sort;
@@ -76,25 +76,27 @@ public class SortListUpAction extends ActionSupport {
 		case "up":
 			switch (sortBy) {
 			case "id":
-				Collections.sort(publications, new SortUpById());
+				Collections.sort(publications, new SortPublicationUpById());
 				break;
 			case "title":
-				Collections.sort(publications, new SortUpByTitle());
+				Collections.sort(publications, new SortPublicationUpByTitle());
 				break;
 			case "stored":
-				Collections.sort(publications, new SortUpByStored());
+				Collections.sort(publications, new SortPublicationUpByStored());
 				break;
 			case "kindOfPublication":
-				Collections.sort(publications, new SortUpByKindOfPublication());
+				Collections.sort(publications,
+						new SortPublicationUpByKindOfPublication());
 				break;
 			case "releaseDate":
-				Collections.sort(publications, new SortUpByDate());
+				Collections.sort(publications, new SortPublicationUpByDate());
 				break;
 			case "author":
-				Collections.sort(publications, new SortUpByAuthor());
+				Collections.sort(publications, new SortPublicationUpByAuthor());
 				break;
 			case "keyword":
-				Collections.sort(publications, new SortUpByKeyword());
+				Collections
+						.sort(publications, new SortPublicationUpByKeyword());
 				break;
 
 			default:
@@ -104,26 +106,30 @@ public class SortListUpAction extends ActionSupport {
 		case "down":
 			switch (sortBy) {
 			case "id":
-				Collections.sort(publications, new SortDownById());
+				Collections.sort(publications, new SortPublicationDownById());
 				break;
 			case "title":
-				Collections.sort(publications, new SortDownByTitle());
+				Collections
+						.sort(publications, new SortPublicationDownByTitle());
 				break;
 			case "stored":
-				Collections.sort(publications, new SortDownByStored());
+				Collections.sort(publications,
+						new SortPublicationDownByStored());
 				break;
 			case "kindOfPublication":
 				Collections.sort(publications,
-						new SortDownByKindOfPublication());
+						new SortPublicationDownByKindOfPublication());
 				break;
 			case "releaseDate":
-				Collections.sort(publications, new SortDownByDate());
+				Collections.sort(publications, new SortPublicationDownByDate());
 				break;
 			case "author":
-				Collections.sort(publications, new SortDownByAuthor());
+				Collections.sort(publications,
+						new SortPublicationDownByAuthor());
 				break;
 			case "keyword":
-				Collections.sort(publications, new SortDownByKeyword());
+				Collections.sort(publications,
+						new SortPublicationDownByKeyword());
 				break;
 
 			default:

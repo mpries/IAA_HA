@@ -1,10 +1,10 @@
-package de.nordakademie.sort;
+package de.nordakademie.sort.publication.up;
 
 import java.util.Comparator;
 
 import de.nordakademie.model.publication.Publication;
 
-public class SortUpByKeyword implements Comparator<Publication> {
+public class SortPublicationUpByKeyword implements Comparator<Publication> {
 
 	@Override
 	public int compare(Publication publication1, Publication publication2) {
