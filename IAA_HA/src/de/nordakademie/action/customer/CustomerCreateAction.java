@@ -37,9 +37,14 @@ public class CustomerCreateAction extends ActionSupport implements ICreateAction
 
 	@Override
 	public String execute() throws Exception {
-		// TODO Auto-generated method stub
 		customerManager.create(customer);
 		return SUCCESS;
+	}
+	
+	public void validate(){
+		if(customerManager.isAlreadyAvailable(customer)){
+			addFieldError("customer.customerId", "ID existiert bereits");
+		}
 	}
 
 }

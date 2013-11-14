@@ -11,6 +11,7 @@ import de.nordakademie.model.interfaces.IPublicationManager;
 import de.nordakademie.model.publication.Author;
 import de.nordakademie.model.publication.Keyword;
 import de.nordakademie.model.publication.Publication;
+import de.nordakademie.model.publication.PublishedPublication;
 
 public class PublicationManager implements IPublicationManager {
 	
@@ -109,14 +110,20 @@ public class PublicationManager implements IPublicationManager {
 		List<Author> a = authorDAO.load(authors);
 		List<Keyword> k = keywordDAO.load(description);
 		KindOfPublication kop = kindOfPublicationDAO.load(kindOfPublication);
-		for (Keyword keyword : k) {
-			System.out.println(keyword.getDescription() + "<--------");
-		}
 		publication.setAuthor(a);
 		publication.setKeywords(k);
 		publication.setKindOfPublication(kop);
 		publicationDAO.save(publication);
 		
+	}
+
+	@Override
+	public boolean isISBNAlreadyAvailable(PublishedPublication publication) {
+		if(!publicationDAO.loadByISBN(publication).isEmpty()){
+			System.out.println("*********************TRUE is not empty+++++++++++++++++++++");
+			return true;
+		}
+		return false;
 	}
 
 

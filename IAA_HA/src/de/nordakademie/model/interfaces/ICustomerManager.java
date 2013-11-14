@@ -16,4 +16,7 @@ public interface ICustomerManager {
 
 	public List<Customer> view();
 
+
+	boolean isAlreadyAvailable(Customer customer);
+
 }

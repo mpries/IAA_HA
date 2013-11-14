@@ -35,17 +35,30 @@ public class PublicationCreateAction extends ActionSupport implements
 		return "supply";
 	}
 
-	public String save() {
+	public String execute() {
 		publicationManager.create(publication, name, kind.get(0).toString(), description);
 		return "save";
 	}
-
+	
+	public void validate(){
+		System.out.println("*********VALIDATE***********");
+		addFieldError("publication.ISBN", "ERROR OCCURED");
+	}
+	
 	public List<Author> getAuthors() {
 		return authors;
 	}
 
 	public void setAuthors(List<Author> authors) {
 		this.authors = authors;
+	}
+
+	public List<KindOfPublication> getKindOfPublications() {
+		return kindOfPublications;
+	}
+
+	public void setKindOfPublications(List<KindOfPublication> kindOfPublications) {
+		this.kindOfPublications = kindOfPublications;
 	}
 
 	public List<Keyword> getKeywords() {
@@ -64,14 +77,6 @@ public class PublicationCreateAction extends ActionSupport implements
 		this.publicationManager = publicationManager;
 	}
 
-	public List<KindOfPublication> getKindOfPublications() {
-		return kindOfPublications;
-	}
-
-	public void setKindOfPublications(List<KindOfPublication> kindOfPublications) {
-		this.kindOfPublications = kindOfPublications;
-	}
-
 	public PublishedPublication getPublication() {
 		return publication;
 	}
@@ -80,6 +85,13 @@ public class PublicationCreateAction extends ActionSupport implements
 		this.publication = publication;
 	}
 
+	public List<String> getKind() {
+		return kind;
+	}
+
+	public void setKind(List<String> kind) {
+		this.kind = kind;
+	}
 
 	public List<String> getName() {
 		return name;
@@ -97,11 +109,7 @@ public class PublicationCreateAction extends ActionSupport implements
 		this.description = description;
 	}
 
-	public List<String> getKind() {
-		return kind;
-	}
 
-	public void setKind(List<String> kind) {
-		this.kind = kind;
-	}
+
+
 }

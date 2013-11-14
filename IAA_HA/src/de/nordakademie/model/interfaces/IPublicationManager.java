@@ -6,6 +6,7 @@ import de.nordakademie.model.KindOfPublication;
 import de.nordakademie.model.publication.Author;
 import de.nordakademie.model.publication.Keyword;
 import de.nordakademie.model.publication.Publication;
+import de.nordakademie.model.publication.PublishedPublication;
 
 public interface IPublicationManager {
 
@@ -28,5 +29,7 @@ public interface IPublicationManager {
 	public List<Keyword> loadAllKeywords();
 
 	void create(Publication publication);
+
+	public boolean isISBNAlreadyAvailable(PublishedPublication publication);
 
 }

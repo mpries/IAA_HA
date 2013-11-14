@@ -7,7 +7,7 @@ import de.nordakademie.model.Customer;
 import de.nordakademie.model.interfaces.ICustomerManager;
 
 public class CustomerManager implements ICustomerManager {
-	
+
 	private CustomerDAO customerDAO;
 
 	public CustomerDAO getCustomerDAO() {
@@ -28,12 +28,11 @@ public class CustomerManager implements ICustomerManager {
 	public void delete(Customer customer) {
 		// TODO Auto-generated method stub
 		customerDAO.delete(customer);
-		
+
 	}
 
 	@Override
 	public void create(Customer customer) {
-		// TODO Auto-generated method stub
 		customerDAO.save(customer);
 
 	}
@@ -47,6 +46,14 @@ public class CustomerManager implements ICustomerManager {
 	@Override
 	public List<Customer> view() {
 		return customerDAO.loadAll();
+	}
+
+	@Override
+	public boolean isAlreadyAvailable(Customer customer) {
+		if (customerDAO.load(customer.getCustomerId()) != null) {
+			return true;
+		}
+		return false;
 	}
 
 }

@@ -14,7 +14,6 @@ public class PublishedPublication extends Publication {
 	protected String ISBN;
 	@ManyToOne
 	@Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
-	@JoinColumn(name="name")
 	protected Publisher publisher;
 	
 	public PublishedPublication(){

@@ -8,23 +8,39 @@
 <title>Create Book</title>
 </head>
 <body>
-	<table>
-		<s:form action="aPublicationCreateActionexecute">
-			<tr>
-				<s:textfield label="Title" name="publication.title" />
-			</tr>
-			<tr>
-				<s:textfield label="Release Date" name="publication.releaseDate"/>
-			</tr>
-			<tr>
-				<s:textfield label="Publisher" name="publication.publisher.name" />
-			</tr> 
-			<tr>
-				<th><s:submit value="Create" /></th>
-			</tr> 
-		</s:form>
+	<s:head />
+	<s:form action="createPublishedPublication_save">
+		<table>
 
-	</table>
+			<tr>
+				<td><s:textfield label="Titel" name="publication.title" /> <s:textfield
+						label="Release Date" name="publication.releaseDate" /> <s:textfield
+						label="Publisher" name="publication.publisher" />
+				<td><s:select label="Keywords" list="keywords"
+						name="description" listKey="description" multiple="true"
+						listValue="description" /></td>
+
+
+				<td><s:select label="Authors" list="authors" name="name"
+						listKey="name" multiple="true" listValue="name" /></td>
+
+
+
+			</tr>
+			<tr>
+
+				<td><s:select label="Kind of Publications"
+						list="kindOfPublications" name="kind" listKey="kind"
+						listValue="kind" /></td>
+				<td><s:submit value="Save" /></td>
+
+			</tr>
+
+
+
+		</table>
+	</s:form>
+
 
 	<form action="homepage.jsp">
 		<s:submit value="Back" />

@@ -8,6 +8,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
 import de.nordakademie.model.publication.Publication;
+import de.nordakademie.model.publication.PublishedPublication;
 
 public class PublicationDAO {
 
@@ -86,5 +87,13 @@ public class PublicationDAO {
 	public List<Publication> loadAll() {
 		Session session = sessionFactory.getCurrentSession();
 		return (List<Publication>)session.createQuery("from Publication").list();
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<Publication> loadByISBN(PublishedPublication publication) {
+		Session session = sessionFactory.getCurrentSession();
+		Query query = session.createQuery("from PublishedPublication where isbn = (:isbn)");
+		query.setString("isbn", publication.getISBN());
+		return (List<Publication>)query.list();
 	}
 }

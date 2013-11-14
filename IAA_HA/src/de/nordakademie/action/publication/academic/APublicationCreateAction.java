@@ -1,33 +1,63 @@
 package de.nordakademie.action.publication.academic;
 
-import java.util.Map;
-
-import org.apache.struts2.interceptor.SessionAware;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionSupport;
+import com.opensymphony.xwork2.Preparable;
 
 import de.nordakademie.action.interfaces.ICreateAction;
+import de.nordakademie.model.KindOfPublication;
 import de.nordakademie.model.interfaces.IPublicationManager;
+import de.nordakademie.model.publication.AcademicPublication;
 import de.nordakademie.model.publication.Author;
 import de.nordakademie.model.publication.Keyword;
-import de.nordakademie.model.publication.AcademicPublication;
-import de.nordakademie.model.publication.Publisher;
 
 public class APublicationCreateAction extends ActionSupport implements
-		ICreateAction, Action, SessionAware {
+		ICreateAction, Action, Preparable {
 
 
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 8722542494454836978L;
-	private AcademicPublication publication;
-	private Keyword keyword;
-	private Author author;
-	private Publisher publisher;
+	private static final long serialVersionUID = 2553061368345033580L;
+	private List<Author> authors;
+	private List<KindOfPublication> kindOfPublications;
+	private List<Keyword> keywords;
 	private IPublicationManager publicationManager;
-	private Map<String, Object> session;
+	private AcademicPublication publication;
+	private List<String> kind;
+	private List<String> name;
+	private List<String> description;
+
+	public String supply() {
+		setAuthors(publicationManager.loadAllAuthors());
+		setKindOfPublications(publicationManager.loadAllKinds());
+		setKeywords(publicationManager.loadAllKeywords());
+		return "supply";
+	}
+
+	public String save() {
+		publicationManager.create(publication, name, kind.get(0).toString(), description);
+		return "save";
+	}
+
+	public List<Author> getAuthors() {
+		return authors;
+	}
+
+	public void setAuthors(List<Author> authors) {
+		this.authors = authors;
+	}
+
+	public List<Keyword> getKeywords() {
+		return keywords;
+	}
+
+	public void setKeywords(List<Keyword> keywords) {
+		this.keywords = keywords;
+	}
 
 	public IPublicationManager getPublicationManager() {
 		return publicationManager;
@@ -37,34 +67,39 @@ public class APublicationCreateAction extends ActionSupport implements
 		this.publicationManager = publicationManager;
 	}
 
-	@Override
-	public String execute() throws Exception {
-		session.put("publication", publication);
-		return SUCCESS;
-	}
-	
-	public String addKeyword(){
-		publication = (AcademicPublication) session.get("publication");
-		publication.addKeyword(keyword);
-		return "addKeyword";
-	}
-	
-	public String saveKeyword(){
-		return "saveKeyword";
-	}
-	
-	public String saveAuthor(){
-		publication = (AcademicPublication) session.get("publication");
-		publicationManager.create(publication);
-		return "saveAuthor";
-	}
-	
-	public String addAuthor(){
-		publication = (AcademicPublication) session.get("publication");
-		publication.addAuthor(author);
-		return "addAuthor";
+	public List<KindOfPublication> getKindOfPublications() {
+		return kindOfPublications;
 	}
 
+	public void setKindOfPublications(List<KindOfPublication> kindOfPublications) {
+		this.kindOfPublications = kindOfPublications;
+	}
+
+
+	public List<String> getName() {
+		return name;
+	}
+
+	public void setName(List<String> name) {
+		this.name = name;
+	}
+
+	public List<String> getDescription() {
+		return description;
+	}
+
+	public void setDescription(List<String> description) {
+		this.description = description;
+	}
+
+	public List<String> getKind() {
+		return kind;
+	}
+
+	public void setKind(List<String> kind) {
+		this.kind = kind;
+	}
+	
 	public AcademicPublication getPublication() {
 		return publication;
 	}
@@ -74,32 +109,11 @@ public class APublicationCreateAction extends ActionSupport implements
 	}
 
 	@Override
-	public void setSession(Map<String, Object> session) {
-		this.session = session;
+	public void prepare() throws Exception {
+		setAuthors(publicationManager.loadAllAuthors());
+		setKindOfPublications(publicationManager.loadAllKinds());
+		setKeywords(publicationManager.loadAllKeywords());
 		
-	}
-	public Keyword getKeyword() {
-		return keyword;
-	}
-
-	public void setKeyword(Keyword keyword) {
-		this.keyword = keyword;
-	}
-
-	public Author getAuthor() {
-		return author;
-	}
-
-	public void setAuthor(Author author) {
-		this.author = author;
-	}
-
-	public Publisher getPublisher() {
-		return publisher;
-	}
-
-	public void setPublisher(Publisher publisher) {
-		this.publisher = publisher;
 	}
 
 }

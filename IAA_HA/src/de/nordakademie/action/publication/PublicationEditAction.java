@@ -29,30 +29,30 @@ public class PublicationEditAction extends ActionSupport implements
 	private Map<String, Object> session;
 	private IKindOfPublicationManager kindManager;
 
-public IKindOfPublicationManager getKindManager() {
+	public IKindOfPublicationManager getKindManager() {
 		return kindManager;
 	}
+
 	public void setKindManager(IKindOfPublicationManager kindManager) {
 		this.kindManager = kindManager;
 	}
 
-	//	
 	private List<KindOfPublication> kindOfPublications;
-	//
+
 	private List<String> kind;
-//	
-public List<String> getKind() {
+
+	public List<String> getKind() {
 		return kind;
 	}
-//
+
 	public void setKind(List<String> kind) {
 		this.kind = kind;
 	}
-	//
+
 	public List<KindOfPublication> getKindOfPublications() {
 		return kindOfPublications;
 	}
-//
+
 	public void setKindOfPublications(List<KindOfPublication> kindOfPublications) {
 		this.kindOfPublications = kindOfPublications;
 	}
@@ -62,7 +62,6 @@ public List<String> getKind() {
 
 		publication = publicationManager.view(id);
 		session.put("publicationEdit", publication);
-//		
 		setKindOfPublications(publicationManager.loadAllKinds());
 		return SUCCESS;
 	}
@@ -73,7 +72,7 @@ public List<String> getKind() {
 				.getAuthors());
 		publication.setKeywords(((Publication) session.get("publicationEdit"))
 				.getKeywords());
-//		
+		//
 		publication.setKindOfPublication(new KindOfPublication(kind.get(0)));
 
 		publicationManager.create(publication);
@@ -115,5 +114,5 @@ public List<String> getKind() {
 		this.session = session;
 
 	}
-	
+
 }
