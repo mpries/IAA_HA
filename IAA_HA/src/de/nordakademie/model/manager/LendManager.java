@@ -1,5 +1,6 @@
 package de.nordakademie.model.manager;
 
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -12,14 +13,21 @@ import de.nordakademie.model.interfaces.IPublicationManager;
 import de.nordakademie.model.publication.Publication;
 
 public class LendManager implements ILendManager {
-	
+
 	private LendDAO lendDAO;
 	private IPublicationManager publicationManager;
 	private ICustomerManager customerManager;
 	private Lending lend;
 
+	public Date createReturnDate() {
+		Date currentDate = new Date();
+		Calendar c = Calendar.getInstance();
+		c.setTime(currentDate);
+		c.add(Calendar.DATE, 14);
+		Date returnDate = c.getTime();
+		return returnDate;
+	}
 
-	
 	@Override
 	public Object view() {
 
@@ -29,7 +37,7 @@ public class LendManager implements ILendManager {
 	@Override
 	public void delete() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
@@ -58,7 +66,7 @@ public class LendManager implements ILendManager {
 	public List<Publication> loadPublications() {
 		return publicationManager.view();
 	}
-	
+
 	public ICustomerManager getCustomerManager() {
 		return customerManager;
 	}
@@ -92,7 +100,27 @@ public class LendManager implements ILendManager {
 	public List<Lending> loadAll() {
 		return lendDAO.loadAll();
 	}
-	
-	
+
+	@Override
+	public void registerReturn(int id) {
+		lendDAO.delete(id);
+
+	}
+
+	@Override
+	public void extendLending(int id) {
+		Lending lend = lendDAO.loadById(id);
+		lend.setReturnDate(extendReturnDate(lend.getReturnDate()));
+		lendDAO.create(lend);
+
+	}
+
+	private Date extendReturnDate(Date returnDate) {
+		Calendar c = Calendar.getInstance();
+		c.setTime(returnDate);
+		c.add(Calendar.DATE, 14);
+		Date extendReturnDate = c.getTime();
+		return extendReturnDate;
+	}
 
 }

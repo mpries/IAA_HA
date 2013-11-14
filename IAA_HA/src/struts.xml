@@ -111,7 +111,7 @@
 			<result name="input">/index.jsp</result>
 		</action>
 
-		<action name="viewLendindAction_*" class="de.nordakademie.action.ViewLendingAction"
+		<action name="viewLendingAction_*" class="de.nordakademie.action.ViewLendingAction"
 			method="{1}">
 			<result name="supply">/lending/bookOnLoanOverview.jsp</result>
 			<result name="extend">/lending/bookOnLoanOverview.jsp</result>

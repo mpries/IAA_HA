@@ -27,7 +27,7 @@
 			<th><s:form action="lendActionsupply">
 					<s:submit value="Create Book on loan" />
 				</s:form></th>
-			<th><s:form action="viewLendindAction_supply">
+			<th><s:form action="viewLendingAction_supply">
 					<s:submit value="Open Lendings" />
 				</s:form></th>
 

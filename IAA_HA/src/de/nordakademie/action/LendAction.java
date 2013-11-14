@@ -1,6 +1,5 @@
 package de.nordakademie.action;
 
-import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -33,20 +32,13 @@ public class LendAction extends ActionSupport implements Action {
 	}
 
 	public String create() {
-		System.out.println("cId: " + id);
-		System.out.println("cId: " + customerId);
-		System.out.println("CurrentDate: " + currentDate);
-		System.out.println("ReturnDate: " + returnDate);
 		lendManager.create(customerId, id, currentDate, returnDate);
 		return SUCCESS;
 	}
 
 	private void createLoanDate() {
 		this.setCurrentDate(new Date());
-		Calendar c = Calendar.getInstance();
-		c.setTime(currentDate);
-		c.add(Calendar.DATE, 14);
-		this.setReturnDate(c.getTime());
+		this.setReturnDate(lendManager.createReturnDate());
 	}
 
 	public ILendManager getLendManager() {

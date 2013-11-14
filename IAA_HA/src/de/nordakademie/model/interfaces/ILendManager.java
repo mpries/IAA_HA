@@ -26,4 +26,10 @@ public interface ILendManager {
 
 	public List<Lending> loadAll();
 
+	public void registerReturn(int id);
+
+	public void extendLending(int id);
+	
+	public Date createReturnDate();
+
 }

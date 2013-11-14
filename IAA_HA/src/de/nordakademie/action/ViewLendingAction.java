@@ -16,6 +16,7 @@ public class ViewLendingAction extends ActionSupport implements Action {
 	private static final long serialVersionUID = 7499207531537708725L;
 	private ILendManager lendManager;
 	private List<Lending> lendings;
+	private int id;
 	
 	public String supply(){
 		setLendings(lendManager.loadAll());
@@ -23,10 +24,14 @@ public class ViewLendingAction extends ActionSupport implements Action {
 	}
 	
 	public String returnPublication(){
+		lendManager.registerReturn(id);
+		setLendings(lendManager.loadAll());
 		return "return";
 	}
 	
 	public String extend(){
+		lendManager.extendLending(id);
+		setLendings(lendManager.loadAll());
 		return "extend";
 	}
 	
@@ -43,6 +48,14 @@ public class ViewLendingAction extends ActionSupport implements Action {
 	}
 	public void setLendings(List<Lending> lendings) {
 		this.lendings = lendings;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 }
