@@ -6,10 +6,9 @@
 
   "http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
 <validators>
-	<field name="customer.customerId">
-		<field-validator type="int">
-			<param name="min">1</param>
-			<message>ID is required </message>
+	<field name="searchKeyword">
+		<field-validator type="requiredstring">
+			<message>Keyword is required</message>
 		</field-validator>
 	</field>
 </validators>
