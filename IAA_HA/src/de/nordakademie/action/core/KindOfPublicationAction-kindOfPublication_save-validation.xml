@@ -6,12 +6,12 @@
 
   "http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
 <validators>
-	<field name="resultKeyword.description">
+	<field name="resultKind.kind">
 		<field-validator type="requiredstring">
-			<message>No Keyword selected</message>
+			<message>No Kind of Publication selected</message>
 		</field-validator>
 	</field>
-	<field name="editKeyword">
+	<field name="editKind">
 		<field-validator type="requiredstring">
 			<message>New Name is required</message>
 		</field-validator>

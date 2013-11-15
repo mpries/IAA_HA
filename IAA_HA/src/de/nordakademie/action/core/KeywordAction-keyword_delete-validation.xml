@@ -6,9 +6,9 @@
 
   "http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
 <validators>
-	<field name="publication.title">
+	<field name="resultKeyword.description">
 		<field-validator type="requiredstring">
-			<message>Title is required </message>
+			<message>No Keyword selected</message>
 		</field-validator>
 	</field>
 </validators>

@@ -3,6 +3,7 @@ package de.nordakademie.action.sort;
 import java.util.Collections;
 import java.util.List;
 
+import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionSupport;
 
 import de.nordakademie.model.interfaces.IPublicationManager;
@@ -22,7 +23,7 @@ import de.nordakademie.sort.publication.up.SortPublicationUpByKindOfPublication;
 import de.nordakademie.sort.publication.up.SortPublicationUpByStored;
 import de.nordakademie.sort.publication.up.SortPublicationUpByTitle;
 
-public class SortPublicationAction extends ActionSupport {
+public class SortPublicationAction extends ActionSupport implements Action {
 
 	/**
 	 * 

@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=US-ASCII"
 	pageEncoding="US-ASCII"%>
 <%@ taglib uri="/struts-tags" prefix="s"%>
@@ -9,11 +10,10 @@
 </head>
 <body>
 	<s:form action="publicationEditActionsave">
-		<s:hidden name="publication.id"/>
+		<s:hidden name="publication.id" />
 		<s:textfield name="publication.title" label="Title" />
-		<s:select label="Kind of Publications"
-						list="kindOfPublications" name="kind" listKey="kind"
-						listValue="kind" />
+		<s:select label="Kind of Publications" list="kindOfPublications"
+			name="kind" listKey="kind" listValue="kind" />
 		<s:textfield name="publication.releaseDate" label="Release Date" />
 
 
@@ -22,7 +22,7 @@
 			<br>
 		</s:iterator>
 		<s:iterator value="publication.keywords">
-			<s:textfield name="description" label="Keyword" readonly="true"/>
+			<s:textfield name="description" label="Keyword" readonly="true" />
 			<br>
 		</s:iterator>
 

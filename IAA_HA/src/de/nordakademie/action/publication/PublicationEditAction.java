@@ -16,103 +16,103 @@ import de.nordakademie.model.publication.Author;
 import de.nordakademie.model.publication.Publication;
 
 public class PublicationEditAction extends ActionSupport implements
-		IEditAction, Action, SessionAware {
+                IEditAction, Action, SessionAware {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -3036098533614635368L;
+        /**
+         *
+         */
+        private static final long serialVersionUID = -3036098533614635368L;
 
-	private int id;
-	private Publication publication;
-	private IPublicationManager publicationManager;
-	private Map<String, Object> session;
-	private IKindOfPublicationManager kindManager;
+        private int id;
+        private Publication publication;
+        private IPublicationManager publicationManager;
+        private Map<String, Object> session;
+        private IKindOfPublicationManager kindManager;
 
-	public IKindOfPublicationManager getKindManager() {
-		return kindManager;
-	}
+        public IKindOfPublicationManager getKindManager() {
+                return kindManager;
+        }
 
-	public void setKindManager(IKindOfPublicationManager kindManager) {
-		this.kindManager = kindManager;
-	}
+        public void setKindManager(IKindOfPublicationManager kindManager) {
+                this.kindManager = kindManager;
+        }
 
-	private List<KindOfPublication> kindOfPublications;
+        private List<KindOfPublication> kindOfPublications;
 
-	private List<String> kind;
+        private List<String> kind;
 
-	public List<String> getKind() {
-		return kind;
-	}
+        public List<String> getKind() {
+                return kind;
+        }
 
-	public void setKind(List<String> kind) {
-		this.kind = kind;
-	}
+        public void setKind(List<String> kind) {
+                this.kind = kind;
+        }
 
-	public List<KindOfPublication> getKindOfPublications() {
-		return kindOfPublications;
-	}
+        public List<KindOfPublication> getKindOfPublications() {
+                return kindOfPublications;
+        }
 
-	public void setKindOfPublications(List<KindOfPublication> kindOfPublications) {
-		this.kindOfPublications = kindOfPublications;
-	}
+        public void setKindOfPublications(List<KindOfPublication> kindOfPublications) {
+                this.kindOfPublications = kindOfPublications;
+        }
 
-	@Override
-	public String execute() throws Exception {
+        @Override
+        public String execute() throws Exception {
 
-		publication = publicationManager.view(id);
-		session.put("publicationEdit", publication);
-		setKindOfPublications(publicationManager.loadAllKinds());
-		return SUCCESS;
-	}
+                publication = publicationManager.view(id);
+                session.put("publicationEdit", publication);
+                setKindOfPublications(publicationManager.loadAllKinds());
+                return SUCCESS;
+        }
 
-	public String save() {
+        public String save() {
 
-		publication.setAuthor(((Publication) session.get("publicationEdit"))
-				.getAuthors());
-		publication.setKeywords(((Publication) session.get("publicationEdit"))
-				.getKeywords());
-		//
-		publication.setKindOfPublication(new KindOfPublication(kind.get(0)));
+                publication.setAuthor(((Publication) session.get("publicationEdit"))
+                                .getAuthors());
+                publication.setKeywords(((Publication) session.get("publicationEdit"))
+                                .getKeywords());
+                //
+                publication.setKindOfPublication(new KindOfPublication(kind.get(0)));
 
-		publicationManager.create(publication);
-		return "save";
-	}
+                publicationManager.create(publication);
+                return "save";
+        }
 
-	public String delete() {
+        public String delete() {
 
-		publicationManager.delete((Publication) session.get("publicationEdit"));
-		return "delete";
-	}
+                publicationManager.delete((Publication) session.get("publicationEdit"));
+                return "delete";
+        }
 
-	public int getId() {
-		return id;
-	}
+        public int getId() {
+                return id;
+        }
 
-	public void setId(int id) {
-		this.id = id;
-	}
+        public void setId(int id) {
+                this.id = id;
+        }
 
-	public IPublicationManager getPublicationManager() {
-		return publicationManager;
-	}
+        public IPublicationManager getPublicationManager() {
+                return publicationManager;
+        }
 
-	public void setPublicationManager(IPublicationManager publicationManager) {
-		this.publicationManager = publicationManager;
-	}
+        public void setPublicationManager(IPublicationManager publicationManager) {
+                this.publicationManager = publicationManager;
+        }
 
-	public Publication getPublication() {
-		return publication;
-	}
+        public Publication getPublication() {
+                return publication;
+        }
 
-	public void setPublication(Publication publication) {
-		this.publication = publication;
-	}
+        public void setPublication(Publication publication) {
+                this.publication = publication;
+        }
 
-	@Override
-	public void setSession(Map<String, Object> session) {
-		this.session = session;
+        @Override
+        public void setSession(Map<String, Object> session) {
+                this.session = session;
 
-	}
+        }
 
 }
