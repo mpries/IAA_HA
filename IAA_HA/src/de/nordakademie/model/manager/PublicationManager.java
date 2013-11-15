@@ -120,10 +120,15 @@ public class PublicationManager implements IPublicationManager {
 	@Override
 	public boolean isISBNAlreadyAvailable(PublishedPublication publication) {
 		if(!publicationDAO.loadByISBN(publication).isEmpty()){
-			System.out.println("*********************TRUE is not empty+++++++++++++++++++++");
 			return true;
 		}
 		return false;
+	}
+
+	@Override
+	public void addCopy(int id, int amount) {
+		publicationDAO.addCopy(id, Math.abs(amount));
+		
 	}
 
 

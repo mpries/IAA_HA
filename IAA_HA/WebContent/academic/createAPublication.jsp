@@ -9,7 +9,7 @@
 </head>
 <body>
 	<s:head />
-	<s:form action="createPublishedPublication_save">
+	<s:form action="createAcademicPublicationSave">
 		<table>
 
 			<tr>

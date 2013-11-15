@@ -9,14 +9,15 @@
 </head>
 <body>
 	<s:head />
-	<s:form action="createPublishedPublication_execute">
+	<s:actionerror />
+	<s:form action="createPublishedPublicationSave">
 		<table>
 
 			<tr>
 				<td><s:textfield label="Titel" name="publication.title" /> <s:textfield
 						label="Release Date" name="publication.releaseDate" /> <s:textfield
-						label="Publisher" name="publication.publisher.name" />
-					<s:textfield label="ISBN" name="publication.ISBN" /></td>
+						label="Publisher" name="publication.publisher.name" /> <s:textfield
+						label="ISBN" name="publication.ISBN" /></td>
 
 
 				<td><s:select label="Keywords" list="keywords"
@@ -45,8 +46,8 @@
 	</s:form>
 
 
-	<form action="homepage.jsp">
+	<s:form action="homepage.jsp">
 		<s:submit value="Back" />
-	</form>
+	</s:form>
 </body>
 </html>

@@ -32,4 +32,6 @@ public interface IPublicationManager {
 
 	public boolean isISBNAlreadyAvailable(PublishedPublication publication);
 
+	public void addCopy(int id, int amount);
+
 }

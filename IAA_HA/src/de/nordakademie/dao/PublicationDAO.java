@@ -96,4 +96,11 @@ public class PublicationDAO {
 		query.setString("isbn", publication.getISBN());
 		return (List<Publication>)query.list();
 	}
+
+	public void addCopy(int id, int amount) {
+		Publication p = this.load(id);
+		p.setStored(p.getStored()+amount);
+		this.save(p);	
+		
+	}
 }
