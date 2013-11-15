@@ -29,11 +29,14 @@ public class PublicationCreateAction extends ActionSupport implements
 	}
 
 	public void validate() {
-		if(publicationManager.isISBNAlreadyAvailable(publication)){
+		if (publicationManager.isISBNAlreadyAvailable(publication)) {
 			addFieldError("publication.ISBN", "ISBN exisitert bereits");
 		}
-		if(publicationManager.isDateGreaterThanToday(publication)){
-			addFieldError("publication.releaseDate", "Datum liegt in der Zukunft");
+		if (publication.getReleaseDate() != null) {
+			if (publicationManager.isDateGreaterThanToday(publication)) {
+				addFieldError("publication.releaseDate",
+						"Datum liegt in der Zukunft");
+			}
 		}
 
 	}
