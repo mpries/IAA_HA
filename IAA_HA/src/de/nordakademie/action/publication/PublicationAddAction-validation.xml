@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE validators PUBLIC
+
+  "-//Apache Struts//XWork Validator 1.0.3//EN"
+
+  "http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
+<validators>
+	<field name="amount">
+		<field-validator type="int">
+			<param name="min">1</param>
+			<message>Amount > 0 is required </message>
+		</field-validator>
+	</field>
+</validators>
+
+
+
+
