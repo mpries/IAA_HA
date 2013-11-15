@@ -34,7 +34,6 @@ public class CustomerEditAction extends ActionSupport implements IEditAction,
 
 	@Override
 	public String execute() throws Exception {
-		// TODO Auto-generated method stub	
 		customerManager.edit(customer);
 		return SUCCESS;
 	}

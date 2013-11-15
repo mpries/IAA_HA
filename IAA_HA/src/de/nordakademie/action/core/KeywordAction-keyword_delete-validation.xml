@@ -11,9 +11,4 @@
 			<message>No Keyword selected</message>
 		</field-validator>
 	</field>
-	<field name="editKeyword">
-		<field-validator type="requiredstring">
-			<message>New Name is required</message>
-		</field-validator>
-	</field>
 </validators>

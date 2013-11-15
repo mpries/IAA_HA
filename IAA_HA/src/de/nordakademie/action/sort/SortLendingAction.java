@@ -3,6 +3,7 @@ package de.nordakademie.action.sort;
 import java.util.Collections;
 import java.util.List;
 
+import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionSupport;
 
 import de.nordakademie.model.Lending;
@@ -14,7 +15,6 @@ import de.nordakademie.sort.lending.down.SortLendingDownByLoanDate;
 import de.nordakademie.sort.lending.down.SortLendingDownByPublicationId;
 import de.nordakademie.sort.lending.down.SortLendingDownByPublicationTitle;
 import de.nordakademie.sort.lending.down.SortLendingDownByReturnDate;
-import de.nordakademie.sort.lending.down.SortLendingDownByWarningId;
 import de.nordakademie.sort.lending.up.SortLendingUpByCustomerId;
 import de.nordakademie.sort.lending.up.SortLendingUpByCustomerName;
 import de.nordakademie.sort.lending.up.SortLendingUpById;
@@ -22,9 +22,8 @@ import de.nordakademie.sort.lending.up.SortLendingUpByLoanDate;
 import de.nordakademie.sort.lending.up.SortLendingUpByPublicationId;
 import de.nordakademie.sort.lending.up.SortLendingUpByPublicationTitle;
 import de.nordakademie.sort.lending.up.SortLendingUpByReturnDate;
-import de.nordakademie.sort.lending.up.SortLendingUpByWarningId;
 
-public class SortLendingAction extends ActionSupport {
+public class SortLendingAction extends ActionSupport implements Action {
 
 	/**
 	 * 

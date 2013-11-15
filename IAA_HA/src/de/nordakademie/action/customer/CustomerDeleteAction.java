@@ -7,7 +7,8 @@ import de.nordakademie.action.interfaces.IDeleteAction;
 import de.nordakademie.model.Customer;
 import de.nordakademie.model.interfaces.ICustomerManager;
 
-public class CustomerDeleteAction extends ActionSupport implements IDeleteAction, Action {
+public class CustomerDeleteAction extends ActionSupport implements
+		IDeleteAction, Action {
 
 	/**
 	 * 
@@ -34,13 +35,12 @@ public class CustomerDeleteAction extends ActionSupport implements IDeleteAction
 
 	@Override
 	public String execute() throws Exception {
-		// TODO Auto-generated method stub
 		System.out.println(customer.getFirstName());
 		customerManager.delete(customer);
 		return SUCCESS;
 	}
-	
-	public void validate(){
+
+	public void validate() {
 		// TODO
 	}
 

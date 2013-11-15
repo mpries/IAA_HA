@@ -152,7 +152,7 @@
 			<result name="save">/coreDataAdministration.jsp</result>
 			<result name="delete">/coreDataAdministration.jsp</result>
 			<result name="search">/coreDataAdministration.jsp</result>
-			<result name="input">/index.jsp</result>
+			<result name="input">/coreDataAdministration.jsp</result>
 			<result name="addAuthor">/coreDataAdministration.jsp</result>
 		</action>
 
@@ -163,7 +163,7 @@
 			<result name="save">/coreDataAdministration.jsp</result>
 			<result name="delete">/coreDataAdministration.jsp</result>
 			<result name="search">/coreDataAdministration.jsp</result>
-			<result name="input">/index.jsp</result>
+			<result name="input">/coreDataAdministration.jsp</result>
 			<result name="addKind">/coreDataAdministration.jsp</result>
 		</action>
 
