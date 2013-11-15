@@ -8,11 +8,14 @@
 <title>Kind of Publication</title>
 </head>
 <body>
-	<s:form action="createPublishedPublication_supply">
+	<s:form action="createPublishedPublicationSupply">
 		<s:submit value="Create Published Publication" />
 	</s:form>
-	<s:form action="createAcademicPublication_supply">
+	<s:form action="createAcademicPublicationSupply">
 		<s:submit value="Create Academic Publication" />
+	</s:form>
+	<s:form action="addExistingPublicationSupply">
+		<s:submit value="Add Existing" />
 	</s:form>
 </body>
 </html>

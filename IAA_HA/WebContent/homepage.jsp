@@ -34,6 +34,8 @@
 
 		</tr>
 	</table>
+	<h4 style="color: red">Books on loan remainder</h4>
+	<br>
 	<s:form action="sortLendingRemainderAction">
 		<s:submit value="sort">
 			<s:radio name="sort" label="sort" list="{'up','down'}" />
@@ -41,7 +43,6 @@
 				list="{'Id','Warning Id','loanDate','returnDate','Customer Id','Customer Name','Publication Id','Publication Title'}" />
 		</s:submit>
 	</s:form>
-	<h4 style="color: red">Books on loan remainder</h4>
 	<s:form action="showWarning">
 		<s:submit value="Show Warning" />
 		<table border="2ppx">

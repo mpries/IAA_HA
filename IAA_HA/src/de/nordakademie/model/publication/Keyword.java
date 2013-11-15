@@ -10,6 +10,14 @@ public class Keyword {
 	@Id
 	protected String description;
 
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
 	public Keyword(String description) {
 		this.description = description;
 	}
@@ -18,12 +26,6 @@ public class Keyword {
 		
 	}
 
-	public String getDescription() {
-		return description;
-	}
 
-	public void setDescription(String description) {
-		this.description = description;
-	}
 	
 }

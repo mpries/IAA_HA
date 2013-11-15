@@ -169,14 +169,50 @@
 
 		<!-- Publication -->
 
-		<action name="createPublishedPublication_*"
-			class="de.nordakademie.action.publication.PublicationCreateAction"
+		<action name="createPublishedPublicationSupply"
+			class="de.nordakademie.action.publication.PublicationCreateSupplyAction">
+			<interceptor-ref name="params" />
+			<interceptor-ref name="validation" />
+			<result name="success">/createPublication.jsp</result>
+		</action>
+
+		<action name="createPublishedPublicationSave"
+			class="de.nordakademie.action.publication.PublicationCreateAction">
+			<interceptor-ref name="params" />
+			<interceptor-ref name="validation" />
+			<result name="input">/createPublication.jsp</result>
+			<result name="success">/homepage.jsp</result>
+		</action>
+
+		<!-- DAS GLEICHE FUER AKADEMISCHE PUBLIKATION -->
+		
+		<action name="createAcademicPublicationSupply"
+			class="de.nordakademie.action.publication.academic.APublicationCreateSupplyAction">
+			<interceptor-ref name="params" />
+			<interceptor-ref name="validation" />
+			<result name="success">/academic/createAPublication.jsp</result>
+		</action>
+
+		<action name="createAcademicPublicationSave"
+			class="de.nordakademie.action.publication.academic.APublicationCreateAction">
+			<interceptor-ref name="params" />
+			<interceptor-ref name="validation" />
+			<result name="input">/academic/createAPublication.jsp</result>
+			<result name="success">/homepage.jsp</result>
+		</action>
+		
+		
+		<!-- OLD -->
+		
+
+		<action name="createAcademicPublication_*"
+			class="de.nordakademie.action.publication.academic.APublicationCreateAction"
 			method="{1}">
 			<interceptor-ref name="params" />
 			<interceptor-ref name="prepare" />
 			<interceptor-ref name="basicStack" />
-			<result name="input">/createPublication.jsp</result>
-			<result name="supply">/createPublication.jsp</result>
+			<result name="input">/academic/createAPublication.jsp</result>
+			<result name="supply">/academic/createAPublication.jsp</result>
 			<result name="save">/homepage.jsp</result>
 		</action>
 
@@ -186,6 +222,18 @@
 			<result name="success">homepage.jsp</result>
 		</action>
 
+		<!-- ADD EXISTING PUBLICATION -->
+		<action name="addExistingPublicationSupply"
+			class="de.nordakademie.action.publication.PublicationAddSupplyAction">
+			<result name="success">/addPublication.jsp</result>
+			
+		</action>
+		
+		<action name="addExistingPublicationAdd"
+			class="de.nordakademie.action.publication.PublicationAddAction">
+			<result name="success">homepage.jsp</result>
+			<result name="input">/addPublication.jsp</result>
+		</action>
 
 
 	</package>
