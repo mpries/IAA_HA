@@ -1,5 +1,6 @@
 package de.nordakademie.model.manager;
 
+import java.util.Date;
 import java.util.List;
 
 import de.nordakademie.dao.AuthorDAO;
@@ -129,6 +130,14 @@ public class PublicationManager implements IPublicationManager {
 	public void addCopy(int id, int amount) {
 		publicationDAO.addCopy(id, Math.abs(amount));
 		
+	}
+
+	@Override
+	public boolean isDateGreaterThanToday(PublishedPublication publication) {
+		if(publication.getReleaseDate().after(new Date())){
+			return true;
+		}
+		return false;
 	}
 
 

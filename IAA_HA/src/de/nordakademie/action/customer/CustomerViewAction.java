@@ -49,9 +49,10 @@ public class CustomerViewAction extends ActionSupport implements IViewAction, Ac
 	}
 	
 	public void validate(){
-		if(customerManager.view(id) == null){
+		if(customerManager.isCustomerAlreadyAvailable(customer)){
 			addFieldError("id", "Gibt es nicht");
 		}
 	}
+
 
 }

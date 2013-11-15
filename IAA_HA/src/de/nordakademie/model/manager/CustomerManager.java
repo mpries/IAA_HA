@@ -56,4 +56,12 @@ public class CustomerManager implements ICustomerManager {
 		return false;
 	}
 
+	@Override
+	public boolean isCustomerAlreadyAvailable(Customer customer) {
+		if(this.view(customer.getCustomerId()) == null){
+			return false;
+		}
+		return true;
+	}
+
 }

@@ -2,7 +2,6 @@ package de.nordakademie.action.publication;
 
 import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionSupport;
-
 import de.nordakademie.model.interfaces.IPublicationManager;
 
 public class PublicationAddAction extends ActionSupport implements Action {
@@ -16,13 +15,14 @@ public class PublicationAddAction extends ActionSupport implements Action {
 	private IPublicationManager publicationManager;
 
 
+	
 	public String execute(){
 		publicationManager.addCopy(id, amount);
 		return SUCCESS;
 	}
 
 	public void validate(){
-		addActionMessage("SCHWTF");
+		
 	}
 	
 	public int getId() {

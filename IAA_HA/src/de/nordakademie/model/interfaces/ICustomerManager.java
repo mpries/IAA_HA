@@ -19,4 +19,6 @@ public interface ICustomerManager {
 
 	boolean isAlreadyAvailable(Customer customer);
 
+	public boolean isCustomerAlreadyAvailable(Customer customer);
+
 }

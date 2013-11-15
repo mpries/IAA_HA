@@ -29,9 +29,12 @@ public class PublicationCreateAction extends ActionSupport implements
 	}
 
 	public void validate() {
-		System.out.println("*********VALIDATE***********");
-		this.addFieldError("publication.ISBN", "ERROR OCCURED");
-		this.addActionMessage("NO ISBN");
+		if(publicationManager.isISBNAlreadyAvailable(publication)){
+			addFieldError("publication.ISBN", "ISBN exisitert bereits");
+		}
+		if(publicationManager.isDateGreaterThanToday(publication)){
+			addFieldError("publication.releaseDate", "Datum liegt in der Zukunft");
+		}
 
 	}
 

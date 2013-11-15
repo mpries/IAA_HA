@@ -4,13 +4,14 @@ import java.util.List;
 
 import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionSupport;
+import com.opensymphony.xwork2.Preparable;
 
 import de.nordakademie.model.KindOfPublication;
 import de.nordakademie.model.interfaces.IPublicationManager;
 import de.nordakademie.model.publication.Author;
 import de.nordakademie.model.publication.Keyword;
 
-public class PublicationCreateSupplyAction extends ActionSupport implements Action {
+public class PublicationCreateSupplyAction extends ActionSupport implements Action, Preparable {
 
 	
 	/**
@@ -24,9 +25,6 @@ public class PublicationCreateSupplyAction extends ActionSupport implements Acti
 
 
 	public String execute() {
-		setAuthors(publicationManager.loadAllAuthors());
-		setKindOfPublications(publicationManager.loadAllKinds());
-		setKeywords(publicationManager.loadAllKeywords());
 		return SUCCESS;
 	}
 
@@ -63,6 +61,16 @@ public class PublicationCreateSupplyAction extends ActionSupport implements Acti
 
 	public void setKeywords(List<Keyword> keywords) {
 		this.keywords = keywords;
+	}
+
+
+
+	@Override
+	public void prepare() throws Exception {
+		setAuthors(publicationManager.loadAllAuthors());
+		setKindOfPublications(publicationManager.loadAllKinds());
+		setKeywords(publicationManager.loadAllKeywords());
+		
 	}
 	
 }

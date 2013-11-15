@@ -8,15 +8,15 @@
 <title>Create Book</title>
 </head>
 <body>
-	<s:head />
-	<s:actionerror/>
-	<s:form action="addExistingPublicationAdd">
 
+	<s:form action="addExistingPublicationAdd">
+		<s:head />
 
 		<s:select label="Publications" list="publications" name="id"
 			listKey="id" listValue="id+'-'+title" />
 
-		<s:textfield name="amount" label="Amount"></s:textfield>
+		<s:fielderror fieldName="test" />
+		<s:textfield name="amount" label="Amount" />
 		<s:submit value="Add" />
 
 	</s:form>

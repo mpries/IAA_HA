@@ -34,4 +34,6 @@ public interface IPublicationManager {
 
 	public void addCopy(int id, int amount);
 
+	public boolean isDateGreaterThanToday(PublishedPublication publication);
+
 }

@@ -49,7 +49,6 @@ public class KeywordAction extends ActionSupport implements Action{
 		this.searchKeyword = searchKeyword;
 	}
 
-
 	public IKeywordManager getKeywordManager() {
 		return keywordManager;
 	}
@@ -73,7 +72,6 @@ public class KeywordAction extends ActionSupport implements Action{
 	public void setEditKeyword(String editKeyword) {
 		this.editKeyword = editKeyword;
 	}
-
 
 	public String getAddKeyword() {
 		return addKeyword;
