@@ -1,12 +1,14 @@
 package de.nordakademie.model.manager;
 
 import de.nordakademie.dao.KeywordDAO;
+import de.nordakademie.dao.PublicationDAO;
 import de.nordakademie.model.interfaces.IKeywordManager;
 import de.nordakademie.model.publication.Keyword;
 
 public class KeywordManager implements IKeywordManager {
 
 	private KeywordDAO keywordDAO;
+	private PublicationDAO publicationDAO;
 
 	public KeywordDAO getKeywordDAO() {
 		return keywordDAO;
@@ -31,5 +33,29 @@ public class KeywordManager implements IKeywordManager {
 	public void delete(String description) {
 		keywordDAO.delete(new Keyword(description));
 
+	}
+
+	@Override
+	public boolean isKeywordReferenced(Keyword resultKeyword) {
+		if(publicationDAO.loadByKeyword(resultKeyword).isEmpty()){
+			return false;
+		}
+		return true;
+	}
+
+	public PublicationDAO getPublicationDAO() {
+		return publicationDAO;
+	}
+
+	public void setPublicationDAO(PublicationDAO publicationDAO) {
+		this.publicationDAO = publicationDAO;
+	}
+
+	@Override
+	public boolean isAlreadyAvailable(Keyword resultKeyword) {
+		if(keywordDAO.load(resultKeyword.getDescription()) == null){
+			return false;
+		}
+		return true;
 	}
 }

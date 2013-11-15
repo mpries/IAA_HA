@@ -7,6 +7,9 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
+import de.nordakademie.model.KindOfPublication;
+import de.nordakademie.model.publication.Author;
+import de.nordakademie.model.publication.Keyword;
 import de.nordakademie.model.publication.Publication;
 import de.nordakademie.model.publication.PublishedPublication;
 
@@ -26,7 +29,6 @@ public class PublicationDAO {
 
 	public void save(Publication publication) {
 		Session session = sessionFactory.getCurrentSession();
-		System.out.println("SAVE");
 		session.saveOrUpdate(publication);
 	}
 
@@ -51,7 +53,7 @@ public class PublicationDAO {
 		return publications;
 
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	private void runQuery(String statement, String arg, Session session,
 			String param) {
@@ -60,8 +62,8 @@ public class PublicationDAO {
 		query.setString(arg, param);
 		for (Publication p : (List<Publication>) query.list()) {
 			if (!publications.contains(p)) {
-//				p.getAuthors().get(0);
-//				p.getKeywords().get(0);
+				// p.getAuthors().get(0);
+				// p.getKeywords().get(0);
 				publications.add(p);
 			}
 			query = null;
@@ -72,7 +74,8 @@ public class PublicationDAO {
 
 	public Publication load(int id) {
 		Session session = sessionFactory.getCurrentSession();
-		Publication publication = (Publication) session.get(Publication.class, id);
+		Publication publication = (Publication) session.get(Publication.class,
+				id);
 		return publication;
 	}
 
@@ -80,27 +83,59 @@ public class PublicationDAO {
 		Session session = sessionFactory.getCurrentSession();
 		System.out.println("DELETE");
 		session.delete(publication);
-		
+
 	}
 
 	@SuppressWarnings("unchecked")
 	public List<Publication> loadAll() {
 		Session session = sessionFactory.getCurrentSession();
-		return (List<Publication>)session.createQuery("from Publication").list();
+		return (List<Publication>) session.createQuery("from Publication")
+				.list();
 	}
 
 	@SuppressWarnings("unchecked")
 	public List<Publication> loadByISBN(PublishedPublication publication) {
 		Session session = sessionFactory.getCurrentSession();
-		Query query = session.createQuery("from PublishedPublication where isbn = (:isbn)");
+		Query query = session
+				.createQuery("from PublishedPublication where isbn = (:isbn)");
 		query.setString("isbn", publication.getISBN());
-		return (List<Publication>)query.list();
+		return (List<Publication>) query.list();
 	}
 
 	public void addCopy(int id, int amount) {
 		Publication p = this.load(id);
-		p.setStored(p.getStored()+amount);
-		this.save(p);	
-		
+		p.setStored(p.getStored() + amount);
+		this.save(p);
+
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<Publication> loadByKeyword(Keyword resultKeyword) {
+		Session session = sessionFactory.getCurrentSession();
+		Query query = session
+				.createQuery("select distinct p from Publication p "
+						+ "join p.keywords k "
+						+ "where k.description in (:keyword)");
+		query.setString("keyword", resultKeyword.getDescription());
+		return (List<Publication>) query.list();
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<Author> loadByAuthor(Author resultAuthor) {
+		Session session = sessionFactory.getCurrentSession();
+		Query query = session
+				.createQuery("select distinct p from Publication p "
+						+ "join p.authors a " + "where a.name in (:author)");
+		query.setString("author", resultAuthor.getName());
+		return (List<Author>) query.list();
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<KindOfPublication> loadByKind(String addKind) {
+		Session session = sessionFactory.getCurrentSession();
+		Query query = session
+				.createQuery("From Publication where kindOfPublication =  (:kind)");
+		query.setString("kind", addKind);
+		return (List<KindOfPublication>) query.list();
 	}
 }

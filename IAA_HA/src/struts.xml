@@ -104,10 +104,9 @@
 
 		<action name="lendAction*" class="de.nordakademie.action.LendAction"
 			method="{1}">
-			<result name="supply">/lending/createBookOnLoan.jsp</result>
+			<result name="success">/lending/createBookOnLoan.jsp</result>
 			<result name="create">/homepage.jsp</result>
-			<result name="success">/homepage.jsp</result>
-			<result name="input">/index.jsp</result>
+			<result name="input">/lending/createBookOnLoan.jsp</result> <!-- Hier Chaining -->
 		</action>
 
 		<action name="viewLendingAction_*" class="de.nordakademie.action.ViewLendingAction"
@@ -162,7 +161,8 @@
 
 		<action name="createPublishedPublicationSave"
 			class="de.nordakademie.action.publication.PublicationCreateAction">
-			<result name="input" type="chain">createPublishedPublicationSupply</result>
+			<result name="input" type="chain">createPublishedPublicationSupply
+			</result>
 			<result name="success">/homepage.jsp</result>
 		</action>
 
@@ -176,7 +176,8 @@
 
 		<action name="createAcademicPublicationSave"
 			class="de.nordakademie.action.publication.academic.APublicationCreateAction">
-			<result name="input" type="chain">createAcademicPublicationSupply</result>
+			<result name="input" type="chain">createAcademicPublicationSupply
+			</result>
 			<result name="success">/homepage.jsp</result>
 		</action>
 
@@ -198,7 +199,7 @@
 		<action name="addExistingPublicationAdd"
 			class="de.nordakademie.action.publication.PublicationAddAction">
 			<result name="success">homepage.jsp</result>
-			<result name="input" type="chain" >addExistingPublicationSupply
+			<result name="input" type="chain">addExistingPublicationSupply
 			</result>
 		</action>
 

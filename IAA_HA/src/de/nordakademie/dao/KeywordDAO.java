@@ -6,7 +6,6 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
-import de.nordakademie.model.publication.Author;
 import de.nordakademie.model.publication.Keyword;
 
 public class KeywordDAO {

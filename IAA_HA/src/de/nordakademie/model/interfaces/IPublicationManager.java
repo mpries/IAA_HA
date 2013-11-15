@@ -36,4 +36,7 @@ public interface IPublicationManager {
 
 	public boolean isDateGreaterThanToday(PublishedPublication publication);
 
+	public void decreaseStored(Publication publication);
+
+
 }

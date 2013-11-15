@@ -27,12 +27,6 @@ public class APublicationCreateAction extends ActionSupport implements
 		return SUCCESS;
 	}
 
-	public void validate() {
-		System.out.println("*********VALIDATE***********");
-		this.addFieldError("publication.ISBN", "ERROR OCCURED");
-		this.addActionMessage("NO ISBN");
-
-	}
 
 	public IPublicationManager getPublicationManager() {
 		return publicationManager;

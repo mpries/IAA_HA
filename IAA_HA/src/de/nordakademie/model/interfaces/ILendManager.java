@@ -32,4 +32,6 @@ public interface ILendManager {
 	
 	public Date createReturnDate();
 
+	public boolean isCopyAvailable(int id);
+
 }

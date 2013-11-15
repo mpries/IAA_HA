@@ -20,8 +20,12 @@ public class KeywordAction extends ActionSupport implements Action{
 	
 	
 	public String add(){
-		keywordManager.save(addKeyword);
-		return "addKeyword";
+		if(!keywordManager.isAlreadyAvailable(resultKeyword)){
+			keywordManager.save(addKeyword);
+			return "addKeyword";
+		}
+		addFieldError("addKeyword", "Keyword gibt es schon");
+		return "input";
 	}
 	
 	
@@ -31,15 +35,24 @@ public class KeywordAction extends ActionSupport implements Action{
 	}
 	
 	public String save(){
-		keywordManager.save(editKeyword); 
-		keywordManager.delete(resultKeyword.getDescription());
-		return "save";
+		if(!keywordManager.isKeywordReferenced(resultKeyword)){
+			keywordManager.save(editKeyword); 
+			keywordManager.delete(resultKeyword.getDescription());
+			return "save";
+		}
+		addFieldError("resultKeyword.description", "Keyword wird refernziert");
+		return "input";
 	}
 	
 	public String delete(){
-		keywordManager.delete(resultKeyword.getDescription());
-		return "delete";
+		if(!keywordManager.isKeywordReferenced(resultKeyword)){
+			keywordManager.delete(resultKeyword.getDescription());
+			return "delete";
+		}
+		addFieldError("resultKeyword.description", "Keyword wird refernziert");
+		return "input";
 	}
+	
 
 	public String getSearchKeyword() {
 		return searchKeyword;

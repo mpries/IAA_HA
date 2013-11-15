@@ -2,11 +2,14 @@ package de.nordakademie.model.manager;
 
 import de.nordakademie.action.interfaces.IAuthorManager;
 import de.nordakademie.dao.AuthorDAO;
+import de.nordakademie.dao.PublicationDAO;
 import de.nordakademie.model.publication.Author;
 
 public class AuthorManager implements IAuthorManager {
 
 	private AuthorDAO authorDAO;
+	private PublicationDAO publicationDAO;
+
 
 	@Override
 	public Author search(String searchAuthor) {
@@ -32,5 +35,32 @@ public class AuthorManager implements IAuthorManager {
 	public void setAuthorDAO(AuthorDAO authorDAO) {
 		this.authorDAO = authorDAO;
 	}
+
+	@Override
+	public boolean isAlreadyAvailable(String resultAuthor) {
+		if(authorDAO.load(resultAuthor) == null){
+			return false;
+		}
+		return true;
+	}
+
+	@Override
+	public boolean isAuthorReferenced(Author resultAuthor) {
+		if(publicationDAO.loadByAuthor(resultAuthor).isEmpty()){
+			return false;
+		}
+		return true;
+	}
+	
+
+
+	public PublicationDAO getPublicationDAO() {
+		return publicationDAO;
+	}
+
+	public void setPublicationDAO(PublicationDAO publicationDAO) {
+		this.publicationDAO = publicationDAO;
+	}
+
 
 }

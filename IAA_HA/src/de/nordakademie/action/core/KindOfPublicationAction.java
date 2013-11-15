@@ -19,8 +19,9 @@ public class KindOfPublicationAction extends ActionSupport implements Action {
 	private String addKind;
 
 	public String add() {
-		if(kindOfPublicationManager == null){
-			System.out.println("WARUM BIS DU NULL");
+		if (kindOfPublicationManager.isAlreadyAvailable(addKind)) {
+			addFieldError("addKind", "Ist bereits vorhanden");
+			return INPUT;
 		}
 		kindOfPublicationManager.save(addKind);
 		return "addKind";
@@ -32,17 +33,24 @@ public class KindOfPublicationAction extends ActionSupport implements Action {
 	}
 
 	public String save() {
+		if (kindOfPublicationManager.isReferneced(resultKind)) {
+			addFieldError("editKind", "Ist refernziert");
+			return INPUT;
+		}
 		kindOfPublicationManager.save(editKind);
 		kindOfPublicationManager.delete(resultKind.getKind());
 		return "save";
 	}
 
 	public String delete() {
+		if (kindOfPublicationManager.isReferneced(resultKind)) {
+			addFieldError("resultKind.kind", "Ist Referenziert");
+			return INPUT;
+		}
 		kindOfPublicationManager.delete(resultKind.getKind());
 		return "delete";
 	}
 
-	
 	public IKindOfPublicationManager getKindOfPublicationManager() {
 		return kindOfPublicationManager;
 	}
