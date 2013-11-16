@@ -7,11 +7,14 @@
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
 <title>Nordakademie Bib-System</title>
 </head>
-<h1><s:text name="headingBookOnLoanOverview"></s:text></h1>
+<h1>
+	<s:text name="headingBookOnLoanOverview"></s:text>
+</h1>
 <body>
 	<s:form action="sortLendingAction">
 		<s:submit key="sortButton">
-			<s:radio name="sort" key="sort" list="{getText('up'),getText('down')}" />
+			<s:radio name="sort" key="sort"
+				list="{getText('up'),getText('down')}" />
 			<s:radio name="sortBy" key="sortBy"
 				list="{getText('lendingId'),getText('loanDate'),getText('returnDate'),getText('Customer Id'),getText('Customer Name'),getText('Publication Id'),getText('Publication Title')}" />
 		</s:submit>
@@ -42,12 +45,16 @@
 
 				<td><s:url id="extendURL" action="viewLendingAction_extend">
 						<s:param name="id" value="id" />
-					</s:url> <s:a href="%{extendURL}">Extend</s:a></td>
+					</s:url> <s:a href="%{extendURL}">
+						<s:text name="extend" />
+					</s:a></td>
 
 				<td><s:url id="returnURL"
 						action="viewLendingAction_returnPublication">
 						<s:param name="id" value="id" />
-					</s:url> <s:a href="%{returnURL}">Return</s:a></td>
+					</s:url> <s:a href="%{returnURL}">
+						<s:text name="return" />
+					</s:a></td>
 			</tr>
 		</s:iterator>
 
