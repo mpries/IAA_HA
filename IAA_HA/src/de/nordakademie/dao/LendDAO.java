@@ -100,5 +100,18 @@ public class LendDAO {
 		return (List<Lending>)query.list();
 	}
 
+	public void setWarningToZero(int id) {
+		Session session = sessionFactory.getCurrentSession();
+		Query query = session.createQuery("update Warning set amount = 0 where id = (:id)");
+		query.setInteger("id", id);
+		query.executeUpdate();
+		
+	}
+
+	public Warning loadWarningById(int id) {
+		Session session = sessionFactory.getCurrentSession();
+		return (Warning) session.get(Warning.class, id);
+	}
+
 
 }
