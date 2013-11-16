@@ -7,22 +7,24 @@
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
 <title>Nordakademie Bib-System</title>
 </head>
-<h1>Create Customer</h1>
+<h1>
+	<s:text name="headingcreateCustomer" />
+</h1>
 <body>
 	<s:head />
 	<table>
 		<s:form action="customerCreateAction">
 			<tr>
-				<s:textfield label="Firstname" name="customer.firstName" />
+				<s:textfield key="firstname" name="customer.firstName" />
 			</tr>
 			<tr>
-				<s:textfield label="Lastname" name="customer.lastName" />
+				<s:textfield key="lastname" name="customer.lastName" />
 			</tr>
 			<tr>
-				<s:textfield label="ID" name="customer.customerId" />
+				<s:textfield key="id" name="customer.customerId" />
 			</tr>
 			<tr>
-				<th><s:submit value="Create" /></th>
+				<th><s:submit key="createButton" /></th>
 			</tr>
 
 		</s:form>
@@ -30,7 +32,7 @@
 	</table>
 
 	<s:form action="backAction">
-		<s:submit value="Back" />
+		<s:submit key="backButton" />
 	</s:form>
 
 

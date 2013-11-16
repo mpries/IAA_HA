@@ -40,89 +40,59 @@ public class SortLendingRemainderAction extends ActionSupport implements Action 
 	@Override
 	public String execute() {
 		setLendingsWithWarning(lendManager.loadLendingsWithWarning());
-		switch (sort) {
-		case "up":
-			switch (sortBy) {
-			case "Id":
+		if (sort.equals(getText("up"))) {
+			if (sortBy.equals(getText("lendingId"))) {
 				Collections.sort(lendingsWithWarning, new SortLendingUpById());
-				break;
-			case "loanDate":
-				Collections.sort(lendingsWithWarning,
-						new SortLendingUpByLoanDate());
-				break;
-			case "returnDate":
-				Collections.sort(lendingsWithWarning,
-						new SortLendingUpByReturnDate());
-				break;
-			case "Customer Id":
-				Collections.sort(lendingsWithWarning,
-						new SortLendingUpByCustomerId());
-				break;
-			case "Customer Name":
-				Collections.sort(lendingsWithWarning,
-						new SortLendingUpByCustomerName());
-				break;
-			case "Publication Id":
-				Collections.sort(lendingsWithWarning,
-						new SortLendingUpByPublicationId());
-				break;
-			case "Publication Title":
-				Collections.sort(lendingsWithWarning,
-						new SortLendingUpByPublicationTitle());
-				break;
-			case "Warning Id":
+			} else if (sortBy.equals(getText("warningId"))) {
 				Collections.sort(lendingsWithWarning,
 						new SortLendingUpByWarningId());
-				break;
-
-			default:
-				break;
+			} else if (sortBy.equals(getText("loanDate"))) {
+				Collections.sort(lendingsWithWarning,
+						new SortLendingUpByLoanDate());
+			} else if (sortBy.equals(getText("returnDate"))) {
+				Collections.sort(lendingsWithWarning,
+						new SortLendingUpByReturnDate());
+			} else if (sortBy.equals(getText("customerId"))) {
+				Collections.sort(lendingsWithWarning,
+						new SortLendingUpByCustomerId());
+			} else if (sortBy.equals(getText("customerName"))) {
+				Collections.sort(lendingsWithWarning,
+						new SortLendingUpByCustomerName());
+			} else if (sortBy.equals(getText("publicationId"))) {
+				Collections.sort(lendingsWithWarning,
+						new SortLendingUpByPublicationId());
+			} else if (sortBy.equals(getText("publicationTitle"))) {
+				Collections.sort(lendingsWithWarning,
+						new SortLendingUpByPublicationTitle());
 			}
-			break;
-		case "down":
-			switch (sortBy) {
-			case "Id":
+		} else if (sort.equals(getText("down"))) {
+			if (sortBy.equals(getText("lendingId"))) {
 				Collections
 						.sort(lendingsWithWarning, new SortLendingDownById());
-				break;
-			case "loanDate":
-				Collections.sort(lendingsWithWarning,
-						new SortLendingDownByLoanDate());
-				break;
-			case "returnDate":
-				Collections.sort(lendingsWithWarning,
-						new SortLendingDownByReturnDate());
-				break;
-			case "Customer Id":
-				Collections.sort(lendingsWithWarning,
-						new SortLendingDownByCustomerId());
-				break;
-			case "Customer Name":
-				Collections.sort(lendingsWithWarning,
-						new SortLendingDownByCustomerName());
-				break;
-			case "Publication Id":
-				Collections.sort(lendingsWithWarning,
-						new SortLendingDownByPublicationId());
-				break;
-			case "Publication Title":
-				Collections.sort(lendingsWithWarning,
-						new SortLendingDownByPublicationTitle());
-				break;
-			case "Warning Id":
+			} else if (sortBy.equals(getText("warningId"))) {
 				Collections.sort(lendingsWithWarning,
 						new SortLendingDownByWarningId());
-				break;
-
-			default:
-				break;
+			} else if (sortBy.equals(getText("loanDate"))) {
+				Collections.sort(lendingsWithWarning,
+						new SortLendingDownByLoanDate());
+			} else if (sortBy.equals(getText("returnDate"))) {
+				Collections.sort(lendingsWithWarning,
+						new SortLendingDownByReturnDate());
+			} else if (sortBy.equals(getText("customerId"))) {
+				Collections.sort(lendingsWithWarning,
+						new SortLendingDownByCustomerId());
+			} else if (sortBy.equals(getText("customerName"))) {
+				Collections.sort(lendingsWithWarning,
+						new SortLendingDownByCustomerName());
+			} else if (sortBy.equals(getText("publicationId"))) {
+				Collections.sort(lendingsWithWarning,
+						new SortLendingDownByPublicationId());
+			} else if (sortBy.equals(getText("publicationTitle"))) {
+				Collections.sort(lendingsWithWarning,
+						new SortLendingDownByPublicationTitle());
 			}
-			break;
-		default:
-			break;
 		}
 		return SUCCESS;
-
 	}
 
 	public String getSort() {

@@ -9,16 +9,16 @@
 </head>
 <body>
 	<s:form action="createPublishedPublicationSupply">
-		<s:submit value="Create Published Publication" />
+		<s:submit key="createPublishedPublicationButton" />
 	</s:form>
 	<s:form action="createAcademicPublicationSupply">
-		<s:submit value="Create Academic Publication" />
+		<s:submit key="createAcademicPublicationButton" />
 	</s:form>
 	<s:form action="addExistingPublicationSupply">
-		<s:submit value="Add Existing" />
+		<s:submit key="addExistingButton" />
 	</s:form>
 	<s:form action="backAction">
-		<s:submit value="Back" />
+		<s:submit key="backButton" />
 	</s:form>
 </body>
 </html>

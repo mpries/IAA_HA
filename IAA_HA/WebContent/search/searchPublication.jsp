@@ -7,33 +7,35 @@
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
 <title>Nordakademie Bib-System</title>
 </head>
-<h1>Search Publication</h1>
+<h1>
+	<s:text name="headingSearchPublication"></s:text>
+</h1>
 <body>
 	<table>
 		<s:form action="searchPublicationAction">
 			<tr>
-				<s:textfield label="Title" name="title" />
+				<s:textfield key="title" name="title" />
 			</tr>
 			<tr>
-				<s:textfield label="Author" name="author" />
+				<s:textfield key="authors" name="author" />
 			</tr>
 			<tr>
-				<s:textfield label="KeyWords" name="keyword" />
+				<s:textfield key="keywords" name="keyword" />
 			</tr>
 			<tr>
-				<s:submit value="Search" />
+				<s:submit key="searchButton" />
 
 			</tr>
 		</s:form>
 		<tr>
-			
+
 		</tr>
 
 	</table>
 
 
-<s:form action="backAction">
-				<s:submit value="Back" />
-			</s:form>
+	<s:form action="backAction">
+		<s:submit key="backButton" />
+	</s:form>
 </body>
 </html>
