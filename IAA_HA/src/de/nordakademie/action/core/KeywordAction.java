@@ -20,7 +20,7 @@ public class KeywordAction extends ActionSupport implements Action{
 	
 	
 	public String add(){
-		if(!keywordManager.isAlreadyAvailable(resultKeyword)){
+		if(!keywordManager.isAlreadyAvailable(addKeyword)){
 			keywordManager.save(addKeyword);
 			return "addKeyword";
 		}

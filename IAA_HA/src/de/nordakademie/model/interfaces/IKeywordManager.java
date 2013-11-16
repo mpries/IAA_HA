@@ -12,6 +12,6 @@ public interface IKeywordManager {
 
 	public boolean isKeywordReferenced(Keyword resultKeyword);
 
-	public boolean isAlreadyAvailable(Keyword resultKeyword);
+	public boolean isAlreadyAvailable(String addKeyword);
 
 }

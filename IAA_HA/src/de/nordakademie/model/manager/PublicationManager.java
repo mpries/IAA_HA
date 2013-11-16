@@ -15,12 +15,11 @@ import de.nordakademie.model.publication.Publication;
 import de.nordakademie.model.publication.PublishedPublication;
 
 public class PublicationManager implements IPublicationManager {
-	
+
 	private PublicationDAO publicationDAO;
 	private KeywordDAO keywordDAO;
 	private AuthorDAO authorDAO;
 	private KindOfPublicationDAO kindOfPublicationDAO;
-	
 
 	public KeywordDAO getKeywordDAO() {
 		return keywordDAO;
@@ -42,7 +41,8 @@ public class PublicationManager implements IPublicationManager {
 		return kindOfPublicationDAO;
 	}
 
-	public void setKindOfPublicationDAO(KindOfPublicationDAO kindOfPublicationDAO) {
+	public void setKindOfPublicationDAO(
+			KindOfPublicationDAO kindOfPublicationDAO) {
 		this.kindOfPublicationDAO = kindOfPublicationDAO;
 	}
 
@@ -54,24 +54,23 @@ public class PublicationManager implements IPublicationManager {
 		this.publicationDAO = publicationDAO;
 	}
 
-
 	@Override
 	public void delete(Publication publication) {
 		publicationDAO.delete(publication);
-		
+
 	}
 
 	@Override
 	public void create(Publication publication) {
 		// TODO Auto-generated method stub
 		publicationDAO.save(publication);
-		
+
 	}
 
 	@Override
 	public void edit(Publication publication) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
@@ -79,10 +78,10 @@ public class PublicationManager implements IPublicationManager {
 		// TODO Auto-generated method stub
 		return publicationDAO.load(title, author, keyword);
 	}
-	
-	public Publication view(int id){
+
+	public Publication view(int id) {
 		return publicationDAO.load(id);
-		
+
 	}
 
 	@Override
@@ -115,12 +114,12 @@ public class PublicationManager implements IPublicationManager {
 		publication.setKeywords(k);
 		publication.setKindOfPublication(kop);
 		publicationDAO.save(publication);
-		
+
 	}
 
 	@Override
 	public boolean isISBNAlreadyAvailable(PublishedPublication publication) {
-		if(!publicationDAO.loadByISBN(publication).isEmpty()){
+		if (!publicationDAO.loadByISBN(publication).isEmpty()) {
 			return true;
 		}
 		return false;
@@ -129,12 +128,12 @@ public class PublicationManager implements IPublicationManager {
 	@Override
 	public void addCopy(int id, int amount) {
 		publicationDAO.addCopy(id, Math.abs(amount));
-		
+
 	}
 
 	@Override
 	public boolean isDateGreaterThanToday(PublishedPublication publication) {
-		if(publication.getReleaseDate().after(new Date())){
+		if (publication.getReleaseDate().after(new Date())) {
 			return true;
 		}
 		return false;
@@ -143,11 +142,11 @@ public class PublicationManager implements IPublicationManager {
 	@Override
 	public void decreaseStored(Publication publication) {
 		publication.setStored(publication.getStored() - 1);
-		publicationDAO.save(publication);
-		
+		if (publication.getStored() > 0) {
+			publicationDAO.save(publication);
+		} else {
+			publicationDAO.delete(publication);
+		}
 	}
-
-
-
 
 }

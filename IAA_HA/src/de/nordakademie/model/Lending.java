@@ -1,19 +1,13 @@
 package de.nordakademie.model;
 
 import java.util.Date;
-import java.util.List;
-
 import javax.persistence.CascadeType;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
-
-import org.hibernate.annotations.Cascade;
 
 import de.nordakademie.model.publication.Publication;
 
@@ -26,16 +20,18 @@ public class Lending {
 	protected Customer customer;
 	protected Date loanDate;
 	protected Date returnDate;
-	@OneToOne(cascade=CascadeType.ALL)
+	protected int extensions;
+	@OneToOne(cascade = CascadeType.ALL)
 	protected Warning warning;
-	@Id @GeneratedValue(strategy=GenerationType.AUTO)
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
-	
-	public Lending(){
+
+	public Lending() {
 		this.warning = new Warning();
+		this.setExtensions(0);
 	}
-	
-	
+
 	public int getId() {
 		return id;
 	}
@@ -44,12 +40,10 @@ public class Lending {
 		this.id = id;
 	}
 
-	
 	public Customer getCustomer() {
 		return customer;
 	}
 
-	
 	public Date getLoanDate() {
 		return loanDate;
 	}
@@ -73,11 +67,11 @@ public class Lending {
 	public Warning getWarning() {
 		return warning;
 	}
-	
+
 	public void setWarning(Warning warning) {
 		this.warning = warning;
 	}
-	
+
 	public Publication getPublication() {
 		return publication;
 	}
@@ -85,6 +79,13 @@ public class Lending {
 	public void setPublication(Publication publication) {
 		this.publication = publication;
 	}
-	
-	
+
+	public int getExtensions() {
+		return extensions;
+	}
+
+	public void setExtensions(int extensions) {
+		this.extensions = extensions;
+	}
+
 }

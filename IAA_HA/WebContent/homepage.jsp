@@ -22,7 +22,7 @@
 			<th><s:form action="/search/searchPublication.jsp">
 					<s:submit value="Search Publication" />
 				</s:form></th>
-			<th><s:form action="coreDataAdministration.jsp">
+			<th><s:form action="/coreDataAdministration.jsp">
 					<s:submit value="Core Data Administrator" />
 				</s:form></th>
 			<th><s:form action="lendActionexecute">

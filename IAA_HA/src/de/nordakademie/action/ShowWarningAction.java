@@ -19,10 +19,8 @@ public class ShowWarningAction extends ActionSupport implements Action{
 	
 	
 	public String execute(){
+		lendManager.checkWarningStatus();
 		setLendingsWithWarning(lendManager.loadLendingsWithWarning());
-		for (Lending l : lendingsWithWarning) {
-			System.out.println(l.getCustomer().getFirstName() + "CUSTOMER+++++++");
-		}
 		return SUCCESS;
 	}
 
