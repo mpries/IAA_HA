@@ -115,15 +115,20 @@ public class LendManager implements ILendManager {
 	public void extendLending(int id) {
 		Lending lend = lendDAO.loadById(id);
 		Warning w = lend.getWarning();
-		w.setAmount(0);
-		lend.setWarning(w);
-		if(!this.isAlreadyWarned(lend.getWarning().getId())){
-			lend.setReturnDate(extendReturnDate(lend.getReturnDate()));
-		}else{
-			lend.setReturnDate(extendReturnDate(new Date()));
-			this.delteWarnings(lend);
+		if(lend.getExtensions() < 3){
+			w.setAmount(0);
+			lend.setWarning(w);
+			lend.setExtensions(lend.getExtensions() + 1);
+			if(!this.isAlreadyWarned(lend.getWarning().getId())){
+				lend.setReturnDate(extendReturnDate(lend.getReturnDate()));
+			}else{
+				lend.setReturnDate(extendReturnDate(new Date()));
+				this.delteWarnings(lend);
+			}
+			lendDAO.create(lend);
+			
 		}
-		lendDAO.create(lend);
+
 
 	}
 
