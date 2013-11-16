@@ -37,6 +37,12 @@ public class PublicationCreateAction extends ActionSupport implements
 				addFieldError("publication.releaseDate",
 						"Datum liegt in der Zukunft");
 			}
+		}if (name.isEmpty()) {
+			addFieldError("name", "Kein Autor gewählt");
+		}if (description.isEmpty()) {
+			addFieldError("description", "Kein Schlagwort gewählt");
+		}if (publication.getISBN().length() > 13){
+			addFieldError("publication.ISBN", "ISBN darf nicht mehr als 13 Stellen haben");
 		}
 
 	}
