@@ -113,15 +113,32 @@ public class LendManager implements ILendManager {
 	@Override
 	public void extendLending(int id) {
 		Lending lend = lendDAO.loadById(id);
-		lend.setReturnDate(extendReturnDate(lend.getReturnDate()));
+		if(!this.isAlreadyWarned(id)){
+			lend.setReturnDate(extendReturnDate(lend.getReturnDate()));
+		}else{
+			lend.setReturnDate(extendReturnDate(new Date()));
+			this.delteWarnings(lend);
+		}
 		lendDAO.create(lend);
 
+	}
+
+	public void delteWarnings(Lending lend) {
+		lendDAO.setWarningToZero(lend.getWarning().getId());
+		
+	}
+
+	public boolean isAlreadyWarned(int id) {
+		if(lendDAO.loadWarningById(id).getAmount() > 0){
+			return true;
+		}
+		return false;
 	}
 
 	private Date extendReturnDate(Date returnDate) {
 		Calendar c = Calendar.getInstance();
 		c.setTime(returnDate);
-		c.add(Calendar.DATE, 14);
+		c.add(Calendar.DATE, 7);
 		Date extendReturnDate = c.getTime();
 		return extendReturnDate;
 	}
