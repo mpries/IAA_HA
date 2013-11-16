@@ -7,6 +7,7 @@ import java.util.List;
 import de.nordakademie.dao.LendDAO;
 import de.nordakademie.model.Customer;
 import de.nordakademie.model.Lending;
+import de.nordakademie.model.Warning;
 import de.nordakademie.model.interfaces.ICustomerManager;
 import de.nordakademie.model.interfaces.ILendManager;
 import de.nordakademie.model.interfaces.IPublicationManager;
@@ -113,13 +114,21 @@ public class LendManager implements ILendManager {
 	@Override
 	public void extendLending(int id) {
 		Lending lend = lendDAO.loadById(id);
-		if(!this.isAlreadyWarned(id)){
-			lend.setReturnDate(extendReturnDate(lend.getReturnDate()));
-		}else{
-			lend.setReturnDate(extendReturnDate(new Date()));
-			this.delteWarnings(lend);
+		Warning w = lend.getWarning();
+		if(lend.getExtensions() < 3){
+			w.setAmount(0);
+			lend.setWarning(w);
+			lend.setExtensions(lend.getExtensions() + 1);
+			if(!this.isAlreadyWarned(lend.getWarning().getId())){
+				lend.setReturnDate(extendReturnDate(lend.getReturnDate()));
+			}else{
+				lend.setReturnDate(extendReturnDate(new Date()));
+				this.delteWarnings(lend);
+			}
+			lendDAO.create(lend);
+			
 		}
-		lendDAO.create(lend);
+
 
 	}
 
@@ -155,8 +164,6 @@ public class LendManager implements ILendManager {
 	@Override
 	public String checkWarningStatus() {
 		List<Lending> lendingsWithWarning = lendDAO.loadWithExpiredDate();
-		if(lendingsWithWarning.isEmpty())
-			System.out.println("**************IS EMPTY********************");
 		for (Lending lending : lendingsWithWarning) {
 			calculateAmountOfWarning(lending);
 		}
