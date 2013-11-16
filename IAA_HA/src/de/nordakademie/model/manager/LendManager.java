@@ -113,7 +113,7 @@ public class LendManager implements ILendManager {
 	@Override
 	public void extendLending(int id) {
 		Lending lend = lendDAO.loadById(id);
-		if(!this.isAlreadyWarned(id)){
+		if(!this.isAlreadyWarned(lend.getWarning().getId())){
 			lend.setReturnDate(extendReturnDate(lend.getReturnDate()));
 		}else{
 			lend.setReturnDate(extendReturnDate(new Date()));
@@ -155,8 +155,6 @@ public class LendManager implements ILendManager {
 	@Override
 	public String checkWarningStatus() {
 		List<Lending> lendingsWithWarning = lendDAO.loadWithExpiredDate();
-		if(lendingsWithWarning.isEmpty())
-			System.out.println("**************IS EMPTY********************");
 		for (Lending lending : lendingsWithWarning) {
 			calculateAmountOfWarning(lending);
 		}
