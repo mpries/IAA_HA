@@ -13,7 +13,7 @@
 		<table>
 
 			<tr>
-				<td><s:textfield key="titel" name="publication.title" /> <s:textfield
+				<td><s:textfield key="title" name="publication.title" /> <s:textfield
 						key="releaseDate" name="publication.releaseDate" /> <s:textfield
 						key="Publisher" name="publication.publisher" />
 				<td><s:select key="keywords" list="keywords" name="description"

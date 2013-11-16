@@ -7,24 +7,24 @@
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
 <title>Nordakademie Bib-System</title>
 </head>
-<h1>Book on loan Overview</h1>
+<h1><s:text name="headingBookOnLoanOverview"></s:text></h1>
 <body>
 	<s:form action="sortLendingAction">
-		<s:submit value="sort">
-			<s:radio name="sort" label="sort" list="{'up','down'}" />
-			<s:radio name="sortBy" label="sortBy"
-				list="{'Id','loanDate','returnDate','Customer Id','Customer Name','Publication Id','Publication Title'}" />
+		<s:submit key="sortButton">
+			<s:radio name="sort" key="sort" list="{getText('up'),getText('down')}" />
+			<s:radio name="sortBy" key="sortBy"
+				list="{getText('lendingId'),getText('loanDate'),getText('returnDate'),getText('Customer Id'),getText('Customer Name'),getText('Publication Id'),getText('Publication Title')}" />
 		</s:submit>
 	</s:form>
 	<table border="2ppx">
 		<tr>
-			<th>Lending Id</th>
-			<th>Loan Date</th>
-			<th>Return Date</th>
-			<th>Customer Id</th>
-			<th>Customer Name</th>
-			<th>Publication Id</th>
-			<th>Publication Title</th>
+			<th><s:text name="lendingId" /></th>
+			<th><s:text name="loanDate" /></th>
+			<th><s:text name="returnDate" /></th>
+			<th><s:text name="customerId" /></th>
+			<th><s:text name="customerName" /></th>
+			<th><s:text name="publicationId" /></th>
+			<th><s:text name="publicatioTnitle" /></th>
 
 		</tr>
 
@@ -54,7 +54,7 @@
 
 	</table>
 	<s:form action="backAction">
-		<s:submit value="Back" />
+		<s:submit key="backButton" />
 	</s:form>
 </body>
 </html>
