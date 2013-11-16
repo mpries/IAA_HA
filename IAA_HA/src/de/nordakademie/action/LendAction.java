@@ -26,12 +26,11 @@ public class LendAction extends ActionSupport implements Action, Preparable {
 	private int id;
 
 	public String execute() {
-		System.out.println("EXECUTE********************");
+
 		return SUCCESS;
 	}
 
 	public String create() {
-		System.out.println("create********************");
 		if (!lendManager.isCopyAvailable(id)) {
 			addFieldError("id", "Kein Examplar mehr im Bestand");
 			return INPUT;
@@ -103,7 +102,6 @@ public class LendAction extends ActionSupport implements Action, Preparable {
 
 	@Override
 	public void prepare() throws Exception {
-		System.out.println("prepare******************");
 		createLoanDate();
 		publications = lendManager.loadPublications();
 		customers = lendManager.loadCustomer();

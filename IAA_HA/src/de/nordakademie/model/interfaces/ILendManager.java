@@ -34,4 +34,6 @@ public interface ILendManager {
 
 	public boolean isCopyAvailable(int id);
 
+	public String checkWarningStatus();
+
 }

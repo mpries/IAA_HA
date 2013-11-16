@@ -38,5 +38,7 @@ public interface IPublicationManager {
 
 	public void decreaseStored(Publication publication);
 
+	public void increaseStored(int id);
+
 
 }

@@ -14,6 +14,7 @@ import de.nordakademie.model.publication.Publication;
 
 public class LendManager implements ILendManager {
 
+	private static long sevenDaysInMiliSec = 604800000;
 	private LendDAO lendDAO;
 	private IPublicationManager publicationManager;
 	private ICustomerManager customerManager;
@@ -89,6 +90,7 @@ public class LendManager implements ILendManager {
 		lend.setCustomer(customerManager.view(customerId));
 		lend.setPublication(publicationManager.view(publicationId));
 		lendDAO.create(lend);
+		publicationManager.decreaseStored(publicationManager.view(publicationId));
 	}
 
 	@Override
@@ -103,6 +105,7 @@ public class LendManager implements ILendManager {
 
 	@Override
 	public void registerReturn(int id) {
+		publicationManager.increaseStored(lendDAO.loadById(id).getPublication().getId());
 		lendDAO.delete(id);
 
 	}
@@ -126,11 +129,46 @@ public class LendManager implements ILendManager {
 	@Override
 	public boolean isCopyAvailable(int id) {
 		Publication publication = publicationManager.view(id);
-		if(publication.getStored() < 1){
+		if (publication.getStored() < 2) {
 			return false;
 		}
-		publicationManager.decreaseStored(publication);
 		return true;
+	}
+
+	@Override
+	public String checkWarningStatus() {
+		List<Lending> lendingsWithWarning = lendDAO.loadWithExpiredDate();
+		if(lendingsWithWarning.isEmpty())
+			System.out.println("**************IS EMPTY********************");
+		for (Lending lending : lendingsWithWarning) {
+			calculateAmountOfWarning(lending);
+		}
+
+		return null;
+
+	}
+
+	private void calculateAmountOfWarning(Lending lending) {
+		long diff = new Date().getTime() - lending.getReturnDate().getTime();
+		if(diff > sevenDaysInMiliSec*4){
+			System.out.println("CASE 1");
+			//Decrease Copy or delete publication if necessary
+			lendDAO.delete(lending.getId());
+			publicationManager.decreaseStored(lending.getPublication());
+		}
+		if(diff > sevenDaysInMiliSec*3){
+			System.out.println("CASE 2");
+			lendDAO.increaseWarningAmount(lending, 3);
+		}
+		if(diff > sevenDaysInMiliSec*2){
+			System.out.println("CASE 3");
+			lendDAO.increaseWarningAmount(lending, 2);
+		}
+		if(diff < sevenDaysInMiliSec){
+			System.out.println("CASE 4");
+			lendDAO.increaseWarningAmount(lending, 1);
+		}
+		
 	}
 
 }

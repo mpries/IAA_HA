@@ -52,8 +52,8 @@ public class KeywordManager implements IKeywordManager {
 	}
 
 	@Override
-	public boolean isAlreadyAvailable(Keyword resultKeyword) {
-		if(keywordDAO.load(resultKeyword.getDescription()) == null){
+	public boolean isAlreadyAvailable(String resultKeyword) {
+		if(keywordDAO.load(resultKeyword) == null){
 			return false;
 		}
 		return true;

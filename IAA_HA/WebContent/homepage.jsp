@@ -8,7 +8,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
 <title>Nordakademie Bib-System</title>
 </head>
-<h1><s:text name="headingHomepage"/></h1>
+<h1>
+	<s:text name="headingHomepage" />
+</h1>
 <body>
 
 	<table>
@@ -23,6 +25,7 @@
 					<s:submit key="searchPublicationButton" />
 				</s:form></th>
 			<th><s:form action="/coreDataAdministration.jsp">
+
 					<s:submit key="coreDataAdministratorButton" />
 				</s:form></th>
 			<th><s:form action="/lendActionexecute">
@@ -34,7 +37,9 @@
 
 		</tr>
 	</table>
-	<h4 style="color: red"><s:text name="booksOnLoanRemainder"/></h4>
+	<h4 style="color: red">
+		<s:text name="booksOnLoanRemainder" />
+	</h4>
 	<br>
 	<s:form action="sortLendingRemainderAction">
 		<s:submit key="sortButton">
@@ -47,14 +52,14 @@
 		<s:submit key="showWarningButton" />
 		<table border="2ppx">
 			<tr>
-				<th><s:text name="lendingId"/></th>
-				<th><s:text name="warningId"/></th>
-				<th><s:text name="loanDate"/></th>
-				<th><s:text name="returnDate"/></th>
-				<th><s:text name="customerId"/></th>
-				<th><s:text name="customerName"/></th>
-				<th><s:text name="publicationId"/></th>
-				<th><s:text name="publicationTitle"/></th>
+				<th><s:text name="lendingId" /></th>
+				<th><s:text name="warningId" /></th>
+				<th><s:text name="loanDate" /></th>
+				<th><s:text name="returnDate" /></th>
+				<th><s:text name="customerId" /></th>
+				<th><s:text name="customerName" /></th>
+				<th><s:text name="publicationId" /></th>
+				<th><s:text name="publicationTitle" /></th>
 
 			</tr>
 
