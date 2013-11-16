@@ -72,78 +72,45 @@ public class SortPublicationAction extends ActionSupport implements Action {
 		keyword = searchList.get(2);
 		publications = publicationManager.view(title, author, keyword);
 		System.out.println(publications.size() + "<--------------------");
-
-		switch (sort) {
-		case "up":
-			switch (sortBy) {
-			case "id":
+		if (sort.equals(getText("up"))) {
+			if (sortBy.equals(getText("id"))) {
 				Collections.sort(publications, new SortPublicationUpById());
-				break;
-			case "title":
+			} else if (sortBy.equals(getText("title"))) {
 				Collections.sort(publications, new SortPublicationUpByTitle());
-				break;
-			case "stored":
+			} else if (sortBy.equals(getText("stored"))) {
 				Collections.sort(publications, new SortPublicationUpByStored());
-				break;
-			case "kindOfPublication":
+			} else if (sortBy.equals(getText("kindOfPublication"))) {
 				Collections.sort(publications,
 						new SortPublicationUpByKindOfPublication());
-				break;
-			case "releaseDate":
+			} else if (sortBy.equals(getText("releaseDate"))) {
 				Collections.sort(publications, new SortPublicationUpByDate());
-				break;
-			case "author":
+			} else if (sortBy.equals(getText("authors"))) {
 				Collections.sort(publications, new SortPublicationUpByAuthor());
-				break;
-			case "keyword":
+			} else if (sortBy.equals(getText("keywords"))) {
 				Collections
 						.sort(publications, new SortPublicationUpByKeyword());
-				break;
-
-			default:
-				break;
 			}
-			break;
-		case "down":
-			switch (sortBy) {
-			case "id":
+		} else if (sort.equals(getText("down"))) {
+			if (sortBy.equals(getText("id"))) {
 				Collections.sort(publications, new SortPublicationDownById());
-				break;
-			case "title":
+			} else if (sortBy.equals(getText("title"))) {
 				Collections
 						.sort(publications, new SortPublicationDownByTitle());
-				break;
-			case "stored":
+			} else if (sortBy.equals(getText("stored"))) {
 				Collections.sort(publications,
 						new SortPublicationDownByStored());
-				break;
-			case "kindOfPublication":
+			} else if (sortBy.equals(getText("kindOfPublication"))) {
 				Collections.sort(publications,
 						new SortPublicationDownByKindOfPublication());
-				break;
-			case "releaseDate":
+			} else if (sortBy.equals(getText("releaseDate"))) {
 				Collections.sort(publications, new SortPublicationDownByDate());
-				break;
-			case "author":
+			} else if (sortBy.equals(getText("authors"))) {
 				Collections.sort(publications,
 						new SortPublicationDownByAuthor());
-				break;
-			case "keyword":
+			} else if (sortBy.equals(getText("keywords"))) {
 				Collections.sort(publications,
 						new SortPublicationDownByKeyword());
-				break;
-
-			default:
-				break;
 			}
-			break;
-
-		default:
-			break;
-		}
-		for (Publication p : publications) {
-			System.out.println(p.getTitle());
-
 		}
 		return SUCCESS;
 

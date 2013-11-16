@@ -16,7 +16,7 @@
 			<s:radio name="sort" key="sort"
 				list="{getText('up'),getText('down')}" />
 			<s:radio name="sortBy" key="sortBy"
-				list="{getText('lendingId'),getText('loanDate'),getText('returnDate'),getText('Customer Id'),getText('Customer Name'),getText('Publication Id'),getText('Publication Title')}" />
+				list="{getText('lendingId'),getText('loanDate'),getText('returnDate'),getText('customerId'),getText('customerName'),getText('publicationId'),getText('publicationTitle')}" />
 		</s:submit>
 	</s:form>
 	<table border="2ppx">
@@ -27,7 +27,7 @@
 			<th><s:text name="customerId" /></th>
 			<th><s:text name="customerName" /></th>
 			<th><s:text name="publicationId" /></th>
-			<th><s:text name="publicatioTnitle" /></th>
+			<th><s:text name="publicationTitle" /></th>
 
 		</tr>
 
