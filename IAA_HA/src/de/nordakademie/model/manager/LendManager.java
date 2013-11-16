@@ -171,4 +171,9 @@ public class LendManager implements ILendManager {
 		
 	}
 
+	@Override
+	public List<Lending> checkByCustomer(Customer customer) {
+		return (List<Lending>)lendDAO.loadByCustomer(customer);
+	}
+
 }

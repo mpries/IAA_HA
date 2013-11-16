@@ -5,10 +5,13 @@ import java.util.List;
 import de.nordakademie.dao.CustomerDAO;
 import de.nordakademie.model.Customer;
 import de.nordakademie.model.interfaces.ICustomerManager;
+import de.nordakademie.model.interfaces.ILendManager;
+import de.nordakademie.model.interfaces.IPublicationManager;
 
 public class CustomerManager implements ICustomerManager {
 
 	private CustomerDAO customerDAO;
+	private ILendManager lendManager;
 
 	public CustomerDAO getCustomerDAO() {
 		return customerDAO;
@@ -62,6 +65,22 @@ public class CustomerManager implements ICustomerManager {
 			return false;
 		}
 		return true;
+	}
+
+	@Override
+	public boolean isCustomerReferenced(Customer customer) {
+		if(lendManager.checkByCustomer(customer).isEmpty()){
+			return false;
+		}
+		return true;
+	}
+
+	public ILendManager getLendManager() {
+		return lendManager;
+	}
+
+	public void setLendManager(ILendManager lendManager) {
+		this.lendManager = lendManager;
 	}
 
 }

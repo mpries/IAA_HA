@@ -24,8 +24,9 @@
 		<tr>
 			<td><s:form action="searchCustomerAction">
 
-					<s:textfield label="ID" key="id" />
+					<s:textfield name="customer.customerId" key="id"/>
 					<s:submit key="searchButton" />
+
 				</s:form></td>
 
 

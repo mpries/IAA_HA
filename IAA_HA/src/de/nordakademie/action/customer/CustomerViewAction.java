@@ -17,6 +17,20 @@ public class CustomerViewAction extends ActionSupport implements IViewAction, Ac
 	private Customer customer;
 	
 
+	@Override
+	public String execute() throws Exception {
+		customer = customerManager.view(customer.getCustomerId());
+		return SUCCESS;
+	}
+	
+	public void validate(){
+		if(!customerManager.isCustomerAlreadyAvailable(customer)){
+			addFieldError("customer.customerId", "Gibt es nicht");
+		}
+	}
+	
+	
+
 	public int getId() {
 		return id;
 	}
@@ -39,19 +53,6 @@ public class CustomerViewAction extends ActionSupport implements IViewAction, Ac
 
 	public void setCustomerManager(ICustomerManager customerManager) {
 		this.customerManager = customerManager;
-	}
-
-	@Override
-	public String execute() throws Exception {
-		// TODO Auto-generated method stub
-		customer = customerManager.view(id);
-		return SUCCESS;
-	}
-	
-	public void validate(){
-		if(customerManager.isCustomerAlreadyAvailable(customer)){
-			addFieldError("id", "Gibt es nicht");
-		}
 	}
 
 

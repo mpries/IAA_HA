@@ -35,13 +35,15 @@ public class CustomerDeleteAction extends ActionSupport implements
 
 	@Override
 	public String execute() throws Exception {
-		System.out.println(customer.getFirstName());
 		customerManager.delete(customer);
 		return SUCCESS;
 	}
 
 	public void validate() {
-		// TODO
+		if(customerManager.isCustomerReferenced(customer)){
+			addFieldError("customer.firstName", "Kann nicht geloescht werden");
+		}
 	}
+
 
 }

@@ -36,4 +36,6 @@ public interface ILendManager {
 
 	public String checkWarningStatus();
 
+	public List<Lending> checkByCustomer(Customer customer);
+
 }

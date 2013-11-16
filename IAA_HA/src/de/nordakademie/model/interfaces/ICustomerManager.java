@@ -21,4 +21,6 @@ public interface ICustomerManager {
 
 	public boolean isCustomerAlreadyAvailable(Customer customer);
 
+	public boolean isCustomerReferenced(Customer customer);
+
 }
