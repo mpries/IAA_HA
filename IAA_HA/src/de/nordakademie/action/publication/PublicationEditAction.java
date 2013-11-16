@@ -27,34 +27,8 @@ public class PublicationEditAction extends ActionSupport implements
 	private IPublicationManager publicationManager;
 	private Map<String, Object> session;
 	private IKindOfPublicationManager kindManager;
-
-	public IKindOfPublicationManager getKindManager() {
-		return kindManager;
-	}
-
-	public void setKindManager(IKindOfPublicationManager kindManager) {
-		this.kindManager = kindManager;
-	}
-
 	private List<KindOfPublication> kindOfPublications;
-
 	private List<String> kind;
-
-	public List<String> getKind() {
-		return kind;
-	}
-
-	public void setKind(List<String> kind) {
-		this.kind = kind;
-	}
-
-	public List<KindOfPublication> getKindOfPublications() {
-		return kindOfPublications;
-	}
-
-	public void setKindOfPublications(List<KindOfPublication> kindOfPublications) {
-		this.kindOfPublications = kindOfPublications;
-	}
 
 	@Override
 	public String execute() throws Exception {
@@ -72,6 +46,7 @@ public class PublicationEditAction extends ActionSupport implements
 				.getKeywords());
 		publication.setKindOfPublication(new KindOfPublication(kind.get(0)));
 		publicationManager.create(publication);
+		
 		return "save";
 	}
 
@@ -109,6 +84,30 @@ public class PublicationEditAction extends ActionSupport implements
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
 
+	}
+
+	public List<String> getKind() {
+		return kind;
+	}
+
+	public void setKind(List<String> kind) {
+		this.kind = kind;
+	}
+
+	public List<KindOfPublication> getKindOfPublications() {
+		return kindOfPublications;
+	}
+
+	public void setKindOfPublications(List<KindOfPublication> kindOfPublications) {
+		this.kindOfPublications = kindOfPublications;
+	}
+
+	public IKindOfPublicationManager getKindManager() {
+		return kindManager;
+	}
+
+	public void setKindManager(IKindOfPublicationManager kindManager) {
+		this.kindManager = kindManager;
 	}
 
 }

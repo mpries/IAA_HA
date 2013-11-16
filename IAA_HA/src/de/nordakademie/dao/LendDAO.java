@@ -7,9 +7,9 @@ import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.criterion.Expression;
 import org.hibernate.criterion.Restrictions;
 
+import de.nordakademie.model.Customer;
 import de.nordakademie.model.Lending;
 import de.nordakademie.model.Warning;
 
@@ -90,6 +90,14 @@ public class LendDAO {
 		warning.setAmount(i);
 		session.saveOrUpdate(warning);
 		
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<Lending> loadByCustomer(Customer customer) {
+		Session session = sessionFactory.getCurrentSession();
+		Query query = session.createQuery("from Lending where customer_customerid = (:customer_id)");
+		query.setInteger("customer_id", customer.getCustomerId());
+		return (List<Lending>)query.list();
 	}
 
 

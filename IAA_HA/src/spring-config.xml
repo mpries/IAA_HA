@@ -84,6 +84,7 @@
 
 	<bean id="customerManager" class="de.nordakademie.model.manager.CustomerManager">
 		<property name="customerDAO" ref="customerDAO" />
+		<property name="lendManager" ref="lendManager" />
 	</bean>
 
 	<bean id="publicationManager" class="de.nordakademie.model.manager.PublicationManager">

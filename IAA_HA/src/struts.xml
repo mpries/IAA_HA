@@ -52,7 +52,6 @@
 
 		<action name="searchCustomerAction"
 			class="de.nordakademie.action.customer.CustomerViewAction">
-
 			<result name="success">/editCustomer.jsp</result>
 			<result name="input">/coreDataAdministration.jsp</result>
 		</action>
