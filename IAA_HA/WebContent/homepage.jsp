@@ -13,22 +13,22 @@
 
 	<table>
 		<tr>
-			<th><s:form action="kindOfPublication.jsp">
+			<th><s:form action="/kindOfPublication.jsp">
 					<s:submit value="Create Publikation" />
 				</s:form></th>
-			<th><s:form action="createCustomer.jsp">
+			<th><s:form action="/createCustomer.jsp">
 					<s:submit value="Create Customer" />
 				</s:form></th>
 			<th><s:form action="/search/searchPublication.jsp">
 					<s:submit value="Search Publication" />
 				</s:form></th>
-			<th><s:form action="coreDataAdministration.jsp">
+			<th><s:form action="/coreDataAdministration.jsp">
 					<s:submit value="Core Data Administrator" />
 				</s:form></th>
-			<th><s:form action="lendActionexecute">
+			<th><s:form action="/lendActionexecute">
 					<s:submit value="Create Book on loan" />
 				</s:form></th>
-			<th><s:form action="viewLendingAction_supply">
+			<th><s:form action="/viewLendingAction_supply">
 					<s:submit value="Open Lendings" />
 				</s:form></th>
 
@@ -38,7 +38,7 @@
 	<br>
 	<s:form action="sortLendingRemainderAction">
 		<s:submit value="sort">
-			<s:radio name="sort" label="sort" list="{'up','down'}" />
+			<s:radio name="sort"  list="{'up','down'}" key="sort" />
 			<s:radio name="sortBy" label="sortBy"
 				list="{'Id','Warning Id','loanDate','returnDate','Customer Id','Customer Name','Publication Id','Publication Title'}" />
 		</s:submit>
