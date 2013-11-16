@@ -43,9 +43,9 @@
 	<br>
 	<s:form action="sortLendingRemainderAction">
 		<s:submit key="sortButton">
-			<s:radio name="sort" list="{'up','down'}" key="sort" />
+			<s:radio name="sort"  list="{getText('up'),getText('down')}" key="sort" />
 			<s:radio name="sortBy" key="sortBy"
-				list="{'Id','Warning Id','Loan Date','Return Date','Customer Id','Customer Name','Publication Id','Publication Title'}" />
+				list="{getText('lendingId'),getText('warningId'),getText('loanDate'),getText('returnDate'),getText('customerId'),getText('customerName'),getText('publicationId'),getText('publicationTitle')}" />
 		</s:submit>
 	</s:form>
 	<s:form action="showWarning">

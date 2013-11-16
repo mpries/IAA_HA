@@ -12,18 +12,18 @@
 	<s:form action="addExistingPublicationAdd">
 		<s:head />
 
-		<s:select label="Publications" list="publications" name="id"
+		<s:select key="publications" list="publications" name="id"
 			listKey="id" listValue="id+'-'+title+'-'+kindOfPublication.kind" />
 
 		<s:fielderror fieldName="test" />
-		<s:textfield name="amount" label="Amount" />
-		<s:submit value="Add" />
+		<s:textfield name="amount" key="amount" />
+		<s:submit key="addButton" />
 
 	</s:form>
 
 
 	<s:form action="backAction">
-		<s:submit value="Back" />
+		<s:submit key="backButton" />
 	</s:form>
 </body>
 </html>

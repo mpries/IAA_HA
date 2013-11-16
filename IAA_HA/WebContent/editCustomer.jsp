@@ -7,18 +7,20 @@
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
 <title>Edit Customer</title>
 </head>
-<h1>Nordakademie Bib-System</h1>
+<h1>
+	<s:text name="headingHomepage" />
+</h1>
 <body>
 	<s:head />
 	<s:form action="editCustomerAction">
 		<s:hidden name="customer.customerId" />
-		<s:textfield name="customer.firstName" label="First Name" />
-		<s:textfield label="Last Name" name="customer.lastName" />
-		<s:submit value="Save" />
-		<s:submit value="Delete" action="deleteCustomerAction" />
+		<s:textfield name="customer.firstName" key="firstName" />
+		<s:textfield key="lastName" name="customer.lastName" />
+		<s:submit key="saveButton" />
+		<s:submit key="deleteButton" action="deleteCustomerAction" />
 	</s:form>
 	<s:form action="backAction">
-		<s:submit value="Back" />
+		<s:submit key="backButton" />
 	</s:form>
 </body>
 </html>

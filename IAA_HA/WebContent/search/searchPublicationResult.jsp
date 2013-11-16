@@ -7,14 +7,14 @@
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
 <title>Nordakademie Bib-System</title>
 </head>
-<h1>Search Publication Result</h1>
+<h1><s:text name="headingSearchPublicationResult" /></h1>
 <body>
 
 	<s:form action="sortPublicationAction">
-		<s:submit value="sort">
-			<s:radio name="sort" label="sort" list="{'up','down'}" />
-			<s:radio name="sortBy" label="sortBy"
-				list="{'id','title','stored','kindOfPublication','releaseDate','author','keyword'}" />
+		<s:submit key="sortButton">
+			<s:radio name="sort" key="sort" list="{getText('up'),getText('down')}" />
+			<s:radio name="sortBy" key="sortBy"
+				list="{getText('id'),getText('title'),getText('stored'),getText('kindOfPublication'),getText('releaseDate'),getText('authors'),getText('keywords')}" />
 			<s:hidden value="#session.publication" />
 			<s:iterator value="searchList" status="row">
 				<s:hidden name="searchList[%{#row.index}]" />
@@ -24,13 +24,13 @@
 
 	<table border="2ppx">
 		<tr>
-			<th>Id</th>
-			<th>Title</th>
-			<th>Stored</th>
-			<th>Kind of Publication</th>
-			<th>Release Date</th>
-			<th>Author</th>
-			<th>Keywords</th>
+			<th><s:text name="id" /></th>
+			<th><s:text name="title" /></th>
+			<th><s:text name="stored" /></th>
+			<th><s:text name="kindOfPublication" /></th>
+			<th><s:text name="releaseDate" /></th>
+			<th><s:text name="authors" /></th>
+			<th><s:text name="keywords" /></th>
 
 		</tr>
 		<s:iterator value="publication">
@@ -53,7 +53,7 @@
 		</s:iterator>
 	</table>
 	<s:form action="backAction">
-		<s:submit value="Back" />
+		<s:submit key="backButton" />
 	</s:form>
 </body>
 </html>

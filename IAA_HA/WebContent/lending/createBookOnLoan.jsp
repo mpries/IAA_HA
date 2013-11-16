@@ -7,29 +7,28 @@
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
 <title>Nordakademie Bib-System</title>
 </head>
-<h1>Create book on loan</h1>
+<h1><s:text name="createBookOnLoan" /></h1>
 <body>
-<s:head/>
+	<s:head />
 
 	<s:form action="lendActioncreate">
-		<s:textfield label="Datum der Ausgabe" name="currentDate"
-			readonly="true" />
-		<s:textfield label="Rueckgabedatum" name="returnDate" readonly="true" />
+		<s:textfield key="loanDate" name="currentDate" readonly="true" />
+		<s:textfield key="returnDate" name="returnDate" readonly="true" />
 
 
-		<s:select label="Customer" headerValue="Select Customer"
+		<s:select key="customer" headerValue="Select Customer"
 			list="customers" name="customerId" listKey="customerId"
 			listValue="firstName+'-'+lastName+'-'+customerId" />
 
 
-		<s:select label="Publications" list="publications" name="id"
+		<s:select key="publications" list="publications" name="id"
 			listKey="id" listValue="title+'-'+kindOfPublication.kind+'-'+id" />
 
 
-		<s:submit value="Create" />
+		<s:submit key="createButton" />
 	</s:form>
 	<s:form action="backAction">
-		<s:submit value="Back" />
+		<s:submit key="backButton" />
 	</s:form>
 </body>
 </html>
