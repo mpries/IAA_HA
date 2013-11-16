@@ -8,53 +8,58 @@
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
 <title>Nordakademie Bib-System</title>
 </head>
-<h1>Nordakademie Bib-System</h1>
+<h1>
+	<s:text name="headingHomepage" />
+</h1>
 <body>
 
 	<table>
 		<tr>
-			<th><s:form action="kindOfPublication.jsp">
-					<s:submit value="Create Publikation" />
+			<th><s:form action="/kindOfPublication.jsp">
+					<s:submit key="createPublicationButton" />
 				</s:form></th>
-			<th><s:form action="createCustomer.jsp">
-					<s:submit value="Create Customer" />
+			<th><s:form action="/createCustomer.jsp">
+					<s:submit key="createCustomerButton" />
 				</s:form></th>
 			<th><s:form action="/search/searchPublication.jsp">
-					<s:submit value="Search Publication" />
+					<s:submit key="searchPublicationButton" />
 				</s:form></th>
 			<th><s:form action="/coreDataAdministration.jsp">
-					<s:submit value="Core Data Administrator" />
+
+					<s:submit key="coreDataAdministratorButton" />
 				</s:form></th>
-			<th><s:form action="lendActionexecute">
-					<s:submit value="Create Book on loan" />
+			<th><s:form action="/lendActionexecute">
+					<s:submit key="createBookOnLoanButton" />
 				</s:form></th>
-			<th><s:form action="viewLendingAction_supply">
-					<s:submit value="Open Lendings" />
+			<th><s:form action="/viewLendingAction_supply">
+					<s:submit key="openLendingsButton" />
 				</s:form></th>
 
 		</tr>
 	</table>
-	<h4 style="color: red">Books on loan remainder</h4>
+	<h4 style="color: red">
+		<s:text name="booksOnLoanRemainder" />
+	</h4>
 	<br>
 	<s:form action="sortLendingRemainderAction">
-		<s:submit value="sort">
-			<s:radio name="sort" label="sort" list="{'up','down'}" />
-			<s:radio name="sortBy" label="sortBy"
-				list="{'Id','Warning Id','loanDate','returnDate','Customer Id','Customer Name','Publication Id','Publication Title'}" />
+		<s:submit key="sortButton">
+			<s:radio name="sort" list="{'up','down'}" key="sort" />
+			<s:radio name="sortBy" key="sortBy"
+				list="{'Id','Warning Id','Loan Date','Return Date','Customer Id','Customer Name','Publication Id','Publication Title'}" />
 		</s:submit>
 	</s:form>
 	<s:form action="showWarning">
-		<s:submit value="Show Warning" />
+		<s:submit key="showWarningButton" />
 		<table border="2ppx">
 			<tr>
-				<th>Lending Id</th>
-				<th>Warning Id</th>
-				<th>Loan Date</th>
-				<th>Return Date</th>
-				<th>Customer Id</th>
-				<th>Customer Name</th>
-				<th>Publication Id</th>
-				<th>Publication Title</th>
+				<th><s:text name="lendingId" /></th>
+				<th><s:text name="warningId" /></th>
+				<th><s:text name="loanDate" /></th>
+				<th><s:text name="returnDate" /></th>
+				<th><s:text name="customerId" /></th>
+				<th><s:text name="customerName" /></th>
+				<th><s:text name="publicationId" /></th>
+				<th><s:text name="publicationTitle" /></th>
 
 			</tr>
 
