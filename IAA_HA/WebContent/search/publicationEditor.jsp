@@ -11,35 +11,33 @@
 <body>
 	<s:form action="publicationEditActionsave">
 		<s:hidden name="publication.id" />
-		<s:textfield name="publication.title" label="Title" />
-		<s:select label="Kind of Publications" list="kindOfPublications"
+		<s:textfield name="publication.title" key="title" />
+		<s:select key="kindOfPublication" list="kindOfPublications"
 			name="kind" listKey="kind" listValue="kind" />
-		<s:textfield name="publication.releaseDate" label="Release Date" />
+		<s:textfield name="publication.releaseDate" key="releaseDate" />
 
 
 		<s:iterator value="publication.authors">
-			<s:textfield name="name" label="Author" readonly="true" />
+			<s:textfield name="name" key="author" readonly="true" />
 			<br>
 		</s:iterator>
 		<s:iterator value="publication.keywords">
-			<s:textfield name="description" label="Keyword" readonly="true" />
+			<s:textfield name="description" key="keyword" readonly="true" />
 			<br>
 		</s:iterator>
 
 
-		<s:submit value="Cancel" action="/homepage.jsp" />
-
-		<s:submit value="Save" />
+		<s:submit key="saveButton" />
 	</s:form>
 
 
 	<s:form action="publicationEditActiondelete">
 		<s:param name="publication" value="publication"></s:param>
-		<s:submit value="Delete" />
+		<s:submit key="deleteButton" />
 	</s:form>
 
 	<s:form action="backAction">
-		<s:submit value="Back" />
+		<s:submit key="backButton" />
 	</s:form>
 
 
