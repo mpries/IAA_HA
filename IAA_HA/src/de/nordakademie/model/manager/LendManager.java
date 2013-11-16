@@ -90,6 +90,7 @@ public class LendManager implements ILendManager {
 		lend.setCustomer(customerManager.view(customerId));
 		lend.setPublication(publicationManager.view(publicationId));
 		lendDAO.create(lend);
+		publicationManager.decreaseStored(publicationManager.view(publicationId));
 	}
 
 	@Override
@@ -104,6 +105,7 @@ public class LendManager implements ILendManager {
 
 	@Override
 	public void registerReturn(int id) {
+		publicationManager.increaseStored(lendDAO.loadById(id).getPublication().getId());
 		lendDAO.delete(id);
 
 	}
@@ -127,10 +129,9 @@ public class LendManager implements ILendManager {
 	@Override
 	public boolean isCopyAvailable(int id) {
 		Publication publication = publicationManager.view(id);
-		if (publication.getStored() < 1) {
+		if (publication.getStored() < 2) {
 			return false;
 		}
-		publicationManager.decreaseStored(publication);
 		return true;
 	}
 

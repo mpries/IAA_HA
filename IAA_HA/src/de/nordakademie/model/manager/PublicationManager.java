@@ -149,4 +149,12 @@ public class PublicationManager implements IPublicationManager {
 		}
 	}
 
+	@Override
+	public void increaseStored(int id) {
+		Publication publication = publicationDAO.load(id);
+		publication.setStored(publication.getStored() + 1);
+		publicationDAO.save(publication);
+		
+	}
+
 }
