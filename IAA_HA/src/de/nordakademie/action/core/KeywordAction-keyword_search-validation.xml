@@ -8,7 +8,7 @@
 <validators>
 	<field name="searchKeyword">
 		<field-validator type="requiredstring">
-			<message>Keyword is required</message>
+			<message key="validationKeywordRequired" />
 		</field-validator>
 	</field>
 </validators>

@@ -8,7 +8,7 @@
 <validators>
 	<field name="resultKeyword.description">
 		<field-validator type="requiredstring">
-			<message>No Keyword selected</message>
+			<message key="validationNoKeywordSelected" />
 		</field-validator>
 	</field>
 </validators>

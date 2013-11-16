@@ -8,32 +8,32 @@
 <validators>
 	<field name="publication.title">
 		<field-validator type="requiredstring">
-			<message>Title is required</message>
+			<message key="validationTitleRequired" />
 		</field-validator>
 	</field>
 	<field name="publication.releaseDate">
 		<field-validator type="required">
-			<message>Release Date is required</message>
+			<message key="validationReleaseDateRequired" />
 		</field-validator>
 	</field>
 	<field name="publication.publisher.name">
 		<field-validator type="requiredstring">
-			<message>Publisher is required</message>
+			<message key="validationPublisherRequired" />
 		</field-validator>
 	</field>
 	<field name="publication.ISBN">
 		<field-validator type="requiredstring">
-			<message>ISBN is required</message>
+			<message key="validationISBNRequired" />
 		</field-validator>
-    </field>
+	</field>
 	<field name="name">
 		<field-validator type="required">
-			<message>Select Author</message>
+			<message key="validationNoAuthorSelected" />
 		</field-validator>
 	</field>
 	<field name="description">
 		<field-validator type="required">
-			<message>ISBN is required</message>
+			<message key="validationKeywordRequired" />
 		</field-validator>
 	</field>
 </validators>

@@ -8,12 +8,12 @@
 <validators>
 	<field name="customer.firstName">
 		<field-validator type="requiredstring">
-			<message>First Name is required</message>
+			<message key="validationFirstNameRequired" />
 		</field-validator>
 	</field>
 	<field name="customer.lastName">
 		<field-validator type="requiredstring">
-			<message>Last Name is required</message>
+			<message key="validationLastNameRequired" />
 		</field-validator>
 	</field>
 </validators>

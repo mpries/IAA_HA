@@ -12,8 +12,19 @@
 		</field-validator>
 	</field>
 	<field name="publication.releaseDate">
-		<field-validator type="requireddate">
+		<field-validator type="required">
 			<message key="validationReleaseDateRequired" />
 		</field-validator>
 	</field>
+	<field name="name">
+		<field-validator type="required">
+			<message key="validationNoAuthorSelected" />
+		</field-validator>
+	</field>
+	<field name="description">
+		<field-validator type="required">
+			<message key="validationKeywordRequired" />
+		</field-validator>
+	</field>
 </validators>
+

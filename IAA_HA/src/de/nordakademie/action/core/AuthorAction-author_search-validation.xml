@@ -8,7 +8,7 @@
 <validators>
 	<field name="searchAuthor">
 		<field-validator type="requiredstring">
-			<message>Author is required</message>
+			<message key="validationAuthorRequired" />
 		</field-validator>
 	</field>
 </validators>
