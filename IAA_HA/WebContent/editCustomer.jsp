@@ -14,8 +14,8 @@
 	<s:head />
 	<s:form action="editCustomerAction">
 		<s:hidden name="customer.customerId" />
-		<s:textfield name="customer.firstName" key="firstName" />
-		<s:textfield key="lastName" name="customer.lastName" />
+		<s:textfield name="customer.firstName" key="firstname" />
+		<s:textfield key="lastname" name="customer.lastName" />
 		<s:submit key="saveButton" />
 		<s:submit key="deleteButton" action="deleteCustomerAction" />
 	</s:form>

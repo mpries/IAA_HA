@@ -23,8 +23,18 @@
 	</field>
 	<field name="publication.ISBN">
 		<field-validator type="requiredstring">
-			<param name="max">13</param>
+			<message>ISBN is required</message>
+		</field-validator>
+    </field>
+	<field name="name">
+		<field-validator type="required">
+			<message>Select Author</message>
+		</field-validator>
+	</field>
+	<field name="description">
+		<field-validator type="required">
 			<message>ISBN is required</message>
 		</field-validator>
 	</field>
 </validators>
+

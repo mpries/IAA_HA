@@ -27,6 +27,15 @@ public class APublicationCreateAction extends ActionSupport implements
 		return SUCCESS;
 	}
 
+	public void validate() {
+		if (name.isEmpty()) {
+			addFieldError("name", "Kein Autor gewählt");
+		}
+		if (description.isEmpty()) {
+			addFieldError("description", "Kein Schlagwort gewählt");
+		}
+
+	}
 
 	public IPublicationManager getPublicationManager() {
 		return publicationManager;
