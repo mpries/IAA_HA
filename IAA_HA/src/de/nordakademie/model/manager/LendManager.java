@@ -7,6 +7,7 @@ import java.util.List;
 import de.nordakademie.dao.LendDAO;
 import de.nordakademie.model.Customer;
 import de.nordakademie.model.Lending;
+import de.nordakademie.model.Warning;
 import de.nordakademie.model.interfaces.ICustomerManager;
 import de.nordakademie.model.interfaces.ILendManager;
 import de.nordakademie.model.interfaces.IPublicationManager;
@@ -113,6 +114,9 @@ public class LendManager implements ILendManager {
 	@Override
 	public void extendLending(int id) {
 		Lending lend = lendDAO.loadById(id);
+		Warning w = lend.getWarning();
+		w.setAmount(0);
+		lend.setWarning(w);
 		if(!this.isAlreadyWarned(lend.getWarning().getId())){
 			lend.setReturnDate(extendReturnDate(lend.getReturnDate()));
 		}else{
