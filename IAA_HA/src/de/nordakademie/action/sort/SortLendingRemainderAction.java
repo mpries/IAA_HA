@@ -34,8 +34,17 @@ public class SortLendingRemainderAction extends ActionSupport implements Action 
 	private ILendManager lendManager;
 	private List<Lending> lendingsWithWarning;
 
-	private String sort = new String();
-	private String sortBy = new String();
+	private String sort;
+	private String sortBy;
+
+	public void validate() {
+		if (sort == null) {
+			addFieldError("sort", getText("validationNoSearchcriteria"));
+		}
+		if (sortBy == null) {
+			addFieldError("sortBy", getText("validationNoSearchcriteria"));
+		}
+	}
 
 	@Override
 	public String execute() {

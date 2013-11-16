@@ -29,10 +29,10 @@ public class APublicationCreateAction extends ActionSupport implements
 
 	public void validate() {
 		if (name.isEmpty()) {
-			addFieldError("name", "Kein Autor gewählt");
+			addFieldError("name", getText("validationNoAuthorSelected"));
 		}
 		if (description.isEmpty()) {
-			addFieldError("description", "Kein Schlagwort gewählt");
+			addFieldError("description", getText("validationNoKeywordSelected"));
 		}
 
 	}

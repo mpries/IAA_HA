@@ -12,7 +12,7 @@
 	<s:text name="headingHomepage" />
 </h1>
 <body>
-
+	<s:head />
 	<table>
 		<tr>
 			<th><s:form action="/kindOfPublication.jsp">
@@ -43,7 +43,8 @@
 	<br>
 	<s:form action="sortLendingRemainderAction">
 		<s:submit key="sortButton">
-			<s:radio name="sort"  list="{getText('up'),getText('down')}" key="sort" />
+			<s:radio name="sort" list="{getText('up'),getText('down')}"
+				key="sort" />
 			<s:radio name="sortBy" key="sortBy"
 				list="{getText('lendingId'),getText('warningId'),getText('loanDate'),getText('returnDate'),getText('customerId'),getText('customerName'),getText('publicationId'),getText('publicationTitle')}" />
 		</s:submit>
@@ -82,9 +83,6 @@
 
 
 	</s:form>
-
-
-
 </body>
 </html>
 

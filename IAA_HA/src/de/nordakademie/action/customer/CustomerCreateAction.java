@@ -41,7 +41,7 @@ public class CustomerCreateAction extends ActionSupport implements
 	
 	public void validate(){
 		if(customerManager.isAlreadyAvailable(customer)){
-			addFieldError("customer.customerId", "ID existiert bereits");
+			addFieldError("customer.customerId", getText("validateCustomerIdAlreadyExist"));
 		}
 	}
 

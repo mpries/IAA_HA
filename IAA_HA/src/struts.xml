@@ -11,7 +11,7 @@
 	<!-- <constant name="struts.custom.i18n.resources" value="messages" /> -->
 	<constant name="struts.devMode" value="true" />
 	<constant name="struts.i18n.reload" value="true" />
-    <constant name="struts.configuration.xml.reload" value="true" />
+	<constant name="struts.configuration.xml.reload" value="true" />
 
 	<!-- LOGIN -->
 	<package name="default" extends="struts-default">
@@ -29,7 +29,7 @@
 		<action name="sortPublicationAction"
 			class="de.nordakademie.action.sort.SortPublicationAction">
 			<result name="success">/search/searchPublicationResult.jsp</result>
-			<result name="input">/index.jsp</result>
+			<result name="input">/search/searchPublicationResult.jsp</result>
 		</action>
 
 		<action name="sortLendingAction" class="de.nordakademie.action.sort.SortLendingAction">

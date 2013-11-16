@@ -30,19 +30,19 @@ public class PublicationCreateAction extends ActionSupport implements
 
 	public void validate() {
 		if (publicationManager.isISBNAlreadyAvailable(publication)) {
-			addFieldError("publication.ISBN", "ISBN exisitert bereits");
+			addFieldError("publication.ISBN", getText("validateISBNAlreadyExist"));
 		}
 		if (publication.getReleaseDate() != null) {
 			if (publicationManager.isDateGreaterThanToday(publication)) {
 				addFieldError("publication.releaseDate",
-						"Datum liegt in der Zukunft");
+						getText("validateReleaseDateFuture"));
 			}
 		}if (name.isEmpty()) {
-			addFieldError("name", "Kein Autor gewählt");
+			addFieldError("name", getText("validationNoAuthorSelected"));
 		}if (description.isEmpty()) {
-			addFieldError("description", "Kein Schlagwort gewählt");
+			addFieldError("description", getText("validationNoKeywordSelected"));
 		}if (publication.getISBN().length() > 13){
-			addFieldError("publication.ISBN", "ISBN darf nicht mehr als 13 Stellen haben");
+			addFieldError("publication.ISBN", getText("validateISBNLength"));
 		}
 
 	}
