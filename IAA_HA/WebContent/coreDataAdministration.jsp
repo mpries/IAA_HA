@@ -33,7 +33,7 @@
 				</s:form> <s:form action="keyword_save">
 					<s:textfield label="Result" name="resultKeyword.description"
 						readonly="true" />
-					<s:textfield label="Edit" name="editKeyword"></s:textfield>
+					<s:textfield label="Edit" name="editKeyword" ></s:textfield>
 					<s:submit value="Save" />
 				</s:form> <s:form action="keyword_delete">
 					<s:hidden name="resultKeyword.description" />

@@ -5,12 +5,13 @@ import java.util.List;
 
 import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionSupport;
+import com.opensymphony.xwork2.Preparable;
 
 import de.nordakademie.model.Customer;
 import de.nordakademie.model.interfaces.ILendManager;
 import de.nordakademie.model.publication.Publication;
 
-public class LendAction extends ActionSupport implements Action {
+public class LendAction extends ActionSupport implements Action, Preparable {
 
 	/**
 	 * 
@@ -24,16 +25,19 @@ public class LendAction extends ActionSupport implements Action {
 	private int customerId;
 	private int id;
 
-	public String supply() {
-		createLoanDate();
-		publications = lendManager.loadPublications();
-		customers = lendManager.loadCustomer();
-		return "supply";
+	public String execute() {
+		System.out.println("EXECUTE********************");
+		return SUCCESS;
 	}
 
 	public String create() {
+		System.out.println("create********************");
+		if (!lendManager.isCopyAvailable(id)) {
+			addFieldError("id", "Kein Examplar mehr im Bestand");
+			return INPUT;
+		}
 		lendManager.create(customerId, id, currentDate, returnDate);
-		return SUCCESS;
+		return "create";
 	}
 
 	private void createLoanDate() {
@@ -95,6 +99,15 @@ public class LendAction extends ActionSupport implements Action {
 
 	public void setCustomerId(int customerId) {
 		this.customerId = customerId;
+	}
+
+	@Override
+	public void prepare() throws Exception {
+		System.out.println("prepare******************");
+		createLoanDate();
+		publications = lendManager.loadPublications();
+		customers = lendManager.loadCustomer();
+
 	}
 
 }

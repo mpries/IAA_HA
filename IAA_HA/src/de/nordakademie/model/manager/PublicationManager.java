@@ -140,6 +140,13 @@ public class PublicationManager implements IPublicationManager {
 		return false;
 	}
 
+	@Override
+	public void decreaseStored(Publication publication) {
+		publication.setStored(publication.getStored() - 1);
+		publicationDAO.save(publication);
+		
+	}
+
 
 
 

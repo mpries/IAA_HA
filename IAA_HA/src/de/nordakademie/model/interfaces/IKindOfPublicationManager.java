@@ -10,4 +10,8 @@ public interface IKindOfPublicationManager {
 
 	void delete(String kind);
 
+	boolean isAlreadyAvailable(String addKind);
+
+	boolean isReferneced(KindOfPublication resultKind);
+
 }

@@ -9,6 +9,7 @@
 </head>
 <h1>Create book on loan</h1>
 <body>
+<s:head/>
 
 	<s:form action="lendActioncreate">
 		<s:textfield label="Datum der Ausgabe" name="currentDate"

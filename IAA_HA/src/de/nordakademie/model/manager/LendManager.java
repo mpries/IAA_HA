@@ -123,4 +123,14 @@ public class LendManager implements ILendManager {
 		return extendReturnDate;
 	}
 
+	@Override
+	public boolean isCopyAvailable(int id) {
+		Publication publication = publicationManager.view(id);
+		if(publication.getStored() < 1){
+			return false;
+		}
+		publicationManager.decreaseStored(publication);
+		return true;
+	}
+
 }

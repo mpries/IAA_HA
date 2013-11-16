@@ -10,4 +10,8 @@ public interface IKeywordManager {
 
 	public void delete(String description);
 
+	public boolean isKeywordReferenced(Keyword resultKeyword);
+
+	public boolean isAlreadyAvailable(Keyword resultKeyword);
+
 }

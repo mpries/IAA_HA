@@ -25,7 +25,7 @@
 			<th><s:form action="coreDataAdministration.jsp">
 					<s:submit value="Core Data Administrator" />
 				</s:form></th>
-			<th><s:form action="lendActionsupply">
+			<th><s:form action="lendActionexecute">
 					<s:submit value="Create Book on loan" />
 				</s:form></th>
 			<th><s:form action="viewLendingAction_supply">

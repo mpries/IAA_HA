@@ -95,14 +95,17 @@
 
 	<bean id="keywordManager" class="de.nordakademie.model.manager.KeywordManager">
 		<property name="keywordDAO" ref="keywordDAO" />
+		<property name="publicationDAO" ref="publicationDAO" />
 	</bean>
 
 	<bean id="kindOfPublicationManager" class="de.nordakademie.model.manager.KindOfPublicationManager">
 		<property name="kindOfPublicationDAO" ref="kindOfPublicationDAO" />
+		<property name="publicationDAO" ref="publicationDAO" />
 	</bean>
 
 	<bean id="authorManager" class="de.nordakademie.model.manager.AuthorManager">
 		<property name="authorDAO" ref="authorDAO" />
+		<property name="publicationDAO" ref="publicationDAO" />
 	</bean>
 
 

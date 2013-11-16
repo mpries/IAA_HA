@@ -10,4 +10,8 @@ public interface IAuthorManager {
 
 	void save(String name);
 
+	boolean isAlreadyAvailable(String addAuthor);
+
+	boolean isAuthorReferenced(Author resultAuthor);
+
 }
