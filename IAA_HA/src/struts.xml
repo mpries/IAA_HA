@@ -162,7 +162,8 @@
 
 		<action name="createPublishedPublicationSave"
 			class="de.nordakademie.action.publication.PublicationCreateAction">
-			<result name="input" type="chain">createPublishedPublicationSupply</result>
+			<result name="input" type="chain">createPublishedPublicationSupply
+			</result>
 			<result name="success">/homepage.jsp</result>
 		</action>
 
@@ -176,10 +177,16 @@
 
 		<action name="createAcademicPublicationSave"
 			class="de.nordakademie.action.publication.academic.APublicationCreateAction">
-			<result name="input" type="chain">createAcademicPublicationSupply</result>
+			<result name="input" type="chain">createAcademicPublicationSupply
+			</result>
 			<result name="success">/homepage.jsp</result>
 		</action>
 
+		<!-- Back -->
+
+		<action name="backAction" class="de.nordakademie.action.BackAction">
+			<result name="success">/homepage.jsp</result>
+		</action>
 
 		<!-- Welcome Warning Action -->
 
@@ -192,13 +199,12 @@
 			class="de.nordakademie.action.publication.PublicationAddSupplyAction">
 			<result name="success">/addPublication.jsp</result>
 			<result name="input">/addPublication.jsp</result>
-
 		</action>
 
 		<action name="addExistingPublicationAdd"
 			class="de.nordakademie.action.publication.PublicationAddAction">
 			<result name="success">homepage.jsp</result>
-			<result name="input" type="chain" >addExistingPublicationSupply
+			<result name="input" type="chain">addExistingPublicationSupply
 			</result>
 		</action>
 

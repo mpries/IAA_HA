@@ -17,5 +17,8 @@
 	<s:form action="addExistingPublicationSupply">
 		<s:submit value="Add Existing" />
 	</s:form>
+	<s:form action="backAction">
+		<s:submit value="Back" />
+	</s:form>
 </body>
 </html>

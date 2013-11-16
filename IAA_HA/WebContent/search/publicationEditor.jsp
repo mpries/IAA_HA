@@ -38,7 +38,9 @@
 		<s:submit value="Delete" />
 	</s:form>
 
-
+	<s:form action="backAction">
+		<s:submit value="Back" />
+	</s:form>
 
 
 </body>

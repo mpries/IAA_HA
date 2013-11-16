@@ -81,22 +81,16 @@
 					<s:textfield name="addAuthor" label="Add Author" value="" />
 					<s:submit value="Add" />
 				</s:form></td>
-				
-				<td><s:form action="kindOfPublication_add">
+
+			<td><s:form action="kindOfPublication_add">
 					<s:textfield name="addKind" label="Add Kind" value="" />
 					<s:submit value="Add" />
 				</s:form></td>
 
 		</tr>
 	</table>
-
-
-
-	<s:form action="homepage.jsp">
+	<s:form action="backAction">
 		<s:submit value="Back" />
 	</s:form>
-
-
-
 </body>
 </html>

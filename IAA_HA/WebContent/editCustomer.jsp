@@ -16,9 +16,9 @@
 		<s:textfield label="Last Name" name="customer.lastName" />
 		<s:submit value="Save" />
 		<s:submit value="Delete" action="deleteCustomerAction" />
-		<s:form action="homepage.jsp">
-			<s:submit value="Back" />
-		</s:form>
+	</s:form>
+	<s:form action="backAction">
+		<s:submit value="Back" />
 	</s:form>
 </body>
 </html>

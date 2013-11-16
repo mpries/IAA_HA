@@ -26,7 +26,7 @@
 			</tr>
 		</s:form>
 		<tr>
-			<s:form action="/homepage.jsp">
+			<s:form action="backAction">
 				<s:submit value="Back" />
 			</s:form>
 		</tr>

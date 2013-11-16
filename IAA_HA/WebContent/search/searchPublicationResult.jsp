@@ -52,7 +52,9 @@
 			</tr>
 		</s:iterator>
 	</table>
-
+	<s:form action="backAction">
+		<s:submit value="Back" />
+	</s:form>
 </body>
 </html>
 

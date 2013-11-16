@@ -19,7 +19,7 @@
 				<s:textfield label="Lastname" name="customer.lastName" />
 			</tr>
 			<tr>
-				<s:textfield label="ID" name="customer.customerId"/>
+				<s:textfield label="ID" name="customer.customerId" />
 			</tr>
 			<tr>
 				<th><s:submit value="Create" /></th>
@@ -29,9 +29,9 @@
 
 	</table>
 
-	<form action="homepage.jsp">
+	<s:form action="backAction">
 		<s:submit value="Back" />
-	</form>
+	</s:form>
 
 
 </body>

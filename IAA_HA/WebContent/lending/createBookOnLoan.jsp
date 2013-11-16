@@ -16,22 +16,19 @@
 		<s:textfield label="Rueckgabedatum" name="returnDate" readonly="true" />
 
 
-		<s:select label="Customer" 
-			headerValue="Select Customer" list="customers" name="customerId" listKey="customerId"
+		<s:select label="Customer" headerValue="Select Customer"
+			list="customers" name="customerId" listKey="customerId"
 			listValue="firstName+'-'+lastName+'-'+customerId" />
 
 
-		<s:select label="Publications" 
-			list="publications" name="id" listKey="id"
-			listValue="title+'-'+kindOfPublication.kind+'-'+id" />
+		<s:select label="Publications" list="publications" name="id"
+			listKey="id" listValue="title+'-'+kindOfPublication.kind+'-'+id" />
 
 
 		<s:submit value="Create" />
 	</s:form>
-
-	<s:form action="homepage.jsp">
+	<s:form action="backAction">
 		<s:submit value="Back" />
 	</s:form>
-
 </body>
 </html>
