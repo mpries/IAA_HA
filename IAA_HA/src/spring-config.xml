@@ -92,6 +92,7 @@
 		<property name="kindOfPublicationDAO" ref="kindOfPublicationDAO" />
 		<property name="authorDAO" ref="authorDAO" />
 		<property name="keywordDAO" ref="keywordDAO" />
+		<property name="lendManager" ref="lendManager" />
 	</bean>
 
 	<bean id="keywordManager" class="de.nordakademie.model.manager.KeywordManager">

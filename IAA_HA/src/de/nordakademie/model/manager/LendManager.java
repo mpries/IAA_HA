@@ -115,7 +115,7 @@ public class LendManager implements ILendManager {
 	public void extendLending(int id) {
 		Lending lend = lendDAO.loadById(id);
 		Warning w = lend.getWarning();
-		if(lend.getExtensions() < 3){
+		if(lend.getExtensions() < 2){
 			w.setAmount(0);
 			lend.setWarning(w);
 			lend.setExtensions(lend.getExtensions() + 1);
@@ -198,6 +198,14 @@ public class LendManager implements ILendManager {
 	@Override
 	public List<Lending> checkByCustomer(Customer customer) {
 		return (List<Lending>)lendDAO.loadByCustomer(customer);
+	}
+
+	@Override
+	public boolean isPublicationOnLoan(Publication publication) {
+		if(lendDAO.loadByPublication(publication).isEmpty()){
+			return false;
+		} 
+		return true;
 	}
 
 }

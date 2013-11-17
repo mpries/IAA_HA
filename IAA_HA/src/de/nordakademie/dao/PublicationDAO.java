@@ -138,4 +138,14 @@ public class PublicationDAO {
 		query.setString("kind", addKind);
 		return (List<KindOfPublication>) query.list();
 	}
+
+	public void updateTitleAndKind(Publication publication) {
+		Session session = sessionFactory.getCurrentSession();
+		KindOfPublication tempKind = (KindOfPublication)session.get(KindOfPublication.class, publication.getKindOfPublication().getKind());
+		Publication tempPub = (Publication)session.get(Publication.class, publication.getId());
+		tempPub.setKindOfPublication(tempKind);
+		tempPub.setTitle(publication.getTitle());
+		session.saveOrUpdate(tempPub);
+		
+	}
 }

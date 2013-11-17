@@ -34,16 +34,10 @@ public class PublicationViewAction extends ActionSupport implements
 	}
 
 	public String execute() {
-		System.out.println("VIEW");
 		searchList.add(title);
 		searchList.add(author);
 		searchList.add(keyword);
 		publications = publicationManager.view(title, author, keyword);
-		System.out.println(publications.size() + "<--------------------");
-		for (Publication p : publications) {
-			System.out.println(p.getTitle());
-
-		}
 		return SUCCESS;
 	}
 

@@ -11,9 +11,9 @@
 	<!-- <constant name="struts.custom.i18n.resources" value="messages" /> -->
 	<constant name="struts.devMode" value="true" />
 	<constant name="struts.i18n.reload" value="true" />
-    <constant name="struts.configuration.xml.reload" value="true" />
+	<constant name="struts.configuration.xml.reload" value="true" />
+	<constant name="struts.xwork.chaining.copyFieldErrors" value="true" />
 
-	<!-- LOGIN -->
 	<package name="default" extends="struts-default">
 
 		<!-- SEARCH -->
@@ -69,24 +69,21 @@
 		</action>
 
 
-		<!-- Published PUBLICATION -->
+		<!-- EDIT PUBLICATION -->
 
-		<action name="publicationCreateAction*"
-			class="de.nordakademie.action.publication.PublicationCreateAction"
-			method="{1}">
-			<result name="success">/addKeyword.jsp</result>
-			<result name="addKeyword">/addKeyword.jsp</result>
-			<result name="saveKeyword">/addAuthor.jsp</result>
-			<result name="addAuthor">/addAuthor.jsp</result>
-			<result name="saveAuthor">/homepage.jsp</result>
-			<result name="input">/createPublication.jsp</result>
+
+		<action name="publicationEditSupply"
+			class="de.nordakademie.action.publication.PublicationEditSupply">
+			<interceptor-ref name="paramsPrepareParamsStack" />
+			<result name="success">/search/publicationEditor.jsp</result>
+			<result name="input">/search/publicationEditor.jsp</result>
 		</action>
 
 		<action name="publicationEditAction*"
 			class="de.nordakademie.action.publication.PublicationEditAction"
 			method="{1}">
 			<result name="success">/search/publicationEditor.jsp</result>
-			<result name="input">/search/publicationEditor.jsp</result>
+			<result name="input" type="redirectAction">publicationEditSupply?id=${id}</result>
 			<result name="save">/homepage.jsp</result>
 			<result name="delete">/homepage.jsp</result>
 		</action>
@@ -204,6 +201,6 @@
 
 	</package>
 
-	<constant name="struts.xwork.chaining.copyFieldErrors" value="true" />
+
 </struts>
 

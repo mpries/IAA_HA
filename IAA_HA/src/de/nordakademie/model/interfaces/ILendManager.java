@@ -38,4 +38,6 @@ public interface ILendManager {
 
 	public List<Lending> checkByCustomer(Customer customer);
 
+	public boolean isPublicationOnLoan(Publication publication);
+
 }

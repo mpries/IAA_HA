@@ -46,7 +46,7 @@
 				<td><s:iterator value="keywords">
 						<s:property value="description" />
 					</s:iterator></td>
-				<td><s:url id="detailURL" action="publicationEditActionexecute">
+				<td><s:url id="detailURL" action="publicationEditSupply">
 						<s:param name="id" value="id" />
 					</s:url> <s:a href="%{detailURL}">Details</s:a></td>
 			</tr>

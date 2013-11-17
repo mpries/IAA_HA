@@ -12,6 +12,7 @@ import org.hibernate.criterion.Restrictions;
 import de.nordakademie.model.Customer;
 import de.nordakademie.model.Lending;
 import de.nordakademie.model.Warning;
+import de.nordakademie.model.publication.Publication;
 
 public class LendDAO {
 
@@ -111,6 +112,14 @@ public class LendDAO {
 	public Warning loadWarningById(int id) {
 		Session session = sessionFactory.getCurrentSession();
 		return (Warning) session.get(Warning.class, id);
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<Lending> loadByPublication(Publication publication) {
+		Session session = sessionFactory.getCurrentSession();
+		Query query = session.createQuery("from Lending where publication_id = (:id)");
+		query.setInteger("id", publication.getId());
+		return (List<Lending>)query.list();
 	}
 
 

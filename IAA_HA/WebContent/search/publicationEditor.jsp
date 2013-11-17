@@ -9,12 +9,14 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<s:head />
+	<s:actionerror />
 	<s:form action="publicationEditActionsave">
 		<s:hidden name="publication.id" />
 		<s:textfield name="publication.title" key="title" />
 		<s:select key="kindOfPublication" list="kindOfPublications"
 			name="kind" listKey="kind" listValue="kind" />
-		<s:textfield name="publication.releaseDate" key="releaseDate" />
+		<s:textfield name="publication.releaseDate" key="releaseDate" readonly="true"/>
 
 
 		<s:iterator value="publication.authors">
@@ -32,7 +34,7 @@
 
 
 	<s:form action="publicationEditActiondelete">
-		<s:param name="publication" value="publication"></s:param>
+		<s:hidden name="id" />
 		<s:submit key="deleteButton" />
 	</s:form>
 

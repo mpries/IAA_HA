@@ -15,7 +15,7 @@ import de.nordakademie.model.interfaces.IPublicationManager;
 import de.nordakademie.model.publication.Publication;
 
 public class PublicationEditAction extends ActionSupport implements
-		IEditAction, Action, SessionAware {
+		IEditAction, Action {
 
 	/**
          *
@@ -25,34 +25,23 @@ public class PublicationEditAction extends ActionSupport implements
 	private int id;
 	private Publication publication;
 	private IPublicationManager publicationManager;
-	private Map<String, Object> session;
 	private IKindOfPublicationManager kindManager;
 	private List<KindOfPublication> kindOfPublications;
-	private List<String> kind;
-
-	@Override
-	public String execute() throws Exception {
-		publication = publicationManager.view(id);
-		session.put("publicationEdit", publication);
-		setKindOfPublications(publicationManager.loadAllKinds());
-		return SUCCESS;
-	}
+	private String kind;
 
 	public String save() {
-
-		publication.setAuthor(((Publication) session.get("publicationEdit"))
-				.getAuthors());
-		publication.setKeywords(((Publication) session.get("publicationEdit"))
-				.getKeywords());
-		publication.setKindOfPublication(new KindOfPublication(kind.get(0)));
-		publicationManager.create(publication);
-		
+		publication.setKindOfPublication(new KindOfPublication(kind));
+		publicationManager.edit(publication);
 		return "save";
 	}
 
 	public String delete() {
+		if (publicationManager.isReferenced(publicationManager.view(id))) {
+			addActionError("Das Buch ist gerade verliehen");
+			return INPUT;
 
-		publicationManager.delete((Publication) session.get("publicationEdit"));
+		}
+		publicationManager.delete(publicationManager.view(id));
 		return "delete";
 	}
 
@@ -80,20 +69,6 @@ public class PublicationEditAction extends ActionSupport implements
 		this.publication = publication;
 	}
 
-	@Override
-	public void setSession(Map<String, Object> session) {
-		this.session = session;
-
-	}
-
-	public List<String> getKind() {
-		return kind;
-	}
-
-	public void setKind(List<String> kind) {
-		this.kind = kind;
-	}
-
 	public List<KindOfPublication> getKindOfPublications() {
 		return kindOfPublications;
 	}
@@ -108,6 +83,14 @@ public class PublicationEditAction extends ActionSupport implements
 
 	public void setKindManager(IKindOfPublicationManager kindManager) {
 		this.kindManager = kindManager;
+	}
+
+	public String getKind() {
+		return kind;
+	}
+
+	public void setKind(String kind) {
+		this.kind = kind;
 	}
 
 }

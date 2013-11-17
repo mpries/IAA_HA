@@ -40,5 +40,7 @@ public interface IPublicationManager {
 
 	public void increaseStored(int id);
 
+	public boolean isReferenced(Publication object);
+
 
 }

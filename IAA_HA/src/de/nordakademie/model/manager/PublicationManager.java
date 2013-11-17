@@ -8,6 +8,7 @@ import de.nordakademie.dao.KeywordDAO;
 import de.nordakademie.dao.KindOfPublicationDAO;
 import de.nordakademie.dao.PublicationDAO;
 import de.nordakademie.model.KindOfPublication;
+import de.nordakademie.model.interfaces.ILendManager;
 import de.nordakademie.model.interfaces.IPublicationManager;
 import de.nordakademie.model.publication.Author;
 import de.nordakademie.model.publication.Keyword;
@@ -20,6 +21,7 @@ public class PublicationManager implements IPublicationManager {
 	private KeywordDAO keywordDAO;
 	private AuthorDAO authorDAO;
 	private KindOfPublicationDAO kindOfPublicationDAO;
+	private ILendManager lendManager;
 
 	public KeywordDAO getKeywordDAO() {
 		return keywordDAO;
@@ -69,7 +71,7 @@ public class PublicationManager implements IPublicationManager {
 
 	@Override
 	public void edit(Publication publication) {
-		// TODO Auto-generated method stub
+		publicationDAO.updateTitleAndKind(publication);
 
 	}
 
@@ -155,6 +157,22 @@ public class PublicationManager implements IPublicationManager {
 		publication.setStored(publication.getStored() + 1);
 		publicationDAO.save(publication);
 		
+	}
+
+	@Override
+	public boolean isReferenced(Publication publication) {
+		if(lendManager.isPublicationOnLoan(publication)){
+			return true;
+		}
+		return false;
+	}
+
+	public ILendManager getLendManager() {
+		return lendManager;
+	}
+
+	public void setLendManager(ILendManager lendManager) {
+		this.lendManager = lendManager;
 	}
 
 }
