@@ -10,7 +10,7 @@ import de.nordakademie.model.interfaces.ILendManager;
 
 /**
  * @author Lukas Weikert
- * Klasse füllt die Tabelle mit den gemahnten Ausleihvorgängen
+ * Actionklasse füllt die Tabelle mit den gemahnten Ausleihvorgängen
  */
 public class ShowWarningAction extends ActionSupport implements Action {
 

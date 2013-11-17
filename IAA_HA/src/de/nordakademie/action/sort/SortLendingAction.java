@@ -27,7 +27,7 @@ public class SortLendingAction extends ActionSupport implements Action {
 
 	/**
 	 * @author Lukas Weikert 
-	 * Klasse sortiert die Übersichtstabelle der offenen
+	 * Actionklasse sortiert die Übersichtstabelle der offenen
 	 * Ausleihvorgänge nach den gewählten Suchkriterien
 	 * 
 	 */

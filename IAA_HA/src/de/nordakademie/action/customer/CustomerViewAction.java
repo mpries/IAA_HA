@@ -6,6 +6,10 @@ import de.nordakademie.action.interfaces.IViewAction;
 import de.nordakademie.model.Customer;
 import de.nordakademie.model.interfaces.ICustomerManager;
 
+/**
+ * @author Lukas Weikert
+ * Actionklasse dient dem Anzeigen der Daten zum gesuchten Ausleiher
+ */
 public class CustomerViewAction extends ActionSupport implements IViewAction,
 		Action {
 

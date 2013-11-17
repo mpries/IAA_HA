@@ -12,8 +12,8 @@ public class ViewLendingAction extends ActionSupport implements Action {
 
 	/**
 	 * @author Lukas Weikert
-	 * Klasse zeigt die Übersicht der offenen Ausleihvorgänge und bietet die 
-	 * Möglichkeit einen Ausleihvorgang zu verlängern oder die Rückgabe zu
+	 * Actionklasse zeigt die Übersicht der offenen Ausleihvorgänge und bietet 
+	 * die Möglichkeit einen Ausleihvorgang zu verlängern oder die Rückgabe zu
 	 * erfassen
 	 */
 	private static final long serialVersionUID = 7499207531537708725L;
@@ -21,9 +21,6 @@ public class ViewLendingAction extends ActionSupport implements Action {
 	private List<Lending> lendings;
 	private int id;
 
-	/**
-	 * Anzeigen der offenen Ausleihvorgänge
-	 */
 	public String supply() {
 		setLendings(lendManager.loadAll());
 		return "supply";

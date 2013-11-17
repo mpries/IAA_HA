@@ -15,7 +15,7 @@ public class LendAction extends ActionSupport implements Action, Preparable {
 
 	/**
 	 * @author Lukas Weikert
-	 *  Klasse dient dem Erfassen eines Ausleihvorgangs 
+	 *  Actionklasse dient dem Erfassen eines Ausleihvorgangs 
 	 */
 	private static final long serialVersionUID = -8577228181964209162L;
 	private ILendManager lendManager;
@@ -31,9 +31,6 @@ public class LendAction extends ActionSupport implements Action, Preparable {
 		return SUCCESS;
 	}
 
-	/**
-	 * Erfassen eines Ausleihvorgangs
-	 */
 	public String create() {
 		if (!lendManager.isCopyAvailable(id)) {
 			addFieldError("id", "Kein Examplar mehr im Bestand");
@@ -43,9 +40,6 @@ public class LendAction extends ActionSupport implements Action, Preparable {
 		return "create";
 	}
 
-	/**
-	 * Laden der erfassten Publikationen und Ausleiher für die Auswahllisten
-	 */
 	@Override
 	public void prepare() throws Exception {
 		createLoanDate();

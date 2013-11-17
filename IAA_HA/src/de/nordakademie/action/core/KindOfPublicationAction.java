@@ -8,7 +8,7 @@ import de.nordakademie.model.interfaces.IKindOfPublicationManager;
 
 /**
  * @author Lukas Weikert 
- * Klasse dient dem Verwalten der Publikationsarten
+ * Actionklasse dient dem Verwalten der Publikationsarten
  */
 public class KindOfPublicationAction extends ActionSupport implements Action {
 

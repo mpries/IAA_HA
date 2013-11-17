@@ -8,7 +8,7 @@ import de.nordakademie.model.publication.Author;
 
 /**
  * @author Lukas Weikert 
- * Klasse dient dem Verwalten der Autoren
+ * Actionklasse dient dem Verwalten der Autoren
  */
 public class AuthorAction extends ActionSupport implements Action {
 

@@ -8,7 +8,7 @@ import de.nordakademie.model.publication.Keyword;
 
 /**
  * @author Lukas Weikert 
- * Klasse dient dem Verwalten der Schlagworte
+ * Actionklasse dient dem Verwalten der Schlagworte
  */
 public class KeywordAction extends ActionSupport implements Action {
 

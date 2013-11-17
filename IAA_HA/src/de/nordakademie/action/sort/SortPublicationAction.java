@@ -27,7 +27,7 @@ public class SortPublicationAction extends ActionSupport implements Action {
 
 	/**
 	  @author Lukas Weikert 
-	 * Klasse sortiert die Übersichtstabelle der gesuchten
+	 * Actionklasse sortiert die Übersichtstabelle der gesuchten
 	 * Publikationen nach den gewählten Suchkriterien
 	 *  
 	 */

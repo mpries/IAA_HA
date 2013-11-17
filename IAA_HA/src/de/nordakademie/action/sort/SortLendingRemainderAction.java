@@ -29,7 +29,7 @@ public class SortLendingRemainderAction extends ActionSupport implements Action 
 
 	/**
 	 * @author Lukas Weikert 
-	 * Klasse sortiert die Übersichtstabelle der
+	 * Actionklasse sortiert die Übersichtstabelle der
 	 * überzogenen Ausleihvorgänge nach den gewählten Suchkriterien
 	 * 
 	 */
