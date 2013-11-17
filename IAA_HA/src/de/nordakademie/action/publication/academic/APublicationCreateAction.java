@@ -12,8 +12,8 @@ public class APublicationCreateAction extends ActionSupport implements
 		ICreateAction, Action {
 
 	/**
-* 
-*/
+	 * 
+	 */
 	private static final long serialVersionUID = 5738244878962689934L;
 	private IPublicationManager publicationManager;
 	private AcademicPublication publication;

@@ -28,6 +28,9 @@ import de.nordakademie.sort.lending.up.SortLendingUpByWarningId;
 public class SortLendingRemainderAction extends ActionSupport implements Action {
 
 	/**
+	 * @author Lukas Weikert 
+	 * Klasse sortiert die Übersichtstabelle der
+	 * überzogenen Ausleihvorgänge nach den gewählten Suchkriterien
 	 * 
 	 */
 	private static final long serialVersionUID = -5879829550237438881L;

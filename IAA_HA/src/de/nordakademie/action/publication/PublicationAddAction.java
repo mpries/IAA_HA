@@ -23,7 +23,7 @@ public class PublicationAddAction extends ActionSupport implements Action {
 
 	public void validate(){
 		if (amount > 1000000){
-			addFieldError("amount", "Es können nicht mehr als 1 mio Exemplare hinzugefügt werden");
+			addFieldError("amount", getText("validationLess1mio"));
 		}
 	}
 	

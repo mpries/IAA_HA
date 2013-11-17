@@ -14,7 +14,8 @@ import de.nordakademie.model.publication.Publication;
 public class LendAction extends ActionSupport implements Action, Preparable {
 
 	/**
-	 * 
+	 * @author Lukas Weikert
+	 *  Klasse dient dem Erfassen eines Ausleihvorgangs 
 	 */
 	private static final long serialVersionUID = -8577228181964209162L;
 	private ILendManager lendManager;
@@ -37,6 +38,16 @@ public class LendAction extends ActionSupport implements Action, Preparable {
 		}
 		lendManager.create(customerId, id, currentDate, returnDate);
 		return "create";
+	}
+
+	/**
+	 * Laden der erfassten Publikationen und Ausleiher für die Auswahllisten
+	 */
+	@Override
+	public void prepare() throws Exception {
+		createLoanDate();
+		publications = lendManager.loadPublications();
+		customers = lendManager.loadCustomer();
 	}
 
 	private void createLoanDate() {
@@ -98,14 +109,6 @@ public class LendAction extends ActionSupport implements Action, Preparable {
 
 	public void setCustomerId(int customerId) {
 		this.customerId = customerId;
-	}
-
-	@Override
-	public void prepare() throws Exception {
-		createLoanDate();
-		publications = lendManager.loadPublications();
-		customers = lendManager.loadCustomer();
-
 	}
 
 }

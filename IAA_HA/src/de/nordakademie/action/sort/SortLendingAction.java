@@ -26,6 +26,9 @@ import de.nordakademie.sort.lending.up.SortLendingUpByReturnDate;
 public class SortLendingAction extends ActionSupport implements Action {
 
 	/**
+	 * @author Lukas Weikert 
+	 * Klasse sortiert die Übersichtstabelle der offenen
+	 * Ausleihvorgänge nach den gewählten Suchkriterien
 	 * 
 	 */
 	private static final long serialVersionUID = -1641859581800266719L;
@@ -42,7 +45,7 @@ public class SortLendingAction extends ActionSupport implements Action {
 			addFieldError("sortBy", getText("validationNoSearchcriteria"));
 		}
 	}
-	
+
 	@Override
 	public String execute() {
 		setLendingsWithWarning(lendManager.loadAll());
