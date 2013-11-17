@@ -8,12 +8,14 @@ import de.nordakademie.action.interfaces.ICreateAction;
 import de.nordakademie.model.interfaces.IPublicationManager;
 import de.nordakademie.model.publication.AcademicPublication;
 
+/**
+ * @author Lukas Weikert 
+ * Actionklasse dient dem Anlegen einer neuen akademischen
+ * Publikation
+ */
 public class APublicationCreateAction extends ActionSupport implements
 		ICreateAction, Action {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 5738244878962689934L;
 	private IPublicationManager publicationManager;
 	private AcademicPublication publication;
@@ -34,7 +36,6 @@ public class APublicationCreateAction extends ActionSupport implements
 		if (description.isEmpty()) {
 			addFieldError("description", getText("validationNoKeywordSelected"));
 		}
-
 	}
 
 	public IPublicationManager getPublicationManager() {

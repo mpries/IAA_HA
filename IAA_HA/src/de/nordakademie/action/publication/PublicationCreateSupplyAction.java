@@ -11,25 +11,31 @@ import de.nordakademie.model.interfaces.IPublicationManager;
 import de.nordakademie.model.publication.Author;
 import de.nordakademie.model.publication.Keyword;
 
-public class PublicationCreateSupplyAction extends ActionSupport implements Action, Preparable {
+/**
+ * @author Lukas Weikert
+ * Actionklasse lädt alle angelegten Autoren und Schlagworte, die beim
+ * Erstellen einer Publikation ausgewählt werden können
+ */
+public class PublicationCreateSupplyAction extends ActionSupport implements
+		Action, Preparable {
 
-	
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 6305775490423204120L;
 	private IPublicationManager publicationManager;
 	private List<Author> authors;
 	private List<KindOfPublication> kindOfPublications;
 	private List<Keyword> keywords;
 
-
 	public String execute() {
 		return SUCCESS;
 	}
 
-	
-	
+	@Override
+	public void prepare() throws Exception {
+		setAuthors(publicationManager.loadAllAuthors());
+		setKindOfPublications(publicationManager.loadAllKinds());
+		setKeywords(publicationManager.loadAllKeywords());
+	}
+
 	public IPublicationManager getPublicationManager() {
 		return publicationManager;
 	}
@@ -37,7 +43,6 @@ public class PublicationCreateSupplyAction extends ActionSupport implements Acti
 	public void setPublicationManager(IPublicationManager publicationManager) {
 		this.publicationManager = publicationManager;
 	}
-	
 
 	public List<Author> getAuthors() {
 		return authors;
@@ -63,14 +68,4 @@ public class PublicationCreateSupplyAction extends ActionSupport implements Acti
 		this.keywords = keywords;
 	}
 
-
-
-	@Override
-	public void prepare() throws Exception {
-		setAuthors(publicationManager.loadAllAuthors());
-		setKindOfPublications(publicationManager.loadAllKinds());
-		setKeywords(publicationManager.loadAllKeywords());
-		
-	}
-	
 }
