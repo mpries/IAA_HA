@@ -6,53 +6,51 @@ import com.opensymphony.xwork2.ActionSupport;
 import de.nordakademie.model.interfaces.IKeywordManager;
 import de.nordakademie.model.publication.Keyword;
 
-public class KeywordAction extends ActionSupport implements Action{
+/**
+ * @author Lukas Weikert 
+ * Klasse dient dem Verwalten der Schlagworte
+ */
+public class KeywordAction extends ActionSupport implements Action {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 187620308795145733L;
 	private String searchKeyword;
 	private Keyword resultKeyword;
 	private IKeywordManager keywordManager;
 	private String editKeyword;
 	private String addKeyword;
-	
-	
-	public String add(){
-		if(!keywordManager.isAlreadyAvailable(addKeyword)){
+
+	public String add() {
+		if (!keywordManager.isAlreadyAvailable(addKeyword)) {
 			keywordManager.save(addKeyword);
 			return "addKeyword";
 		}
 		addFieldError("addKeyword", "Keyword gibt es schon");
 		return "input";
 	}
-	
-	
-	public String search(){
+
+	public String search() {
 		resultKeyword = keywordManager.search(searchKeyword);
 		return "search";
 	}
-	
-	public String save(){
-		if(!keywordManager.isKeywordReferenced(resultKeyword)){
-			keywordManager.save(editKeyword); 
+
+	public String save() {
+		if (!keywordManager.isKeywordReferenced(resultKeyword)) {
+			keywordManager.save(editKeyword);
 			keywordManager.delete(resultKeyword.getDescription());
 			return "save";
 		}
 		addFieldError("resultKeyword.description", "Keyword wird refernziert");
 		return "input";
 	}
-	
-	public String delete(){
-		if(!keywordManager.isKeywordReferenced(resultKeyword)){
+
+	public String delete() {
+		if (!keywordManager.isKeywordReferenced(resultKeyword)) {
 			keywordManager.delete(resultKeyword.getDescription());
 			return "delete";
 		}
 		addFieldError("resultKeyword.description", "Keyword wird refernziert");
 		return "input";
 	}
-	
 
 	public String getSearchKeyword() {
 		return searchKeyword;

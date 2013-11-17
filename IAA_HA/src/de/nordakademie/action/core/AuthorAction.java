@@ -6,32 +6,21 @@ import com.opensymphony.xwork2.ActionSupport;
 import de.nordakademie.action.interfaces.IAuthorManager;
 import de.nordakademie.model.publication.Author;
 
-public class AuthorAction extends ActionSupport implements Action
-{
+/**
+ * @author Lukas Weikert 
+ * Klasse dient dem Verwalten der Autoren
+ */
+public class AuthorAction extends ActionSupport implements Action {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = -3935188184802035628L;
 	private IAuthorManager authorManager;
 	private String searchAuthor;
 	private Author resultAuthor;
 	private String editAuthor;
 	private String addAuthor;
-	
-	
-	public String getAddAuthor() {
-		return addAuthor;
-	}
 
-
-	public void setAddAuthor(String addAuthor) {
-		this.addAuthor = addAuthor;
-	}
-
-
-	public String add(){
-		if(authorManager.isAlreadyAvailable(addAuthor)){
+	public String add() {
+		if (authorManager.isAlreadyAvailable(addAuthor)) {
 			addFieldError("addAuthor", "Autor existiert bereits");
 			return INPUT;
 		}
@@ -39,14 +28,13 @@ public class AuthorAction extends ActionSupport implements Action
 		return "addAuthor";
 	}
 
-
-	public String search(){
+	public String search() {
 		resultAuthor = authorManager.search(searchAuthor);
 		return "search";
 	}
-	
+
 	public String save() {
-		if(authorManager.isAuthorReferenced(resultAuthor)){
+		if (authorManager.isAuthorReferenced(resultAuthor)) {
 			addFieldError("editAuthor", "Autor wird refernziert");
 			return INPUT;
 		}
@@ -58,6 +46,14 @@ public class AuthorAction extends ActionSupport implements Action
 	public String delete() {
 		authorManager.delete(resultAuthor.getName());
 		return "delete";
+	}
+
+	public String getAddAuthor() {
+		return addAuthor;
+	}
+
+	public void setAddAuthor(String addAuthor) {
+		this.addAuthor = addAuthor;
 	}
 
 	public IAuthorManager getAuthorManager() {
@@ -91,8 +87,5 @@ public class AuthorAction extends ActionSupport implements Action
 	public void setEditAuthor(String editAuthor) {
 		this.editAuthor = editAuthor;
 	}
-
-
-
 
 }

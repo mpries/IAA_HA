@@ -31,6 +31,9 @@ public class LendAction extends ActionSupport implements Action, Preparable {
 		return SUCCESS;
 	}
 
+	/**
+	 * Erfassen eines Ausleihvorgangs
+	 */
 	public String create() {
 		if (!lendManager.isCopyAvailable(id)) {
 			addFieldError("id", "Kein Examplar mehr im Bestand");
