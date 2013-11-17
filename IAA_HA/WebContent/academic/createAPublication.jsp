@@ -14,8 +14,7 @@
 
 			<tr>
 				<td><s:textfield key="title" name="publication.title" /> <s:textfield
-						key="releaseDate" name="publication.releaseDate" /> <s:textfield
-						key="publisher" name="publication.publisher" />
+						key="releaseDate" name="publication.releaseDate" />
 				<td><s:select key="keywords" list="keywords" name="description"
 						listKey="description" multiple="true" listValue="description" /></td>
 

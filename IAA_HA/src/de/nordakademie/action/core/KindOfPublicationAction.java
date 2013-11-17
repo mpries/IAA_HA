@@ -6,11 +6,12 @@ import com.opensymphony.xwork2.ActionSupport;
 import de.nordakademie.model.KindOfPublication;
 import de.nordakademie.model.interfaces.IKindOfPublicationManager;
 
+/**
+ * @author Lukas Weikert 
+ * Actionklasse dient dem Verwalten der Publikationsarten
+ */
 public class KindOfPublicationAction extends ActionSupport implements Action {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 5868853792903747455L;
 	private IKindOfPublicationManager kindOfPublicationManager;
 	private String searchKind;

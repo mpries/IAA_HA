@@ -7,12 +7,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
 <title>Nordakademie Bib-System</title>
 </head>
-<h1><s:text name="headingSearchPublicationResult" /></h1>
+<h1>
+	<s:text name="headingSearchPublicationResult" />
+</h1>
 <body>
-
+	<s:head />
 	<s:form action="sortPublicationAction">
 		<s:submit key="sortButton">
-			<s:radio name="sort" key="sort" list="{getText('up'),getText('down')}" />
+			<s:radio name="sort" key="sort"
+				list="{getText('up'),getText('down')}" />
 			<s:radio name="sortBy" key="sortBy"
 				list="{getText('id'),getText('title'),getText('stored'),getText('kindOfPublication'),getText('releaseDate'),getText('authors'),getText('keywords')}" />
 			<s:hidden value="#session.publication" />

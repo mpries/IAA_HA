@@ -11,6 +11,7 @@
 	<s:text name="headingBookOnLoanOverview"></s:text>
 </h1>
 <body>
+	<s:head />
 	<s:form action="sortLendingAction">
 		<s:submit key="sortButton">
 			<s:radio name="sort" key="sort"

@@ -14,6 +14,7 @@
 	<constant name="struts.configuration.xml.reload" value="true" />
 	<constant name="struts.xwork.chaining.copyFieldErrors" value="true" />
 
+
 	<package name="default" extends="struts-default">
 
 		<!-- SEARCH -->
@@ -21,7 +22,7 @@
 		<action name="searchPublicationAction"
 			class="de.nordakademie.action.publication.PublicationViewAction">
 			<result name="success">/search/searchPublicationResult.jsp</result>
-			<result name="input">/index.jsp</result>
+			<result name="input">/search/searchPublicationResult.jsp</result>
 		</action>
 
 		<!-- SORT -->
@@ -29,7 +30,7 @@
 		<action name="sortPublicationAction"
 			class="de.nordakademie.action.sort.SortPublicationAction">
 			<result name="success">/search/searchPublicationResult.jsp</result>
-			<result name="input">/index.jsp</result>
+			<result name="input">/search/searchPublicationResult.jsp</result>
 		</action>
 
 		<action name="sortLendingAction" class="de.nordakademie.action.sort.SortLendingAction">
@@ -104,7 +105,7 @@
 			<result name="supply">/lending/bookOnLoanOverview.jsp</result>
 			<result name="extend">/lending/bookOnLoanOverview.jsp</result>
 			<result name="return">/lending/bookOnLoanOverview.jsp</result>
-			<result name="input"></result>
+			<result name="input">/lending/bookOnLoanOverview.jsp</result>
 		</action>
 
 
@@ -196,8 +197,6 @@
 			<result name="input" type="chain">addExistingPublicationSupply
 			</result>
 		</action>
-
-
 
 	</package>
 

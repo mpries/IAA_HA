@@ -9,7 +9,7 @@
 	<field name="customer.customerId">
 		<field-validator type="int">
 			<param name="min">1</param>
-			<message>ID is required </message>
+			<message key="validationId1Required" />
 		</field-validator>
 	</field>
 </validators>

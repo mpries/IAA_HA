@@ -9,7 +9,7 @@
 	<field name="amount">
 		<field-validator type="int">
 			<param name="min">1</param>
-			<message>Amount > 0 is required </message>
+			<message key="validationAmount1Required" />
 		</field-validator>
 	</field>
 </validators>

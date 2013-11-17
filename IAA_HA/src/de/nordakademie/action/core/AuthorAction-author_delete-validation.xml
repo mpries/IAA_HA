@@ -8,7 +8,7 @@
 <validators>
 	<field name="resultAuthor.name">
 		<field-validator type="requiredstring">
-			<message>No Author selected</message>
+			<message key="validationNoAuthorSelected" />
 		</field-validator>
 	</field>
 </validators>

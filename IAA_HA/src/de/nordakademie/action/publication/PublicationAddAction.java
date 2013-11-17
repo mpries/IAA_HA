@@ -4,11 +4,12 @@ import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionSupport;
 import de.nordakademie.model.interfaces.IPublicationManager;
 
+/**
+ * @author Lukas Weikert
+ * Actionklasse dient dem Erhöhen des Bibliotheksbestandes einer Publikation
+ */
 public class PublicationAddAction extends ActionSupport implements Action {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = -5587065415280173634L;
 	private int id;
 	private int amount;
@@ -23,7 +24,7 @@ public class PublicationAddAction extends ActionSupport implements Action {
 
 	public void validate(){
 		if (amount > 1000000){
-			addFieldError("amount", "Es können nicht mehr als 1 mio Exemplare hinzugefügt werden");
+			addFieldError("amount", getText("validationLess1mio"));
 		}
 	}
 	
@@ -53,6 +54,5 @@ public class PublicationAddAction extends ActionSupport implements Action {
 	public void setPublicationManager(IPublicationManager publicationManager) {
 		this.publicationManager = publicationManager;
 	}
-
 
 }

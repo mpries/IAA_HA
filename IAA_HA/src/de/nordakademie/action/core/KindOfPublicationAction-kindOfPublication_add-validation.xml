@@ -8,7 +8,7 @@
 <validators>
 	<field name="addKind">
 		<field-validator type="requiredstring">
-			<message>Kind of Publication is required</message>
+			<message key="validateKindOfPublicationRequired" />
 		</field-validator>
 	</field>
 </validators>

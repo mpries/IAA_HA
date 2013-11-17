@@ -8,7 +8,7 @@
 <validators>
 	<field name="searchKind">
 		<field-validator type="requiredstring">
-			<message>Kind of Publication is required</message>
+			<message key="validationNoKindSelected" />
 		</field-validator>
 	</field>
 </validators>

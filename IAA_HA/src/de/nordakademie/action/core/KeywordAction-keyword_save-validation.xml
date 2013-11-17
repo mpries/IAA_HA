@@ -8,12 +8,12 @@
 <validators>
 	<field name="resultKeyword.description">
 		<field-validator type="requiredstring">
-			<message>No Keyword selected</message>
+			<message key="validationNoKeywordSelected" />
 		</field-validator>
 	</field>
 	<field name="editKeyword">
 		<field-validator type="requiredstring">
-			<message>New Name is required</message>
+			<message key="validationNewNameRequired" />
 		</field-validator>
 	</field>
 </validators>

@@ -9,12 +9,13 @@ import de.nordakademie.action.interfaces.ICreateAction;
 import de.nordakademie.model.interfaces.IPublicationManager;
 import de.nordakademie.model.publication.PublishedPublication;
 
+/**
+ * @author Lukas Weikert
+ * Actionklasse dient dem Anlegen einer neuen veröffentlichten Publikation
+ */
 public class PublicationCreateAction extends ActionSupport implements
 		ICreateAction, Action {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 5738244878962689934L;
 	private IPublicationManager publicationManager;
 	private PublishedPublication publication;
@@ -30,21 +31,24 @@ public class PublicationCreateAction extends ActionSupport implements
 
 	public void validate() {
 		if (publicationManager.isISBNAlreadyAvailable(publication)) {
-			addFieldError("publication.ISBN", "ISBN exisitert bereits");
+			addFieldError("publication.ISBN",
+					getText("validateISBNAlreadyExist"));
 		}
 		if (publication.getReleaseDate() != null) {
 			if (publicationManager.isDateGreaterThanToday(publication)) {
 				addFieldError("publication.releaseDate",
-						"Datum liegt in der Zukunft");
+						getText("validateReleaseDateFuture"));
 			}
-		}if (name.isEmpty()) {
-			addFieldError("name", "Kein Autor gewählt");
-		}if (description.isEmpty()) {
-			addFieldError("description", "Kein Schlagwort gewählt");
-		}if (publication.getISBN().length() > 13){
-			addFieldError("publication.ISBN", "ISBN darf nicht mehr als 13 Stellen haben");
 		}
-
+		if (name.isEmpty()) {
+			addFieldError("name", getText("validationNoAuthorSelected"));
+		}
+		if (description.isEmpty()) {
+			addFieldError("description", getText("validationNoKeywordSelected"));
+		}
+		if (publication.getISBN().length() > 13) {
+			addFieldError("publication.ISBN", getText("validateISBNLength"));
+		}
 	}
 
 	public IPublicationManager getPublicationManager() {

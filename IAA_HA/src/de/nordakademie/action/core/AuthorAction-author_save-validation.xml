@@ -8,12 +8,12 @@
 <validators>
 	<field name="resultAuthor.name">
 		<field-validator type="requiredstring">
-			<message>No Author selected</message>
+			<message key="validationNoAuthorSelected" />
 		</field-validator>
 	</field>
 	<field name="editAuthor">
 		<field-validator type="requiredstring">
-			<message>New Name is required</message>
+			<message key="validationNewNameRequired" />
 		</field-validator>
 	</field>
 </validators>

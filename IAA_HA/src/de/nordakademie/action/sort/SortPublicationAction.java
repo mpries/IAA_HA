@@ -26,41 +26,26 @@ import de.nordakademie.sort.publication.up.SortPublicationUpByTitle;
 public class SortPublicationAction extends ActionSupport implements Action {
 
 	/**
-	 * 
+	  @author Lukas Weikert 
+	 * Actionklasse sortiert die Übersichtstabelle der gesuchten
+	 * Publikationen nach den gewählten Suchkriterien
+	 *  
 	 */
 	private static final long serialVersionUID = 6784882349214372936L;
 	private IPublicationManager publicationManager;
 	private String title;
 	private String author;
 	private String keyword;
-	private String sort = new String();
-	private String sortBy = new String();
+	private String sort;
+	private String sortBy;
 
-	public String getSort() {
-		return sort;
-	}
-
-	public void setSort(String sort) {
-		this.sort = sort;
-	}
-
-	public String getSortBy() {
-		return sortBy;
-	}
-
-	public void setSortBy(String sortBy) {
-		this.sortBy = sortBy;
-	}
-
-	private List<Publication> publications;
-	private List<String> searchList;
-
-	public List<String> getSearchList() {
-		return searchList;
-	}
-
-	public void setSearchList(List<String> searchList) {
-		this.searchList = searchList;
+	public void validate() {
+		if (sort == null) {
+			addFieldError("sort", getText("validationNoSearchcriteria"));
+		}
+		if (sortBy == null) {
+			addFieldError("sortBy", getText("validationNoSearchcriteria"));
+		}
 	}
 
 	@Override
@@ -114,6 +99,33 @@ public class SortPublicationAction extends ActionSupport implements Action {
 		}
 		return SUCCESS;
 
+	}
+
+	public String getSort() {
+		return sort;
+	}
+
+	public void setSort(String sort) {
+		this.sort = sort;
+	}
+
+	public String getSortBy() {
+		return sortBy;
+	}
+
+	public void setSortBy(String sortBy) {
+		this.sortBy = sortBy;
+	}
+
+	private List<Publication> publications;
+	private List<String> searchList;
+
+	public List<String> getSearchList() {
+		return searchList;
+	}
+
+	public void setSearchList(List<String> searchList) {
+		this.searchList = searchList;
 	}
 
 	public List<Publication> getPublications() {

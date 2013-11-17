@@ -10,28 +10,21 @@ import de.nordakademie.action.interfaces.IViewAction;
 import de.nordakademie.model.interfaces.IPublicationManager;
 import de.nordakademie.model.publication.Publication;
 
+/**
+ * @author Lukas Weikert 
+ * Actionklasse dient der Suche von Publikationen nach den
+ * angegebenen Suchkriterien
+ */
 public class PublicationViewAction extends ActionSupport implements
 		IViewAction, Action {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = -5414881176977209333L;
-
 	private IPublicationManager publicationManager;
 	private String title;
 	private String author;
 	private String keyword;
 	private List<Publication> publications;
 	private List<String> searchList = new ArrayList<String>();
-
-	public List<String> getSearchList() {
-		return searchList;
-	}
-
-	public void setSearchList(List<String> searchList) {
-		this.searchList = searchList;
-	}
 
 	public String execute() {
 		searchList.add(title);
@@ -81,4 +74,11 @@ public class PublicationViewAction extends ActionSupport implements
 		this.publications = publications;
 	}
 
+	public List<String> getSearchList() {
+		return searchList;
+	}
+
+	public void setSearchList(List<String> searchList) {
+		this.searchList = searchList;
+	}
 }
