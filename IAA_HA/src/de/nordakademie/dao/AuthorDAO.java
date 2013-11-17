@@ -8,6 +8,15 @@ import org.hibernate.SessionFactory;
 
 import de.nordakademie.model.publication.Author;
 
+/**
+ * 
+ * @author Matthias Pries
+ * @category DAO Class:
+ * 
+ *           Diese Klasse ist fuer das lesen und schreiben von Autoren aus bzw.
+ *           in die DB verantwortlich
+ * 
+ */
 public class AuthorDAO {
 
 	private SessionFactory sessionFactory;

@@ -9,7 +9,14 @@ import com.opensymphony.xwork2.Preparable;
 import de.nordakademie.model.KindOfPublication;
 import de.nordakademie.model.interfaces.IPublicationManager;
 import de.nordakademie.model.publication.Publication;
-
+/**
+ * 
+ * @author Matthias Pries
+ * @category Action Class:
+ * 
+ * Diese Klasse ist fuer das Befuellen der Keywords und Kind of Publication values verantwortlich
+ *
+ */
 public class PublicationEditSupply extends ActionSupport implements Action, Preparable{
 
 	/**

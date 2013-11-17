@@ -13,6 +13,15 @@ import de.nordakademie.model.publication.Keyword;
 import de.nordakademie.model.publication.Publication;
 import de.nordakademie.model.publication.PublishedPublication;
 
+/**
+ * 
+ * @author Matthias Pries
+ * @category DAO Class:
+ * 
+ *           Diese Klasse ist fuer das lesen und schreiben von Publikationen aus bzw.
+ *           in die DB verantwortlich
+ * 
+ */
 public class PublicationDAO {
 
 	private SessionFactory sessionFactory;

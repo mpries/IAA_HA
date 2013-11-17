@@ -7,7 +7,14 @@ import de.nordakademie.model.publication.Author;
 import de.nordakademie.model.publication.Keyword;
 import de.nordakademie.model.publication.Publication;
 import de.nordakademie.model.publication.PublishedPublication;
-
+/**
+ * 
+ * @author Matthias Pries
+ * @category Manager Interface:
+ * 
+ * Dieses Interface wird vom PublicationManager implementiert und stellt alle benoetigten Mehtoden bereit
+ *
+ */
 public interface IPublicationManager {
 
 	public List<Publication> view(String title, String author, String keyword);

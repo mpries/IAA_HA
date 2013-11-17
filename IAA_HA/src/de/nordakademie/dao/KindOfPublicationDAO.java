@@ -7,6 +7,15 @@ import org.hibernate.SessionFactory;
 
 import de.nordakademie.model.KindOfPublication;
 
+/**
+ * 
+ * @author Matthias Pries
+ * @category DAO Class:
+ * 
+ *           Diese Klasse ist fuer das lesen und schreiben von Kind of Publications aus bzw.
+ *           in die DB verantwortlich
+ * 
+ */
 public class KindOfPublicationDAO {
 
 	private SessionFactory sessionFactory;

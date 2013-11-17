@@ -13,9 +13,19 @@ import de.nordakademie.model.interfaces.ILendManager;
 import de.nordakademie.model.interfaces.IPublicationManager;
 import de.nordakademie.model.publication.Publication;
 
+/**
+ * 
+ * @author Matthias Pries
+ * @category Manager Class:
+ * 
+ *           Diese Klasse implementiert die Logik fuer das Model Lending
+ * 
+ */
 public class LendManager implements ILendManager {
 
-	private static long sevenDaysInMiliSec = 604800000;
+	private static final long sevenDaysInMiliSec = 604800000;
+	private static final int SEVENDAYS = 7;
+	private static final int PREASENSBESTAND = 2;
 	private LendDAO lendDAO;
 	private IPublicationManager publicationManager;
 	private ICustomerManager customerManager;
@@ -31,50 +41,8 @@ public class LendManager implements ILendManager {
 	}
 
 	@Override
-	public Object view() {
-
-		return null;
-	}
-
-	@Override
-	public void delete() {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public Object edit() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public LendDAO getLendDAO() {
-		return lendDAO;
-	}
-
-	public void setLendDAO(LendDAO lendDAO) {
-		this.lendDAO = lendDAO;
-	}
-
-	public IPublicationManager getPublicationManager() {
-		return publicationManager;
-	}
-
-	public void setPublicationManager(IPublicationManager publicationManager) {
-		this.publicationManager = publicationManager;
-	}
-
-	@Override
 	public List<Publication> loadPublications() {
 		return publicationManager.view();
-	}
-
-	public ICustomerManager getCustomerManager() {
-		return customerManager;
-	}
-
-	public void setCustomerManager(ICustomerManager customerManager) {
-		this.customerManager = customerManager;
 	}
 
 	@Override
@@ -91,7 +59,8 @@ public class LendManager implements ILendManager {
 		lend.setCustomer(customerManager.view(customerId));
 		lend.setPublication(publicationManager.view(publicationId));
 		lendDAO.create(lend);
-		publicationManager.decreaseStored(publicationManager.view(publicationId));
+		publicationManager.decreaseStored(publicationManager
+				.view(publicationId));
 	}
 
 	@Override
@@ -106,7 +75,8 @@ public class LendManager implements ILendManager {
 
 	@Override
 	public void registerReturn(int id) {
-		publicationManager.increaseStored(lendDAO.loadById(id).getPublication().getId());
+		publicationManager.increaseStored(lendDAO.loadById(id).getPublication()
+				.getId());
 		lendDAO.delete(id);
 
 	}
@@ -115,30 +85,29 @@ public class LendManager implements ILendManager {
 	public void extendLending(int id) {
 		Lending lend = lendDAO.loadById(id);
 		Warning w = lend.getWarning();
-		if(lend.getExtensions() < 2){
+		if (lend.getExtensions() < 2) {
 			w.setAmount(0);
 			lend.setWarning(w);
 			lend.setExtensions(lend.getExtensions() + 1);
-			if(!this.isAlreadyWarned(lend.getWarning().getId())){
+			if (!this.isAlreadyWarned(lend.getWarning().getId())) {
 				lend.setReturnDate(extendReturnDate(lend.getReturnDate()));
-			}else{
+			} else {
 				lend.setReturnDate(extendReturnDate(new Date()));
 				this.delteWarnings(lend);
 			}
 			lendDAO.create(lend);
-			
-		}
 
+		}
 
 	}
 
 	public void delteWarnings(Lending lend) {
 		lendDAO.setWarningToZero(lend.getWarning().getId());
-		
+
 	}
 
 	public boolean isAlreadyWarned(int id) {
-		if(lendDAO.loadWarningById(id).getAmount() > 0){
+		if (lendDAO.loadWarningById(id).getAmount() > 0) {
 			return true;
 		}
 		return false;
@@ -147,7 +116,7 @@ public class LendManager implements ILendManager {
 	private Date extendReturnDate(Date returnDate) {
 		Calendar c = Calendar.getInstance();
 		c.setTime(returnDate);
-		c.add(Calendar.DATE, 7);
+		c.add(Calendar.DATE, SEVENDAYS);
 		Date extendReturnDate = c.getTime();
 		return extendReturnDate;
 	}
@@ -155,7 +124,7 @@ public class LendManager implements ILendManager {
 	@Override
 	public boolean isCopyAvailable(int id) {
 		Publication publication = publicationManager.view(id);
-		if (publication.getStored() < 2) {
+		if (publication.getStored() < PREASENSBESTAND) {
 			return false;
 		}
 		return true;
@@ -172,40 +141,70 @@ public class LendManager implements ILendManager {
 
 	}
 
+	/**
+	 * 
+	 * @param Lending
+	 * 
+	 * Berechnet die Anzahl der Mahnungen anhand von des Ausleihvorgangs.
+	 */
 	private void calculateAmountOfWarning(Lending lending) {
 		long diff = new Date().getTime() - lending.getReturnDate().getTime();
-		if(diff > sevenDaysInMiliSec*4){
+		if (diff > sevenDaysInMiliSec * 4) {
 			System.out.println("CASE 1");
-			//Decrease Copy or delete publication if necessary
+			// Decrease Copy or delete publication if necessary
 			lendDAO.delete(lending.getId());
 			publicationManager.decreaseStored(lending.getPublication());
 		}
-		if(diff > sevenDaysInMiliSec*3){
+		if (diff > sevenDaysInMiliSec * 3) {
 			System.out.println("CASE 2");
 			lendDAO.increaseWarningAmount(lending, 3);
 		}
-		if(diff > sevenDaysInMiliSec*2){
+		if (diff > sevenDaysInMiliSec * 2) {
 			System.out.println("CASE 3");
 			lendDAO.increaseWarningAmount(lending, 2);
 		}
-		if(diff < sevenDaysInMiliSec){
+		if (diff < sevenDaysInMiliSec) {
 			System.out.println("CASE 4");
 			lendDAO.increaseWarningAmount(lending, 1);
 		}
-		
+
 	}
 
 	@Override
 	public List<Lending> checkByCustomer(Customer customer) {
-		return (List<Lending>)lendDAO.loadByCustomer(customer);
+		return (List<Lending>) lendDAO.loadByCustomer(customer);
 	}
 
 	@Override
 	public boolean isPublicationOnLoan(Publication publication) {
-		if(lendDAO.loadByPublication(publication).isEmpty()){
+		if (lendDAO.loadByPublication(publication).isEmpty()) {
 			return false;
-		} 
+		}
 		return true;
+	}
+
+	public ICustomerManager getCustomerManager() {
+		return customerManager;
+	}
+
+	public void setCustomerManager(ICustomerManager customerManager) {
+		this.customerManager = customerManager;
+	}
+
+	public LendDAO getLendDAO() {
+		return lendDAO;
+	}
+
+	public void setLendDAO(LendDAO lendDAO) {
+		this.lendDAO = lendDAO;
+	}
+
+	public IPublicationManager getPublicationManager() {
+		return publicationManager;
+	}
+
+	public void setPublicationManager(IPublicationManager publicationManager) {
+		this.publicationManager = publicationManager;
 	}
 
 }

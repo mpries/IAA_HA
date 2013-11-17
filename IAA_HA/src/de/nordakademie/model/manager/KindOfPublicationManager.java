@@ -5,6 +5,15 @@ import de.nordakademie.dao.PublicationDAO;
 import de.nordakademie.model.KindOfPublication;
 import de.nordakademie.model.interfaces.IKindOfPublicationManager;
 
+/**
+ * 
+ * @author Matthias Pries
+ * @category Manager Class:
+ * 
+ *           Diese Klasse implementiert die Logik fuer das Model Kind of
+ *           Publication
+ * 
+ */
 public class KindOfPublicationManager implements IKindOfPublicationManager {
 
 	private KindOfPublicationDAO kindOfPublicationDAO;
@@ -27,13 +36,12 @@ public class KindOfPublicationManager implements IKindOfPublicationManager {
 
 	}
 
-	public KindOfPublicationDAO getKindOfPublicationDAO() {
-		return kindOfPublicationDAO;
-	}
-
-	public void setKindOfPublicationDAO(
-			KindOfPublicationDAO kindOfPublicationDAO) {
-		this.kindOfPublicationDAO = kindOfPublicationDAO;
+	@Override
+	public boolean isReferneced(KindOfPublication resultKind) {
+		if (publicationDAO.loadByKind(resultKind.getKind()) == null) {
+			return false;
+		}
+		return true;
 	}
 
 	@Override
@@ -52,12 +60,13 @@ public class KindOfPublicationManager implements IKindOfPublicationManager {
 		this.publicationDAO = publicationDAO;
 	}
 
-	@Override
-	public boolean isReferneced(KindOfPublication resultKind) {
-		if (publicationDAO.loadByKind(resultKind.getKind()) == null) {
-			return false;
-		}
-		return true;
+	public KindOfPublicationDAO getKindOfPublicationDAO() {
+		return kindOfPublicationDAO;
 	}
-	
+
+	public void setKindOfPublicationDAO(
+			KindOfPublicationDAO kindOfPublicationDAO) {
+		this.kindOfPublicationDAO = kindOfPublicationDAO;
+	}
+
 }

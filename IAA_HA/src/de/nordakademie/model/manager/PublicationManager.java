@@ -15,6 +15,14 @@ import de.nordakademie.model.publication.Keyword;
 import de.nordakademie.model.publication.Publication;
 import de.nordakademie.model.publication.PublishedPublication;
 
+/**
+ * 
+ * @author Matthias Pries
+ * @category Manager Class:
+ * 
+ *           Diese Klasse implementiert die Logik fuer das Model Publication
+ * 
+ */
 public class PublicationManager implements IPublicationManager {
 
 	private PublicationDAO publicationDAO;
@@ -22,39 +30,6 @@ public class PublicationManager implements IPublicationManager {
 	private AuthorDAO authorDAO;
 	private KindOfPublicationDAO kindOfPublicationDAO;
 	private ILendManager lendManager;
-
-	public KeywordDAO getKeywordDAO() {
-		return keywordDAO;
-	}
-
-	public void setKeywordDAO(KeywordDAO keywordDAO) {
-		this.keywordDAO = keywordDAO;
-	}
-
-	public AuthorDAO getAuthorDAO() {
-		return authorDAO;
-	}
-
-	public void setAuthorDAO(AuthorDAO authorDAO) {
-		this.authorDAO = authorDAO;
-	}
-
-	public KindOfPublicationDAO getKindOfPublicationDAO() {
-		return kindOfPublicationDAO;
-	}
-
-	public void setKindOfPublicationDAO(
-			KindOfPublicationDAO kindOfPublicationDAO) {
-		this.kindOfPublicationDAO = kindOfPublicationDAO;
-	}
-
-	public PublicationDAO getPublicationDAO() {
-		return publicationDAO;
-	}
-
-	public void setPublicationDAO(PublicationDAO publicationDAO) {
-		this.publicationDAO = publicationDAO;
-	}
 
 	@Override
 	public void delete(Publication publication) {
@@ -64,7 +39,6 @@ public class PublicationManager implements IPublicationManager {
 
 	@Override
 	public void create(Publication publication) {
-		// TODO Auto-generated method stub
 		publicationDAO.save(publication);
 
 	}
@@ -77,7 +51,6 @@ public class PublicationManager implements IPublicationManager {
 
 	@Override
 	public List<Publication> view(String title, String author, String keyword) {
-		// TODO Auto-generated method stub
 		return publicationDAO.load(title, author, keyword);
 	}
 
@@ -156,15 +129,48 @@ public class PublicationManager implements IPublicationManager {
 		Publication publication = publicationDAO.load(id);
 		publication.setStored(publication.getStored() + 1);
 		publicationDAO.save(publication);
-		
+
 	}
 
 	@Override
 	public boolean isReferenced(Publication publication) {
-		if(lendManager.isPublicationOnLoan(publication)){
+		if (lendManager.isPublicationOnLoan(publication)) {
 			return true;
 		}
 		return false;
+	}
+
+	public KeywordDAO getKeywordDAO() {
+		return keywordDAO;
+	}
+
+	public void setKeywordDAO(KeywordDAO keywordDAO) {
+		this.keywordDAO = keywordDAO;
+	}
+
+	public AuthorDAO getAuthorDAO() {
+		return authorDAO;
+	}
+
+	public void setAuthorDAO(AuthorDAO authorDAO) {
+		this.authorDAO = authorDAO;
+	}
+
+	public KindOfPublicationDAO getKindOfPublicationDAO() {
+		return kindOfPublicationDAO;
+	}
+
+	public void setKindOfPublicationDAO(
+			KindOfPublicationDAO kindOfPublicationDAO) {
+		this.kindOfPublicationDAO = kindOfPublicationDAO;
+	}
+
+	public PublicationDAO getPublicationDAO() {
+		return publicationDAO;
+	}
+
+	public void setPublicationDAO(PublicationDAO publicationDAO) {
+		this.publicationDAO = publicationDAO;
 	}
 
 	public ILendManager getLendManager() {

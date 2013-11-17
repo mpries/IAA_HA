@@ -1,5 +1,12 @@
 package de.nordakademie.model.interfaces;
-
+/**
+ * 
+ * @author Matthias Pries
+ * @category Manager Interface:
+ * 
+ * Dieses Interface wird vom KeywordManager implementiert und stellt alle benoetigten Mehtoden bereit
+ *
+ */
 import de.nordakademie.model.publication.Keyword;
 
 public interface IKeywordManager {

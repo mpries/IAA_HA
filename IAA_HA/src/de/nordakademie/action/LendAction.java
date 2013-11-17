@@ -10,13 +10,13 @@ import com.opensymphony.xwork2.Preparable;
 import de.nordakademie.model.Customer;
 import de.nordakademie.model.interfaces.ILendManager;
 import de.nordakademie.model.publication.Publication;
-
+/**
+ * @author Lukas Weikert
+ *  Actionklasse dient dem Erfassen eines Ausleihvorgangs 
+ */
 public class LendAction extends ActionSupport implements Action, Preparable {
 
-	/**
-	 * @author Lukas Weikert
-	 *  Actionklasse dient dem Erfassen eines Ausleihvorgangs 
-	 */
+
 	private static final long serialVersionUID = -8577228181964209162L;
 	private ILendManager lendManager;
 	private List<Publication> publications;

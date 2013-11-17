@@ -3,7 +3,6 @@ package de.nordakademie.model.publication;
 import java.util.ArrayList;
 
 import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 import org.hibernate.annotations.Cascade;

@@ -1,10 +1,6 @@
 package de.nordakademie.action.publication;
 
 import java.util.List;
-import java.util.Map;
-
-import org.apache.struts2.interceptor.SessionAware;
-
 import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -14,12 +10,18 @@ import de.nordakademie.model.interfaces.IKindOfPublicationManager;
 import de.nordakademie.model.interfaces.IPublicationManager;
 import de.nordakademie.model.publication.Publication;
 
+/**
+ * 
+ * @author Matthias Pries
+ * @category Action Class:
+ * 
+ * Diese Klasse ist fuer das Bearbeiten vorhandener Publicationen zustaendig
+ *
+ */
 public class PublicationEditAction extends ActionSupport implements
 		IEditAction, Action {
 
-	/**
-         *
-         */
+
 	private static final long serialVersionUID = -3036098533614635368L;
 
 	private int id;

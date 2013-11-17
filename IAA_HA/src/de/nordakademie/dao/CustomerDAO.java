@@ -7,6 +7,15 @@ import org.hibernate.SessionFactory;
 
 import de.nordakademie.model.Customer;
 
+/**
+ * 
+ * @author Matthias Pries
+ * @category DAO Class:
+ * 
+ *           Diese Klasse ist fuer das lesen und schreiben von Kunden aus bzw.
+ *           in die DB verantwortlich
+ * 
+ */
 public class CustomerDAO {
 
 	private SessionFactory sessionFactory;

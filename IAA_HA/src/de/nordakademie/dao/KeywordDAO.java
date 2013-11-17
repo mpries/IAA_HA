@@ -8,6 +8,15 @@ import org.hibernate.SessionFactory;
 
 import de.nordakademie.model.publication.Keyword;
 
+/**
+ * 
+ * @author Matthias Pries
+ * @category DAO Class:
+ * 
+ *           Diese Klasse ist fuer das lesen und schreiben von Keywords aus bzw.
+ *           in die DB verantwortlich
+ * 
+ */
 public class KeywordDAO {
 	
 	private SessionFactory sessionFactory;

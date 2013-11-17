@@ -6,30 +6,27 @@ import de.nordakademie.dao.CustomerDAO;
 import de.nordakademie.model.Customer;
 import de.nordakademie.model.interfaces.ICustomerManager;
 import de.nordakademie.model.interfaces.ILendManager;
-import de.nordakademie.model.interfaces.IPublicationManager;
-
+/**
+ * 
+ * @author Matthias Pries
+ * @category Manager Class:
+ * 
+ * Diese Klasse implementiert die Logik fuer das Model Customer
+ *
+ */
 public class CustomerManager implements ICustomerManager {
 
 	private CustomerDAO customerDAO;
 	private ILendManager lendManager;
 
-	public CustomerDAO getCustomerDAO() {
-		return customerDAO;
-	}
-
-	public void setCustomerDAO(CustomerDAO customerDAO) {
-		this.customerDAO = customerDAO;
-	}
 
 	@Override
 	public Customer view(int id) {
-		// TODO Auto-generated method stub
 		return customerDAO.load(id);
 	}
 
 	@Override
 	public void delete(Customer customer) {
-		// TODO Auto-generated method stub
 		customerDAO.delete(customer);
 
 	}
@@ -42,7 +39,6 @@ public class CustomerManager implements ICustomerManager {
 
 	@Override
 	public void edit(Customer customer) {
-		// TODO Auto-generated method stub
 		customerDAO.edit(customer);
 	}
 
@@ -81,6 +77,14 @@ public class CustomerManager implements ICustomerManager {
 
 	public void setLendManager(ILendManager lendManager) {
 		this.lendManager = lendManager;
+	}
+	
+	public CustomerDAO getCustomerDAO() {
+		return customerDAO;
+	}
+
+	public void setCustomerDAO(CustomerDAO customerDAO) {
+		this.customerDAO = customerDAO;
 	}
 
 }

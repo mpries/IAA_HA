@@ -3,7 +3,14 @@ package de.nordakademie.model.interfaces;
 import java.util.List;
 
 import de.nordakademie.model.Customer;
-
+/**
+ * 
+ * @author Matthias Pries
+ * @category Manager Interface:
+ * 
+ * Dieses Interface wird vom CustomerManager implementiert und stellt alle benoetigten Mehtoden bereit
+ *
+ */
 public interface ICustomerManager {
 
 	public Customer view(int id);
