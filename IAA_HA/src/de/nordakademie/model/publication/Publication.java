@@ -18,7 +18,11 @@ import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
 
 import de.nordakademie.model.KindOfPublication;
-
+/**
+ * 
+ * @author Timm Seguin
+ *
+ */
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 public class Publication {

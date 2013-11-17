@@ -3,7 +3,11 @@ package de.nordakademie.model.publication;
 import java.util.ArrayList;
 
 import javax.persistence.Entity;
-
+/**
+ * 
+ * @author Timm Seguin
+ *
+ */
 @Entity
 public class AcademicPublication extends Publication {
 	

@@ -10,7 +10,11 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
 import de.nordakademie.model.publication.Publication;
-
+/**
+ * 
+ * @author Timm Seguin
+ *
+ */
 @Entity
 public class Lending {
 

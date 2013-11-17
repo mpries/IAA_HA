@@ -2,7 +2,11 @@ package de.nordakademie.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-
+/**
+ * 
+ * @author Timm Seguin
+ *
+ */
 @Entity
 public class KindOfPublication {
 
