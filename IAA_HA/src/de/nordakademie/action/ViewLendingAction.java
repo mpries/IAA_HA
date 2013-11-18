@@ -8,14 +8,14 @@ import com.opensymphony.xwork2.ActionSupport;
 import de.nordakademie.model.Lending;
 import de.nordakademie.model.interfaces.ILendManager;
 
+/**
+ * @author Lukas Weikert
+ * Actionklasse zeigt die Übersicht der offenen Ausleihvorgänge und bietet 
+ * die Möglichkeit einen Ausleihvorgang zu verlängern oder die Rückgabe zu
+ * erfassen
+ */
 public class ViewLendingAction extends ActionSupport implements Action {
 
-	/**
-	 * @author Lukas Weikert
-	 * Actionklasse zeigt die Übersicht der offenen Ausleihvorgänge und bietet 
-	 * die Möglichkeit einen Ausleihvorgang zu verlängern oder die Rückgabe zu
-	 * erfassen
-	 */
 	private static final long serialVersionUID = 7499207531537708725L;
 	private ILendManager lendManager;
 	private List<Lending> lendings;

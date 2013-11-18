@@ -22,6 +22,10 @@
 		</field-validator>
 	</field>
 	<field name="publication.ISBN">
+	 <field-validator type="regex">
+          <param name="expression">[0-9]*$</param>
+          <message key="validationInvalidISBN" />
+     </field-validator>
 		<field-validator type="requiredstring">
 			<message key="validationISBNRequired" />
 		</field-validator>

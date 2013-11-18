@@ -4,6 +4,11 @@ import java.util.Comparator;
 
 import de.nordakademie.model.Lending;
 
+/**
+ * @author Lukas Weikert
+ * Klasse zum aufsteigenden Sortieren von Ausleihvorgängen nach dem
+ * Ausleihdatum
+ */
 public class SortLendingUpByLoanDate implements Comparator<Lending> {
 
 	@Override

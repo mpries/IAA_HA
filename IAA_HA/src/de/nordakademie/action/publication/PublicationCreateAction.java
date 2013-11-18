@@ -46,8 +46,8 @@ public class PublicationCreateAction extends ActionSupport implements
 		if (description.isEmpty()) {
 			addFieldError("description", getText("validationNoKeywordSelected"));
 		}
-		if (publication.getISBN().length() > 13) {
-			addFieldError("publication.ISBN", getText("validateISBNLength"));
+		if (publication.getISBN().length() != 13) {
+			addFieldError("publication.ISBN", getText("validationInvalidISBNLength"));
 		}
 	}
 

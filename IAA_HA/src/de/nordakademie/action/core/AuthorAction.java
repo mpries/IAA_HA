@@ -21,7 +21,7 @@ public class AuthorAction extends ActionSupport implements Action {
 
 	public String add() {
 		if (authorManager.isAlreadyAvailable(addAuthor)) {
-			addFieldError("addAuthor", "Autor existiert bereits");
+			addFieldError("addAuthor", getText("authorAlreadyExists"));
 			return INPUT;
 		}
 		authorManager.save(addAuthor);
@@ -35,7 +35,7 @@ public class AuthorAction extends ActionSupport implements Action {
 
 	public String save() {
 		if (authorManager.isAuthorReferenced(resultAuthor)) {
-			addFieldError("editAuthor", "Autor wird refernziert");
+			addFieldError("editAuthor", getText("authorIsReferenced"));
 			return INPUT;
 		}
 		authorManager.save(editAuthor);

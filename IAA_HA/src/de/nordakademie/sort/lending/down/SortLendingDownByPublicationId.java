@@ -4,8 +4,12 @@ import java.util.Comparator;
 
 import de.nordakademie.model.Lending;
 
-public class SortLendingDownByPublicationId implements
-		Comparator<Lending> {
+/**
+ * @author Lukas Weikert
+ * Klasse zum absteigenden Sortieren von Ausleihvorgängen nach der
+ * Publikations ID
+ */
+public class SortLendingDownByPublicationId implements Comparator<Lending> {
 
 	@Override
 	public int compare(Lending lending1, Lending lending2) {

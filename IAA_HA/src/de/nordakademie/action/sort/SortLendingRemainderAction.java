@@ -25,14 +25,14 @@ import de.nordakademie.sort.lending.up.SortLendingUpByPublicationTitle;
 import de.nordakademie.sort.lending.up.SortLendingUpByReturnDate;
 import de.nordakademie.sort.lending.up.SortLendingUpByWarningId;
 
+/**
+ * @author Lukas Weikert 
+ * Actionklasse sortiert die Übersichtstabelle der
+ * überzogenen Ausleihvorgänge nach den gewählten Suchkriterien
+ * 
+ */
 public class SortLendingRemainderAction extends ActionSupport implements Action {
 
-	/**
-	 * @author Lukas Weikert 
-	 * Actionklasse sortiert die Übersichtstabelle der
-	 * überzogenen Ausleihvorgänge nach den gewählten Suchkriterien
-	 * 
-	 */
 	private static final long serialVersionUID = -5879829550237438881L;
 	private ILendManager lendManager;
 	private List<Lending> lendingsWithWarning;

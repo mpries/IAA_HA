@@ -4,6 +4,10 @@ import java.util.Comparator;
 
 import de.nordakademie.model.publication.Publication;
 
+/**
+ * @author Lukas Weikert
+ * Klasse zum absteigenden Sortieren von Publikationen nach dem Autor
+ */
 public class SortPublicationDownByAuthor implements Comparator<Publication> {
 
 	@Override

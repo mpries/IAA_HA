@@ -23,14 +23,14 @@ import de.nordakademie.sort.publication.up.SortPublicationUpByKindOfPublication;
 import de.nordakademie.sort.publication.up.SortPublicationUpByStored;
 import de.nordakademie.sort.publication.up.SortPublicationUpByTitle;
 
+/**
+@author Lukas Weikert 
+* Actionklasse sortiert die Übersichtstabelle der gesuchten
+* Publikationen nach den gewählten Suchkriterien
+*  
+*/
 public class SortPublicationAction extends ActionSupport implements Action {
 
-	/**
-	  @author Lukas Weikert 
-	 * Actionklasse sortiert die Übersichtstabelle der gesuchten
-	 * Publikationen nach den gewählten Suchkriterien
-	 *  
-	 */
 	private static final long serialVersionUID = 6784882349214372936L;
 	private IPublicationManager publicationManager;
 	private String title;

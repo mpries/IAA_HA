@@ -4,6 +4,11 @@ import java.util.Comparator;
 
 import de.nordakademie.model.publication.Publication;
 
+/**
+ * @author Lukas Weikert
+ * Klasse zum aufsteigenden Sortieren von Publikationen nach dem ersten
+ * Schlagwort der Liste
+ */
 public class SortPublicationUpByKeyword implements Comparator<Publication> {
 
 	@Override

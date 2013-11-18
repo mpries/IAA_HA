@@ -33,7 +33,7 @@ public class LendAction extends ActionSupport implements Action, Preparable {
 
 	public String create() {
 		if (!lendManager.isCopyAvailable(id)) {
-			addFieldError("id", "Kein Examplar mehr im Bestand");
+			addFieldError("id", getText("tooFewCopys"));
 			return INPUT;
 		}
 		lendManager.create(customerId, id, currentDate, returnDate);

@@ -4,6 +4,11 @@ import java.util.Comparator;
 
 import de.nordakademie.model.publication.Publication;
 
+/**
+ * @author Lukas Weikert
+ * Klasse zum aufsteigenden Sortieren von Publikationen nach dem 
+ * Erscheinungsdatum
+ */
 public class SortPublicationUpByDate implements Comparator<Publication> {
 
 	@Override

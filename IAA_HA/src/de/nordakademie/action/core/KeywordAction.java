@@ -24,7 +24,7 @@ public class KeywordAction extends ActionSupport implements Action {
 			keywordManager.save(addKeyword);
 			return "addKeyword";
 		}
-		addFieldError("addKeyword", "Keyword gibt es schon");
+		addFieldError("addKeyword", getText("keywordAlreadyExists"));
 		return "input";
 	}
 
@@ -39,7 +39,7 @@ public class KeywordAction extends ActionSupport implements Action {
 			keywordManager.delete(resultKeyword.getDescription());
 			return "save";
 		}
-		addFieldError("resultKeyword.description", "Keyword wird refernziert");
+		addFieldError("resultKeyword.description", getText("keywordIsReferenced"));
 		return "input";
 	}
 
@@ -48,7 +48,7 @@ public class KeywordAction extends ActionSupport implements Action {
 			keywordManager.delete(resultKeyword.getDescription());
 			return "delete";
 		}
-		addFieldError("resultKeyword.description", "Keyword wird refernziert");
+		addFieldError("resultKeyword.description", getText("keywordIsReferenced"));
 		return "input";
 	}
 

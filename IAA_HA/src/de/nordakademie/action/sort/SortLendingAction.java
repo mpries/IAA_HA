@@ -23,17 +23,17 @@ import de.nordakademie.sort.lending.up.SortLendingUpByPublicationId;
 import de.nordakademie.sort.lending.up.SortLendingUpByPublicationTitle;
 import de.nordakademie.sort.lending.up.SortLendingUpByReturnDate;
 
+/**
+ * @author Lukas Weikert 
+ * Actionklasse sortiert die Übersichtstabelle der offenen
+ * Ausleihvorgänge nach den gewählten Suchkriterien
+ * 
+ */
 public class SortLendingAction extends ActionSupport implements Action {
 
-	/**
-	 * @author Lukas Weikert 
-	 * Actionklasse sortiert die Übersichtstabelle der offenen
-	 * Ausleihvorgänge nach den gewählten Suchkriterien
-	 * 
-	 */
 	private static final long serialVersionUID = -1641859581800266719L;
 	private ILendManager lendManager;
-	private List<Lending> lendingsWithWarning;
+	private List<Lending> lendings;
 	private String sort;
 	private String sortBy;
 
@@ -48,50 +48,50 @@ public class SortLendingAction extends ActionSupport implements Action {
 
 	@Override
 	public String execute() {
-		setLendingsWithWarning(lendManager.loadAll());
+		setLendings(lendManager.loadAll());
 		if (sort.equals(getText("up"))) {
 			if (sortBy.equals(getText("lendingId"))) {
-				Collections.sort(lendingsWithWarning, new SortLendingUpById());
+				Collections.sort(lendings, new SortLendingUpById());
 			} else if (sortBy.equals(getText("loanDate"))) {
-				Collections.sort(lendingsWithWarning,
+				Collections.sort(lendings,
 						new SortLendingUpByLoanDate());
 			} else if (sortBy.equals(getText("returnDate"))) {
-				Collections.sort(lendingsWithWarning,
+				Collections.sort(lendings,
 						new SortLendingUpByReturnDate());
 			} else if (sortBy.equals(getText("customerId"))) {
-				Collections.sort(lendingsWithWarning,
+				Collections.sort(lendings,
 						new SortLendingUpByCustomerId());
 			} else if (sortBy.equals(getText("customerName"))) {
-				Collections.sort(lendingsWithWarning,
+				Collections.sort(lendings,
 						new SortLendingUpByCustomerName());
 			} else if (sortBy.equals(getText("publicationId"))) {
-				Collections.sort(lendingsWithWarning,
+				Collections.sort(lendings,
 						new SortLendingUpByPublicationId());
 			} else if (sortBy.equals(getText("publicationTitle"))) {
-				Collections.sort(lendingsWithWarning,
+				Collections.sort(lendings,
 						new SortLendingUpByPublicationTitle());
 			}
 		} else if (sort.equals(getText("down"))) {
 			if (sortBy.equals(getText("lendingId"))) {
 				Collections
-						.sort(lendingsWithWarning, new SortLendingDownById());
+						.sort(lendings, new SortLendingDownById());
 			} else if (sortBy.equals(getText("loanDate"))) {
-				Collections.sort(lendingsWithWarning,
+				Collections.sort(lendings,
 						new SortLendingDownByLoanDate());
 			} else if (sortBy.equals(getText("returnDate"))) {
-				Collections.sort(lendingsWithWarning,
+				Collections.sort(lendings,
 						new SortLendingDownByReturnDate());
 			} else if (sortBy.equals(getText("customerId"))) {
-				Collections.sort(lendingsWithWarning,
+				Collections.sort(lendings,
 						new SortLendingDownByCustomerId());
 			} else if (sortBy.equals(getText("customerName"))) {
-				Collections.sort(lendingsWithWarning,
+				Collections.sort(lendings,
 						new SortLendingDownByCustomerName());
 			} else if (sortBy.equals(getText("publicationId"))) {
-				Collections.sort(lendingsWithWarning,
+				Collections.sort(lendings,
 						new SortLendingDownByPublicationId());
 			} else if (sortBy.equals(getText("publicationTitle"))) {
-				Collections.sort(lendingsWithWarning,
+				Collections.sort(lendings,
 						new SortLendingDownByPublicationTitle());
 			}
 		}
@@ -123,12 +123,12 @@ public class SortLendingAction extends ActionSupport implements Action {
 		this.lendManager = lendManager;
 	}
 
-	public List<Lending> getLendingsWithWarning() {
-		return lendingsWithWarning;
+	public List<Lending> getLendings() {
+		return lendings;
 	}
 
-	public void setLendingsWithWarning(List<Lending> lendingsWithWarning) {
-		this.lendingsWithWarning = lendingsWithWarning;
+	public void setLendings(List<Lending> lendings) {
+		this.lendings = lendings;
 	}
 
 }

@@ -4,8 +4,12 @@ import java.util.Comparator;
 
 import de.nordakademie.model.Lending;
 
-public class SortLendingDownByCustomerName implements
-		Comparator<Lending> {
+/**
+ * @author Lukas Weikert
+ * Klasse zum absteigenden Sortieren von Ausleihvorgängen nach dem
+ * Namen des Ausleihers
+ */
+public class SortLendingDownByCustomerName implements Comparator<Lending> {
 
 	@Override
 	public int compare(Lending lending1, Lending lending2) {
