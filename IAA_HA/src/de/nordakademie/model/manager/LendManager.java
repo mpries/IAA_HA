@@ -31,6 +31,8 @@ public class LendManager implements ILendManager {
 	private ICustomerManager customerManager;
 	private Lending lend;
 
+	
+
 	public Date createReturnDate() {
 		Date currentDate = new Date();
 		Calendar c = Calendar.getInstance();
@@ -81,6 +83,11 @@ public class LendManager implements ILendManager {
 
 	}
 
+	/**
+	 * 
+	 * Verlaengert ein Ausleihvorgang, unter beruecksichtigung wie oft dieser
+	 * gemahnt wurde
+	 */
 	@Override
 	public void extendLending(int id) {
 		Lending lend = lendDAO.loadById(id);
@@ -145,7 +152,8 @@ public class LendManager implements ILendManager {
 	 * 
 	 * @param Lending
 	 * 
-	 * Berechnet die Anzahl der Mahnungen anhand von des Ausleihvorgangs.
+	 *            Berechnet die Anzahl der Mahnungen anhand von des
+	 *            Ausleihvorgangs.
 	 */
 	private void calculateAmountOfWarning(Lending lending) {
 		long diff = new Date().getTime() - lending.getReturnDate().getTime();
