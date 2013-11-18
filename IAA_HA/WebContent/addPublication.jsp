@@ -12,6 +12,7 @@
 	<s:form action="addExistingPublicationAdd">
 		<s:head />
 
+
 		<s:select key="publications" list="publications" name="id"
 			listKey="id" listValue="id+'-'+title+'-'+kindOfPublication.kind" />
 

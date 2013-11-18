@@ -44,6 +44,10 @@ public class AuthorAction extends ActionSupport implements Action {
 	}
 
 	public String delete() {
+		if(authorManager.isAuthorReferenced(resultAuthor)){
+			addFieldError("resultAuthor.name", "Autor wird referenziert");
+			return INPUT;
+		}
 		authorManager.delete(resultAuthor.getName());
 		return "delete";
 	}
