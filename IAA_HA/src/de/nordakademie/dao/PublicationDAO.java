@@ -41,6 +41,14 @@ public class PublicationDAO {
 		session.saveOrUpdate(publication);
 	}
 
+	/**
+	 * 
+	 * 
+	 * @return 
+	 * List<Publication>
+	 * 
+	 * Gibt alle Publicationen zurueck die zu dem Suchparametern passen
+	 */
 	public List<Publication> load(String title, String author, String keyword) {
 
 		Session session = sessionFactory.getCurrentSession();
